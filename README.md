@@ -2,10 +2,75 @@
 # AI 백엔드 5차 세미 프로젝트 (231013-231026)
 # TEAM def TROLL
 
+* push 전 pull 확인 요망
 
+* db = inneats_db
+
+* db 생성 sql 문 
+
+DROP SCHEMA inneats_db; -- > 이미 존재한다면 지우고 시작
+CREATE SCHEMA inneats_db;
+use inneats_db;
+
+==============================================================
+
+
+
+v0.1.0 / 
+
+django로 main page bootstrp 적용
+
+nav에 로그인, 회원가입 추가 -> db에 user 테이블 정상작동
+
+main page에서 메뉴링크 url.py view.py 에 전부 추가
+
+수정중인 것 -> search 기능 추가
+
+패키지 안에 수업때 배웠던 crud 연습용 product_app 추가되어 있으니 참고해서 만들 것
+
+<!-- <div><a href="{% url 'product_list' %}">상품 정보 조회</a></div> -->
+<!-- <div><a href="{% url 'product_insert' %}">상품 등록</a></div> -->
+<!-- <div><a href="{% url 'product_search_form3' %}">상품 검색</a></div> -->
+
+database / mysql 폴더안에 product.csv 들어있음, 아니면 본인들 db에 있는 product 테이블 사용
+
+
+
+
+v0.0.2 /
+
+변경사항 : project 패키지 경로명 변경 InnEats_project -> inneats_project
+
+- 패키지 경로에 대문쟈가 포함되는건 안좋은 예라는 걸 알아서 경로 변경해서 새로 만듬
+- pull 새로 할 것
+
+- 데이터베이스 이름은 inneats_db -> 본인 IDE에서 유저 기능 테스트 용으로 migrate 진행시 db 이름 확인할 것
+- "NAME": "inneats_db"
+
+- users_app 폴더에 로그인 회원가입 model form 정보 포함되어 있음
+- migrate 시 진행 순서는 users_app 개별앱 migrate -> 전체에 migrate
+
+- python manage.py makemigrations users_app
+- python manage.py migrate users_app
+
+- python manage.py makemigrations
+- python manage.py migrate
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------
 사이트명 : InnEats
-
-
 
 # 모델링 구조
 
