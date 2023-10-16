@@ -1,0 +1,10 @@
+#loginBox {
+    margin-left:20px;
+}
+
+#loginBox div {
+    justify-content: center;
+    align-items: center;
+    font-size: 11px;
+    text-align: center;
+}

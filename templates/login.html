@@ -1,0 +1,13 @@
+{% load static %}
+<div id="loginBox">    
+        {% if user.is_authenticated %}
+            {% comment %} 로그인 상태인 경우 {% endcomment %}
+            <div>{{ user.username }}님 로그인 중</div>
+            <div id="logout"><a href="{% url 'sign_out' %}">로그아웃</a></div>
+        {% else %}
+            {% comment %} 로그아웃 상태인 경우 {% endcomment %}                                
+            <div id="sign_up2"><a href="{% url 'sign_up' %}">회원가입</a></div>
+            <div id="login"><a href="{% url 'sign_in2' %}">로그인</a></div>
+        {% endif %}                                                                   
+    </ul>   
+</div>
