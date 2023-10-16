@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>상품 검색</h2>
+<form id='prdSearchFrm3' method="post">
+    {% csrf_token %}
+    <select name="type" id="type">
+        <option value="">검색조건 선택</option>
+        <option value="prd_name">상품명</option>
+        <option value="prd_maker">제조회사</option>
+        <option value="prd_price">가격</option>
+    </select>
+
+    <div id="keywordInput" style="display: none;">
+        <input type="text" name="keyword" id="keyword">
+    </div>
+    
+    <div id="priceInput" style="display: none;">
+        최소 : <input type="text" name="min_price" id="min_price">
+        최대 : <input type="text" name="max_price" id="max_price">
+    </div>
+
+    <input type="submit" value="검색">
+</form><br><br>
+
+{% comment %} 검색 결과 출력한 div {% endcomment %}
+<div id="searchResultBox"></div>
+
+
+<script>
+    // 디버깅 -> 오류수정 완료되면 product_search3.js 파일로 옮기기
+    let typeSelect = document.getElementById('type');
+    let keywordInput = document.getElementById('keywordInput');
+    let priceInput = document.getElementById('priceInput');
+
+    typeSelect.addEventListener('change', function () {
+        if (this.value === 'prd_name' || this.value === 'prd_maker') {
+            keywordInput.style.display = 'block';
+            priceInput.style.display = 'none';
+        } else if (this.value === 'prd_price') {
+            keywordInput.style.display = 'none';
+            priceInput.style.display = 'block';
+        } else {
+            keywordInput.style.display = 'none';
+            priceInput.style.display = 'none';
+        }
+    });
+
+    // 초기 로딩 시 type 값 확인
+    if (typeSelect.value === 'prd_name' || typeSelect.value === 'prd_maker') {
+        keywordInput.style.display = 'block';
+    } else if (typeSelect.value === 'prd_price') {
+        priceInput.style.display = 'block';
+    }
+</script> 
+
+{% endblock content %}
