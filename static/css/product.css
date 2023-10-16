@@ -1,0 +1,82 @@
+
+/* 상품 조회 */
+table {
+  margin: 0 auto;
+}
+
+table#prd_list {
+  border-bottom: #555555;
+}
+
+table#prd_list th {
+  width: 100px;
+  background-color: #555555;
+  color: white;
+  height: 30px;
+  line-height: 30px;
+}
+
+table#prd_list tr td {
+  border-bottom: #555555 1px dashed;
+  height: 30px;
+  line-height: 30px;
+}
+
+
+/* 상품 상세정보 조회 */
+table#prd_detail {
+  width: 500px;
+}
+
+table#prd_detail th {
+  width: 100px;
+  background-color: #555555;;
+  color: white;
+  height: 30px;
+  line-height: 30px;
+  text-align: right;
+  padding-right: 10px;
+}
+
+
+table#prd_detail td {
+  border: solid 1px black;
+}
+
+
+/* 상품 등록 */
+#form_tbl th{
+  background-color: #555555;;
+  color:white;
+  width: 100px;
+  text-align: right;
+  padding-right: 20px;
+}
+
+#form_tbl td input {
+  border: solid 1px #555555;;
+  width: 300px;
+  height: 30px;
+  box-shadow: 0 1px 1px 0;
+}
+
+#form_btn {
+  background-color: #555555;;
+  width: 80px;
+  height: 40px;
+  color:white;
+  border-radius: 5px;
+}
+
+
+h3 {
+  color:#555555;
+}
+
+.btn {
+  background-color: #555555;
+  width: 50px;
+  height: 35;
+  color:white;
+  border-radius: 5px;
+}
