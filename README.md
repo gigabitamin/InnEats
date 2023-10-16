@@ -16,7 +16,8 @@ use inneats_db;
 
 
 
-v0.1.0
+v0.1.0 / 
+
 django로 main page bootstrp 적용
 
 nav에 로그인, 회원가입 추가 -> db에 user 테이블 정상작동
@@ -27,16 +28,17 @@ main page에서 메뉴링크 url.py view.py 에 전부 추가
 
 패키지 안에 수업때 배웠던 crud 연습용 product_app 추가되어 있으니 참고해서 만들 것
 
-<div><a href="{% url 'product_list' %}">상품 정보 조회</a></div>
-<div><a href="{% url 'product_insert' %}">상품 등록</a></div>
-<div><a href="{% url 'product_search_form3' %}">상품 검색</a></div>
+<!-- <div><a href="{% url 'product_list' %}">상품 정보 조회</a></div> -->
+<!-- <div><a href="{% url 'product_insert' %}">상품 등록</a></div> -->
+<!-- <div><a href="{% url 'product_search_form3' %}">상품 검색</a></div> -->
 
 database / mysql 폴더안에 product.csv 들어있음, 아니면 본인들 db에 있는 product 테이블 사용
 
 
 
 
-v0.0.2
+v0.0.2 /
+
 변경사항 : project 패키지 경로명 변경 InnEats_project -> inneats_project
 
 - 패키지 경로에 대문쟈가 포함되는건 안좋은 예라는 걸 알아서 경로 변경해서 새로 만듬
