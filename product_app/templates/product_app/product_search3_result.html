@@ -1,0 +1,21 @@
+{% load humanize %}
+<table id="prd_list">
+    <tr>
+        <th>상품번호</th>
+        <th>상품명</th>
+        <th>가격</th>
+        <th>제조회사</th>
+        <th>색상</th>
+        <th>카테고리번호</th>
+    </tr>
+    {% for prd in prd_list %}
+    <tr>
+        <td><a href="{% url 'product_detail' prd.prd_no %}">{{ prd.prd_no }}</a></td>
+        <td>{{ prd.prd_name }}</td>
+        <td>{{ prd.prd_price|intcomma }}</td>
+        <td>{{ prd.prd_maker}}</td>
+        <td>{{ prd.prd_color }}</td>
+        <td>{{ prd.ctg_no }}</td>
+    </tr>
+    {% endfor %}
+</table>
