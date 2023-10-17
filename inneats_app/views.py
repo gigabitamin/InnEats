@@ -1,4 +1,9 @@
-from django.shortcuts import render
+
+from django.shortcuts import get_object_or_404, render, redirect
+from django.db.models import Q 
+from django.http import HttpResponse, JsonResponse
+import json
+from django.core import serializers
 
 def index(request):
     return render(request, 'inneats_app/index.html')
@@ -23,3 +28,9 @@ def error404(request):
 
 def contact(request):
     return render(request, 'inneats_app/contact.html')
+
+
+
+
+
+
