@@ -1,0 +1,37 @@
+
+
+/*********** BOTTOM MENU *************/
+
+
+#moveToTop:hover { opacity:0.7; cursor:pointer;}
+
+
+
+#bottomMenuBox {
+	height:30px;
+	line-height:30px;
+}
+
+
+#bottomMenuBox li {
+	display:inline-block;
+	text-align:center;
+	padding:5px;
+}
+
+
+#bottomMenuBox li a {
+	color:white;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+
+#footerBox div{
+	background-color:#777777;
+	border:solid 1px #999999;
+	margin-top:10px;
+	padding:20px;
+	margin:0;
+}
+
