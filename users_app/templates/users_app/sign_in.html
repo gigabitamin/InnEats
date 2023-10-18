@@ -1,14 +1,19 @@
 {% extends 'base.html' %}
-{% block content %}   
+{% load static %}
 
+{% block content %}
+    
+{% include "nav.html" %}
 
-
-<form method="post">
-    {% csrf_token %}
-    <table id="form_tbl">
-        {{ form }}
-    </table><br>
-    <button id="form_btn" type="submit">로그인</button>
-</form>
+<div class="sign_up_box">
+    <form method="post">
+        <br><div><h1>로그인</h1></div><br>
+        {% csrf_token %}
+        <table id="form_tbl">
+            {{ form }}
+        </table><br>
+        <div class=signUpBtn><button id="form_btn" type="submit">로그인</button></div>
+    </form>
+</div>
 
 {% endblock content %}

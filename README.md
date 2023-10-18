@@ -8,6 +8,27 @@ https://docs.google.com/document/d/1XqwxQrOhgvqeUpX19u85i6t-wIN1L2MW/edit
 
 ==============================================================
 
+v.0.2.1 /
+index.html, base.html load 방식 변경
+
+변경전
+main.html이 base.html {% endblock content %} 아래 있을때 -> 같은 페이지 127.0.0.1:8000 루트 url에서 비동기 방식으로 회원가입, 로그인
+
+변경후
+회원가입 로그인 시 users/sign_up2 페이지로 이동
+회원가입, 로그인 login.css 추가 적용
+
+index.html 에서 nav부분만 nav.html로 분리
+
+bootstrap 원본에서 변경한 부분
+nav.html 36라인 class="btn btn-primary px-3 d-none d-lg-flex 주석처리 후 옆에 회원가입, 로그인 div 박스 새로 삽입
+회원가입 로그인 관련 css -> login.css
+
+product_app 삭제
+
+기타 html 파일 inneats_app templates 하위 폴더로 이동
+
+
 
 v0.2.0 /
 
