@@ -1,7 +1,6 @@
 
 {% extends 'base.html' %}
 {% load static %}
-
 {% block content %}
 
 <div class="container-xxl bg-white p-0">
@@ -15,7 +14,9 @@
     <!-- Spinner End -->
 
 
-    {% include "nav.html" %}
+    <!-- Navbar Start -->
+
+    <!-- Navbar End -->
 
 
     <!-- Header Start -->
@@ -819,17 +820,6 @@
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     
 </div>
-
-    <!-- JavaScript Libraries -->
-    <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static 'lib/wow/wow.min.js' %}"></script>
-    <script src="{% static 'lib/easing/easing.min.js' %}"></script>
-    <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
-    <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
-
-    <!-- Template Javascript -->
-    <script src="{% static 'js/main.js' %}"></script>
 
 {% endblock content %}
 

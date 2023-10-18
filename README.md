@@ -6,19 +6,30 @@
 https://docs.google.com/document/d/1XqwxQrOhgvqeUpX19u85i6t-wIN1L2MW/edit
 
 
+mac 사용자분들은 push 하시기 전 .gitignore 설정 완료했는지 확인해주시기 바랍니다
+
 ==============================================================
 
-v.0.2.1 /
+v.0.3.0 /
 index.html, base.html load 방식 변경
 
 변경전
-main.html이 base.html {% endblock content %} 아래 있을때 -> 같은 페이지 127.0.0.1:8000 루트 url에서 비동기 방식으로 회원가입, 로그인
+같은 페이지에서 비동기 방식으로 회원가입, 로그인
 
 변경후
-회원가입 로그인 시 users/sign_up2 페이지로 이동
+회원가입 로그인 시 users/sign_up2 새로운 페이지로 이동
 회원가입, 로그인 login.css 추가 적용
 
-index.html 에서 nav부분만 nav.html로 분리
+페이지 하단 script 부분 base.html 에 옮긴 뒤 개별 페이지 script는 제거
+
+index.html 에서 nav 부분 nav.html로 분리해서 base.html % block 위에 위치시킴
+{% include "nav.html" %}
+{% block content %}  
+{% endblock content %}
+
+공통된 nav 환경을 유지하기 위해 새로운 페이지를 만들 경우 꼭 새 꼭 해당 페이지에서 Navbar를 제거한 뒤 
+{% extends 'base.html' %} 
+로 base.html 을 불러와 상속으로 해결할 것
 
 bootstrap 원본에서 변경한 부분
 nav.html 36라인 class="btn btn-primary px-3 d-none d-lg-flex 주석처리 후 옆에 회원가입, 로그인 div 박스 새로 삽입
@@ -27,6 +38,30 @@ nav.html 36라인 class="btn btn-primary px-3 d-none d-lg-flex 주석처리 후 
 product_app 삭제
 
 기타 html 파일 inneats_app templates 하위 폴더로 이동
+
+이전 페이지 url 주소가 다음페이지로 넘어갈 때 중첩되는 문제
+-> 위의 설명한 방식으로 해결 완료
+-> nav 중첩시 js 에서 오류발생
+
+최종적으로 각 페이지 구조는 아래와 같을 것
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="container-xxl bg-white p-0">
+        <!-- Navbar Start -->
+            제거된 Nav 자리
+        <!-- Navbar End -->
+    </div>
+
+{% endblock content %}
+
+각 페이지별로 정상구동 확인
+단, http request 가 필요한 CONTACT 페이지 구글맵과 같은 기능은 127.0.0.1과 같은 로컬서버에서 동작 불가능
+
+
+각 팀원 pull 후 구동 이상없을 시 main v1.0.0 으로 버전업
 
 
 
