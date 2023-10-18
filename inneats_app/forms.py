@@ -1,8 +1,9 @@
 from django import forms
 from .models import DailyHotel
 from .models import Yanolja
-from .models import Goodchoice
+from .models import GoodChoice
 from .models import Tripbtoz
+from .models import Youtube
 
 # ModelForm 클래스 상속 받음
 class DailyHotelForm(forms.ModelForm):
@@ -31,7 +32,7 @@ class DailyHotelForm(forms.ModelForm):
             'daily_hotel_price' : '예약 가격'
         }
 
-class DailyHotelForm(forms.ModelForm):
+class YanoljaForm(forms.ModelForm):
     class Meta:
 
         # 야놀자
@@ -58,12 +59,12 @@ class DailyHotelForm(forms.ModelForm):
         }
 
 
-class Goodchoice(forms.ModelForm):
+class GoodChoiceForm(forms.ModelForm):
     class Meta:
 
         # 여기어때
         # PRIMARY KEY (goodchoice_name, goodchoice_address)        
-        model = Goodchoice
+        model = GoodChoice
         fields = (
             'goodchoice_name',
             'goodchoice_address',
@@ -84,7 +85,7 @@ class Goodchoice(forms.ModelForm):
             'goodchoice_price' : '예약 가격'
         }
 
-class Tripbtoz(forms.ModelForm):
+class TripbtozForm(forms.ModelForm):
     class Meta:
 
         # 트립비토즈
@@ -109,4 +110,36 @@ class Tripbtoz(forms.ModelForm):
             'trip_date' : '예약 가능 날짜',
             'trip_price' : '예약 가격'
         }
+
+
+class Youtube(forms.ModelForm):
+    class Meta:
+
+        # 유투브
+        # PRIMARY KEY (youtube_id)        
+        model = Youtube
+        fields = (
+            'youtube_id'
+            'youtube_title'
+            'youtube_link'
+            'youtube_image'
+            'youtube_hashtag'
+            'youtube_channel_name'
+            'youtube_channel_count'
+            'youtube_comment_count'
+            'youtube_content_date'
+        )
+
+        labels = {
+            'youtube_id' : '유투브 no',
+            'youtube_title' : '유투브 제목',
+            'youtube_link' : '유투브 url',
+            'youtube_image' : '유투브 이미지 url',
+            'youtube_hashtag' : '유투브 해시태그',
+            'youtube_channel_name' : '유투브 채널 이름',
+            'youtube_channel_count' : '유투브 채널 조회수',
+            'youtube_comment_count' : '유투브 댓글 좋아요 수',
+            'youtube_content_date' : '유투브 영상 업로드 날짜'
+        }        
+
 

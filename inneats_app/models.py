@@ -15,7 +15,7 @@ class DailyHotel(models.Model):
         db_table = 'daily_hotel'
         unique_together = (('daily_hotel_name', 'daily_hotel_address'),)
 
-class Goodchoice(models.Model):
+class GoodChoice(models.Model):
     acc_name = models.CharField(primary_key=True, max_length=200)  # The composite primary key (acc_name, acc_address) found, that is not supported. The first column is selected.
     acc_address = models.CharField(max_length=255)
     acc_image_link = models.TextField(blank=True, null=True)
