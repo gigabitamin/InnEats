@@ -59,7 +59,7 @@ product_app 삭제
 단, http request 가 필요한 CONTACT 페이지 구글맵과 같은 기능은 127.0.0.1과 같은 로컬서버에서 동작 불가능
 
 
-각 팀원 pull 후 구동 이상없을 시 main v1.0.0 으로 버전업
+
 
 
 
