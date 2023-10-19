@@ -30,7 +30,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     'inneats_app',
-    'product_app', 
     'users_app',    
 ]
 
