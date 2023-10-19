@@ -4,3 +4,8 @@ from django.shortcuts import render
 def accommodation(request):    
 
     return render(request, 'accommodation_app/accommodation.html')
+
+
+def accommodation_detail(request):    
+
+    return render(request, 'accommodation_app/accommodation_detail.html')
