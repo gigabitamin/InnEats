@@ -46,13 +46,13 @@ class NaverBlog(models.Model):
 
 
 class NearAttraction(models.Model):
-    place = models.OneToOneField('Place', models.DO_NOTHING, primary_key=True)  # The composite primary key (place_id, visitkorea_id) found, that is not supported. The first column is selected.
-    visitkorea = models.ForeignKey('Visitkorea', models.DO_NOTHING)
+    place = models.OneToOneField('Place', models.DO_NOTHING, primary_key=True)  # The composite primary key (place_id, visitKorea_id) found, that is not supported. The first column is selected.
+    visitKorea = models.ForeignKey('VisitKorea', models.DO_NOTHING)
 
     class Meta:
         managed = False
         db_table = 'near_attraction'
-        unique_together = (('place', 'visitkorea'),)
+        unique_together = (('place', 'visitKorea'),)
 
 
 class NearRestaurant(models.Model):
@@ -108,8 +108,7 @@ class Tripbtoz(models.Model):
         unique_together = (('trip_name', 'trip_address'),)
 
 
-
-class Visitkorea(models.Model):
+class VisitKorea(models.Model):
     visitkorea_id = models.CharField(primary_key=True, max_length=20)
     visitkorea_title = models.CharField(max_length=50, blank=True, null=True)
     visitkorea_tel = models.CharField(max_length=20, blank=True, null=True)
@@ -155,6 +154,3 @@ class Youtube(models.Model):
     class Meta:
         managed = False
         db_table = 'youtube'
-
-
-
