@@ -4,6 +4,12 @@ from .models import Yanolja
 from .models import GoodChoice
 from .models import Tripbtoz
 from .models import Youtube
+from .models import NaverBlog
+from .models import Restaurant
+from .models import VisitKorea
+from .models import Place
+from .models import NearRestaurant
+
 
 # ModelForm 클래스 상속 받음
 class DailyHotelForm(forms.ModelForm):
@@ -112,6 +118,8 @@ class TripbtozForm(forms.ModelForm):
         }
 
 
+
+
 class Youtube(forms.ModelForm):
     class Meta:
 
@@ -143,3 +151,118 @@ class Youtube(forms.ModelForm):
         }        
 
 
+
+
+
+class NaverBlogForm(forms.ModelForm):
+    class Meta:
+        model = NaverBlog
+        fields = (
+            'naver_blog_id',
+            'naver_blog_title',
+            'naver_blog_link',
+            'naver_blog_image',
+            'naver_blog_hashtag',
+            'naver_blogger_name',
+            'naver_blog_content_likeit_count',
+            'naver_blog_content_date',
+        )
+        labels = {
+            'naver_blog_id': '네이버 블로그 ID',
+            'naver_blog_title': '블로그 제목',
+            'naver_blog_link': '블로그 링크',
+            'naver_blog_image': '블로그 이미지',
+            'naver_blog_hashtag': '해시태그',
+            'naver_blogger_name': '블로거 이름',
+            'naver_blog_content_likeit_count': '공감 수',
+            'naver_blog_content_date': '콘텐츠 날짜',
+        }
+
+
+
+
+class RestaurantForm(forms.ModelForm):
+    class Meta:
+        model = Restaurant
+        fields = (
+            'restaurant_link',
+            'restaurant_image',
+            'restaurant_hashtag',
+            'restaurant_shop_name',
+            'restaurant_content_likeit_count',
+            'restaurant_rating',
+            'restaurant_review_num_count',
+            'restaurant_avg_price',
+            'restaurant_shop_category',
+            'restaurant_map_x',
+            'restaurant_map_y',
+        )
+        labels = {
+            'restaurant_link': '음식점 링크',
+            'restaurant_image': '음식점 이미지',
+            'restaurant_hashtag': '해시태그',
+            'restaurant_shop_name': '가게 이름',
+            'restaurant_content_likeit_count': '공감 수',
+            'restaurant_rating': '평점',
+            'restaurant_review_num_count': '리뷰 수',
+            'restaurant_avg_price': '평균 가격',
+            'restaurant_shop_category': '가게 카테고리',
+            'restaurant_map_x': '음식점 맵 X 좌표',
+            'restaurant_map_y': '음식점 맵 Y 좌표',
+        }
+
+
+
+
+
+class VisitKoreaForm(forms.ModelForm):
+    class Meta:
+        model = VisitKorea
+        fields = (
+            'visitkorea_title',
+            'visitkorea_tel',
+            'visitkorea_firstimage',
+            'visitkorea_address',
+            'visitkorea_mapx',
+            'visitkorea_mapy',
+            'visitkorea_mlevel',
+            'visitkorea_overview',
+        )
+        labels = {
+            'visitkorea_title': '장소 제목',
+            'visitkorea_tel': '연락처',
+            'visitkorea_firstimage': '대표 이미지',
+            'visitkorea_address': '주소',
+            'visitkorea_mapx': '위도 (Latitude)',
+            'visitkorea_mapy': '경도 (Longitude)',
+            'visitkorea_mlevel': '난이도',
+            'visitkorea_overview': '장소 개요',
+        }
+
+
+
+class PlaceForm(forms.ModelForm):
+    class Meta:
+        model = Place
+        fields = (
+            'place_name',
+            'place_address',
+        )
+        labels = {
+            'place_name': '장소 이름',
+            'place_address': '장소 주소',
+        }
+
+
+
+class NearRestaurantForm(forms.ModelForm):
+    class Meta:
+        model = NearRestaurant
+        fields = (
+            'place_id',
+            'restaurant_id',
+        )
+        labels = {
+            'place_id': '장소 ID',
+            'restaurant_id': '음식점 ID',
+        }
