@@ -51,36 +51,6 @@
   {% endblock content %}
 
 
-    <!-- JavaScript Libraries -->
-    <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static 'lib/wow/wow.min.js' %}"></script>
-    <script src="{% static 'lib/easing/easing.min.js' %}"></script>
-    <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
-    <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
-
-    <!-- 카카오톡 상담하기 버튼 추가를 위한 script - 김영재 -->
-    <script>
-      window.kakaoAsyncInit = function() {
-        Kakao.Channel.createChatButton({
-          container: '#kakao-talk-channel-chat-button',
-        });
-      };
-    
-      (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = 'https://t1.kakaocdn.net/kakao_js_sdk/2.4.0/kakao.channel.min.js';
-        js.integrity = 'sha384-bg2pMhokxyx1zeEM2ol2hJtBagKMjRIZDVI/KITe+j2U5K+Or6HPY1lWDWY8ubEN';
-        js.crossOrigin = 'anonymous';
-        fjs.parentNode.insertBefore(js, fjs);
-      })(document, 'script', 'kakao-js-sdk');
-    </script>
-    
-    <!-- Template Javascript -->
-    <script src="{% static 'js/main.js' %}"></script>
-
     <!-- Footer Start -->
   <div class="container-xxl bg-white p-0">
     <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
@@ -176,6 +146,36 @@
 
   <!-- Back to Top -->  
   <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+      <!-- JavaScript Libraries -->
+      <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+      <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+      <script src="{% static 'lib/wow/wow.min.js' %}"></script>
+      <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+      <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+      <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+  
+      <!-- 카카오톡 상담하기 버튼 추가를 위한 script - 김영재 -->
+      <script>
+        window.kakaoAsyncInit = function() {
+          Kakao.Channel.createChatButton({
+            container: '#kakao-talk-channel-chat-button',
+          });
+        };
+      
+        (function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = 'https://t1.kakaocdn.net/kakao_js_sdk/2.4.0/kakao.channel.min.js';
+          js.integrity = 'sha384-bg2pMhokxyx1zeEM2ol2hJtBagKMjRIZDVI/KITe+j2U5K+Or6HPY1lWDWY8ubEN';
+          js.crossOrigin = 'anonymous';
+          fjs.parentNode.insertBefore(js, fjs);
+        })(document, 'script', 'kakao-js-sdk');
+      </script>
+      
+      <!-- Template Javascript -->
+      <script src="{% static 'js/main.js' %}"></script>
 
 
 </body>
