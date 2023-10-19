@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
+
 {% block content %}
-<div id="sign_up_box">    
+
+
+<div class="sign_up_box">
     <form action="" method="post">
+    <br><div><h1>회원가입</h1></div><br>
         {% csrf_token %}
         <table id="sign_up2">
             <tr>
@@ -23,8 +27,8 @@
                 <th class='lbl'>주소</th>
                 <td><textarea type="text" id=lbl_address name='user_address'></textarea></td>
             </tr>
-        </table>
-        <button type="submit" class='btn'>완료</button>        
+        </table><br>
+        <div class=signUpBtn><button type="submit" class='btn'>완료</button><div> 
     </form>
 </div>
 {% endblock content %}
