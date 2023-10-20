@@ -28,7 +28,7 @@ index.html 에서 nav 부분 nav.html로 분리해서 base.html % block 위에 �
 {% block content %}  
 {% endblock content %}
 
-공통된 nav 환경을 유지하기 위해 새로운 페이지를 만들 경우 꼭 새 꼭 해당 페이지에서 Navbar를 제거한 뒤 
+공통된 nav 환경을 유지하기 위해 새로운 페이지를 만들 경우 꼭 해당 페이지에서 Navbar 와 하단에 위치해있는 script 목록들을 제거한 뒤 
 {% extends 'base.html' %} 
 로 base.html 을 불러와 상속으로 해결할 것
 
