@@ -10,7 +10,7 @@ def accommodation(request,keyword):
 
 
 def accommodation_detail(request, keyword):    
-    print(keyword)    
+    # print(keyword)    
 
     # 하위 주소를 토대로 관광지 리스트 쿼리 
     addr = "제주 서귀포시 안덕면"
@@ -21,7 +21,7 @@ def accommodation_detail(request, keyword):
     else:
         keyword = keywords[1]
 
-    print(keyword)
+    # print(keyword)
     # attraction_list = Visitkorea.objects.filter(Q(visitkorea_address__contains=keyword))[:3]
 
     # 숙소 주변 관광지 리스트를 토대로 쿼리 날리는 방법 #
