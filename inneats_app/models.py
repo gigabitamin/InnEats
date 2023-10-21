@@ -107,17 +107,17 @@ class Tripbtoz(models.Model):
         db_table = 'tripbtoz'
         unique_together = (('trip_name', 'trip_address'),)
 
-
-class VisitKorea(models.Model):
-    visitkorea_id = models.CharField(primary_key=True, max_length=20)
-    visitkorea_title = models.CharField(max_length=50, blank=True, null=True)
-    visitkorea_tel = models.CharField(max_length=20, blank=True, null=True)
-    visitkorea_firstimage = models.CharField(max_length=100, blank=True, null=True)
-    visitkorea_address = models.CharField(max_length=50, blank=True, null=True)
-    visitkorea_mapx = models.FloatField(blank=True, null=True)
-    visitkorea_mapy = models.FloatField(blank=True, null=True)
-    visitkorea_mlevel = models.IntegerField(blank=True, null=True)
-    visitkorea_overview = models.TextField(blank=True, null=True)
+# 2023-10-20 자료형 변경 - 김영재
+class Visitkorea(models.Model):
+    visitkorea_id = models.CharField(primary_key=True, max_length=20)   
+    visitkorea_title = models.CharField(max_length=255, blank=True, null=True)
+    visitkorea_tel = models.CharField(max_length=50, blank=True, null=True)
+    visitkorea_firstimage = models.CharField(max_length=255, blank=True, null=True)
+    visitkorea_address = models.CharField(max_length=255, blank=True, null=True)
+    visitkorea_mapx = models.DecimalField(max_digits=12, decimal_places=9, blank=True, null=True)
+    visitkorea_mapy = models.DecimalField(max_digits=12, decimal_places=9, blank=True, null=True)
+    visitkorea_mlevel = models.IntegerField(blank=True, null=True)      
+    visitkorea_overview = models.TextField(blank=True, null=True)       
 
     class Meta:
         managed = False
