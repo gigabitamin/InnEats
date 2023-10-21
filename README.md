@@ -1,4 +1,4 @@
-
+<!-- sjh -->
 # AI 백엔드 5차 세미 프로젝트 (231013-231026)
 # TEAM def TROLL
 
@@ -7,6 +7,21 @@
 mac 사용자분들은 push 하시기 전 .gitignore 설정 완료했는지 확인해주시기 바랍니다
 
 ==============================================================
+
+
+
+v0.4.0 / 
+-- accommodation 페이지 추가 -> accommodation_app 에서 담당(김영재) 
+-- 카톡 상담하기 base.html에 추가 
+-- 
+
+
+
+
+
+
+
+-- v.0.3.1 여기까지 강대연 작업
 
 v.0.3.1 / 
 models.py, forms.py 추가 및 수정
@@ -28,7 +43,7 @@ index.html 에서 nav 부분 nav.html로 분리해서 base.html % block 위에 �
 {% block content %}  
 {% endblock content %}
 
-공통된 nav 환경을 유지하기 위해 새로운 페이지를 만들 경우 꼭 새 꼭 해당 페이지에서 Navbar를 제거한 뒤 
+공통된 nav 환경을 유지하기 위해 새로운 페이지를 만들 경우 꼭 해당 페이지에서 Navbar 와 하단에 위치해있는 script 목록들을 제거한 뒤 
 {% extends 'base.html' %} 
 로 base.html 을 불러와 상속으로 해결할 것
 
