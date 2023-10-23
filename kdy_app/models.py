@@ -299,9 +299,5 @@ class Youtube(models.Model):
 
     class Meta:
         managed = False
-<<<<<<< HEAD
         db_table = 'youtube'
 
-=======
-        db_table = 'youtube'
->>>>>>> kdy

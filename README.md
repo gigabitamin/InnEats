@@ -12,7 +12,6 @@
 -- kdy_app 블로그 페이지 추가
 -- nav.html 블로그 링크 추가
 
-
 0.4.1 / kdy 
 -- 카카오톡 메세지 공유 기능 추가 (footer에 버튼 추가, kdy 폴더에 kakao_message.html 추가)
 -- 카카오톡 디자인 가이드 static img 폴더에 다운받아서 추가
