@@ -37,6 +37,9 @@ INSTALLED_APPS = [
 
     # accommodation_app 추가 -kdy
     'kdy_app',
+
+    # sjh_app 추가 -sjh
+    'sjh_app',
   
 
 ]
