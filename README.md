@@ -2,17 +2,15 @@
 # AI 백엔드 5차 세미 프로젝트 (231013-231026)
 # TEAM def TROLL
 
-_pycache_ 폴더가 통째로 올라오는데 .gitignore 설정 다시 한번 확인 부탁드립니다
 
-레파지토리가 공개상태라 주석 등에서 실명들은 영문 이니셜로 변경습니다
-
-임시 숙소 클릭시 url 주소가
-http://127.0.0.1:8000/users/accommodation/%EC%A0%9C%EC%A3%BC%EB%8F%84
-users 주소 위에 이어지니 확인 바랍니다
 
 ==============================================================
 
 
+0.4.2 / kdy
+-- inneats_app models.py 추가 변경
+-- kdy_app 블로그 페이지 추가
+-- nav.html 블로그 링크 추가
 
 0.4.1 / kdy 
 -- 카카오톡 메세지 공유 기능 추가 (footer에 버튼 추가, kdy 폴더에 kakao_message.html 추가)
@@ -22,6 +20,8 @@ users 주소 위에 이어지니 확인 바랍니다
 -- base.html에 kakao_message.html include
 -- inneats_project / urls.py 에서 accommodation_app 루트 수정
 -- kdy_app 생성 (nav.html 에서 링크메뉴 추가)
+-- 페이지별로 {% block title %} {{ keyword }}{% endblock %} 추가
+
 
 
 v0.4.0 / 
