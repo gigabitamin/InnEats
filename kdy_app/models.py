@@ -117,22 +117,6 @@ class Goodchoice(models.Model):
         unique_together = (('acc_name', 'acc_address'),)
 
 
-class GoodchoiceJejuAnsi(models.Model):
-    숙소명 = models.TextField(blank=True, null=True)
-    주소 = models.TextField(blank=True, null=True)
-    이미지_링크 = models.TextField(db_column='이미지 링크', blank=True, null=True)  # Field renamed to remove unsuitable characters.
-    별점 = models.FloatField(blank=True, null=True)
-    가격 = models.TextField(blank=True, null=True)
-    객실_종류 = models.TextField(db_column='객실 종류', blank=True, null=True)  # Field renamed to remove unsuitable characters.
-    남은_객실 = models.TextField(db_column='남은 객실', blank=True, null=True)  # Field renamed to remove unsuitable characters.
-    링크 = models.TextField(blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'goodchoice_jeju ansi'
-        unique_together = (('acc_name', 'acc_address'),)
-
-
 class NaverBlog(models.Model):
     naver_blog_id = models.CharField(primary_key=True, max_length=10)
     naver_blog_title = models.CharField(max_length=200)
