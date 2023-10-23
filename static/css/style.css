@@ -441,3 +441,16 @@
     padding-right: 0;
     border-right: none;
 }
+
+
+
+/* accommodation_detail.html 시작  */
+#attraction_overview_summary {
+    max-height: 6em;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+
+/* accommodation_detail.html 끝  */

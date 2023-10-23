@@ -30,7 +30,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     'inneats_app',
-    'users_app',    
+    'users_app',
+    
+    # accommodation_app 추가 -kyj
+    'accommodation_app', 
+
+    # accommodation_app 추가 -kdy
+    'kdy_app',
+  
+
 ]
 
 MIDDLEWARE = [
