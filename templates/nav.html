@@ -27,7 +27,7 @@
                     <a href="{% url 'accommodation' keyword='우도면' %}" class="nav-item nav-link">임시숙소링크</a>
 
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Property</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">숙박</a>
                         <div class="dropdown-menu rounded-0 m-0">
                             <a href="{% url 'property_list' %}" class="dropdown-item">Property List</a>
                             <a href="{% url 'property_type' %}" class="dropdown-item">Property Type</a>
@@ -41,9 +41,18 @@
                             <a href="{% url 'error404' %}" class="dropdown-item">404 Error</a>
                         </div>
                     </div>
+<<<<<<< HEAD
                     <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
                 </div>
                 {% comment %} <a href="" class="btn btn-primary px-3 d-none d-lg-flex">Add Property</a> {% endcomment %}
+=======
+                    <a href="{% url 'contact' %}" class="nav-item nav-link">고객센터</a>
+                </div
+                
+                <a href="" class="btn btn-primary px-3 d-none d-lg-flex"></a>
+                {% include "login.html" %}
+            
+>>>>>>> f027d61e648515a2fb0f4995ee8682f0a5b807be
             </div>
 
             <!-- 회원가입 로그인 박스 시작 - kdy -->
@@ -61,5 +70,8 @@
         </nav>
     </div>
     <!-- Navbar End -->
+<<<<<<< HEAD
 
     {% endblock content %}
+=======
+>>>>>>> f027d61e648515a2fb0f4995ee8682f0a5b807be
