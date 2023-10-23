@@ -1,5 +1,7 @@
 {% load static %}
 
+{% block content %}  
+
     <!-- Navbar Start -->
     <div class="container-fluid nav-bar bg-transparent">
         <nav class="navbar navbar-expand-lg bg-white navbar-light py-0 px-4">
@@ -17,9 +19,13 @@
                 <div class="navbar-nav ms-auto">
                     <a href="{% url 'index' %}" class="nav-item nav-link active">옆에 InnEats 부분부터 nav.html</a>
                     <a href="{% url 'about' %}" class="nav-item nav-link">About</a>
-                    <!-- 숙소 페이지 접근을 위한 임시숙소링크 추가 - 김영재 -->
+                    <!-- 숙소 페이지 접근을 위한 임시숙소링크 추가 - kyj -->
                     <!-- 테스트를 위해 keyword 제주도 입력 -->
+                    <!-- 유투브 블로그 링크 추가, 키워드 '제주도 포함' 형식 동일 -->
+                    <a href="{% url 'youtube_list' keyword='제주도' %}" class="nav-item nav-link">유튜브</a>
+                    {% comment %} <a href="{% url 'blog_list' keyword='제주도' %}" class="nav-item nav-link" id="blog_list_nav_link">블로그</a> {% endcomment %}
                     <a href="{% url 'accommodation' keyword='제주도' %}" class="nav-item nav-link">임시숙소링크</a>
+
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Property</a>
                         <div class="dropdown-menu rounded-0 m-0">
@@ -40,6 +46,7 @@
                 {% comment %} <a href="" class="btn btn-primary px-3 d-none d-lg-flex">Add Property</a> {% endcomment %}
             </div>
 
+            <!-- 회원가입 로그인 박스 시작 - kdy -->
             <div id="loginBox">    
                 {% if user.is_authenticated %}
                     <div>{{ user.username }}님 로그인 중</div>
@@ -49,7 +56,10 @@
                     <div id="loginSignIn"><a href="{% url 'sign_in2' %}">로그인</a></div>
                 {% endif %}    
             </div>
+            <!-- 회원가입 로그인 박스 끝 - kdy -->
             
         </nav>
     </div>
     <!-- Navbar End -->
+
+    {% endblock content %}

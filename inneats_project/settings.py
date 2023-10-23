@@ -32,8 +32,13 @@ INSTALLED_APPS = [
     'inneats_app',
     'users_app',
     
-    # accommodation_app 추가 -김영재
-    'accommodation_app',  
+    # accommodation_app 추가 -kyj
+    'accommodation_app', 
+
+    # accommodation_app 추가 -kdy
+    'kdy_app',
+  
+
 ]
 
 MIDDLEWARE = [
