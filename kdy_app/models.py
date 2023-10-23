@@ -183,5 +183,3 @@ class Youtube(models.Model):
         managed = False
         db_table = 'youtube'
 
-
-
