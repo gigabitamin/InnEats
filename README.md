@@ -22,6 +22,8 @@ users 주소 위에 이어지니 확인 바랍니다
 -- base.html에 kakao_message.html include
 -- inneats_project / urls.py 에서 accommodation_app 루트 수정
 -- kdy_app 생성 (nav.html 에서 링크메뉴 추가)
+-- 페이지별로 {% block title %} {{ keyword }}{% endblock %} 추가
+
 
 
 v0.4.0 / 
