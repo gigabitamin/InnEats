@@ -12,4 +12,7 @@ urlpatterns = [
 
     # kdy_app 추가 - kdy
     path('', include("kdy_app.urls")),
+
+    path('', include("search.urls")),
+
 ]
