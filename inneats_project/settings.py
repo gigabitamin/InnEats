@@ -143,3 +143,5 @@ LOGIN_REDIRECT_URL = '/'
 
 DATABASES = db_settings.DATABASES
 SECRET_KEY = db_settings.SECRET_KEY
+# settings.py
+X_FRAME_OPTIONS = 'SAMEORIGIN'
