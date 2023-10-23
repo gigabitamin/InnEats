@@ -17,25 +17,15 @@
            
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto">
-<<<<<<< HEAD
-                    <a href="{% url 'index' %}" class="nav-item nav-link active">temp</a>
-                    <a href="{% url 'about' %}" class="nav-item nav-link">맛집</a>
-                    <a href="{% url 'about' %}" class="nav-item nav-link">관광지</a>
-=======
                     {% comment %} <a href="{% url 'index' %}" class="nav-item nav-link active">temp</a> {% endcomment %}                
->>>>>>> hotfix
                     <!-- 숙소 페이지 접근을 위한 임시숙소링크 추가 - kyj -->
                     <!-- 테스트를 위해 keyword 제주도 입력 -->
                     <!-- 유투브 블로그 링크 추가, 키워드 '제주도 포함' 형식 동일 -->
                     <a href="{% url 'youtube_list' keyword='제주도' %}" class="nav-item nav-link">유튜브</a>
                     <a href="{% url 'naver_blog_list' keyword='제주도' %}" class="nav-item nav-link">블로그</a>
-<<<<<<< HEAD
-                    <a href="{% url 'accommodation' keyword='우도면' %}" class="nav-item nav-link">임시숙소링크</a>                    
-=======
                     <a href="{% url 'accommodation' keyword='제주도' %}" class="nav-item nav-link">임시숙소링크</a>
-                    <a href="{% url 'sjh_app'%}" class="nav-item nav-link">sjh_app</a>
->>>>>>> hotfix
-
+                    <a href="{% url 'sjh_app' %}" class="nav-item nav-link">sjh_app</a>
+                                        
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Property</a>
                         <div class="dropdown-menu rounded-0 m-0">
