@@ -12,4 +12,7 @@ urlpatterns = [
 
     # kdy_app 추가 - kdy
     path('', include("kdy_app.urls")),
+
+    # sjh_app 추가 - sjh
+    path('', include("sjh_app.urls")),
 ]

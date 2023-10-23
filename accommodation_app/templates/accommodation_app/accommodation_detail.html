@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %} 숙소 상세:{{ keyword }}{% endblock %}
+<!-- {% block title %} 숙소 상세:{{ keyword }}{% endblock %} -->
 
 
 {% block content %}
@@ -12,15 +12,20 @@
         <div class="row g-5 align-items-center">
             <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                 <div class="about-img position-relative overflow-hidden p-5 pe-0">
-                    <img class="img-fluid w-100" src="{% static 'img/about.jpg' %}">
+                    <img class="img-fluid w-100" src={{accommodation.daily_hotel_image_link}} >
                 </div>
             </div>
             <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                <h1 class="mb-4">제주 호텔</h1>
-                <p class="mb-4">간단한 숙소 소개. 없을 경우 생략</p>
+                <h1 class="mb-4">{{accommodation.daily_hotel_name}}</h1>
+                <p class="mb-4"><i class="fa fa-map-marker-alt text-primary me-2"></i>{{accommodation.daily_hotel_address}}</p>
                 <p><i class="fa fa-check text-primary me-3"></i>여기어때 10000원</p>
                 <p><i class="fa fa-check text-primary me-3"></i>야놀자 10000원</p>
-                <p><i class="fa fa-check text-primary me-3"></i>데일리호텔 10000원</p>
+                <a href="{{ accommodation.daily_hotel_link }}"><p><i class="fa fa-check text-primary me-3"></i>데일리호텔:
+                    {% if accommodation.daily_hotel_price|floatformat %}
+                        {{ accommodation.daily_hotel_price|floatformat }}원
+                    {% else %}
+                        정보없음
+                    {% endif %}<i class="bi bi-link-45deg"></i></p></a>
                 <p><i class="fa fa-check text-primary me-3"></i>트립비토즈 10000원</p>
                 <!-- <a class="btn btn-primary py-3 px-5 mt-3" href="">Read More</a> -->
             </div>
