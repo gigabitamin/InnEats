@@ -169,10 +169,6 @@ def naver_blog_search_ajax(request):
     
 
 
-
-
-
-
 def youtube_list(request, keyword):
     # keyword 가 포함된 youtube_title을 db에서 검색한 뒤 해당 row가 존재하면 불러와서 youtube_data 에 저장, 
     # 리스트 일 시 첫행만 반환, 해당 조건으로 검색해서 결과값이 없을 시 all_list 에서 첫 행 반환 
