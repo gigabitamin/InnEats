@@ -258,3 +258,5 @@ class NearRestaurantForm(forms.ModelForm):
             'place_id': '장소 ID',
             'restaurant_id': '음식점 ID',
         }
+
+        
