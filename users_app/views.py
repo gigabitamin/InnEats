@@ -25,6 +25,9 @@ def sign_out(request):
     return redirect('index')
 
 
+
+
+
 def sign_up(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
@@ -36,16 +39,33 @@ def sign_up(request):
 
     return render(request, 'users_app/sign_up.html', {'form':form})
 
+# def book_insert(request):
+#     if request.method == "POST":        
+#         form = BookForm(request.POST)        
+#         if form.is_valid():
+#             book = form.save(commit=False)
+#             book.save()
+#             return redirect('book_list')
+#         else: 
+#             pass 
+#     else:
+#         form = BookForm()
+#     return render(request, 'book_app/book_form.html', {'form':form})
 
-def sign_up2(request):
+def sign_up2(request):   
     if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
+        
+        username = request.POST['username']        
         email = request.POST['email']
+        password = request.POST['password']
         user_name = request.POST['user_name']
         user_phone = request.POST['user_phone']
         user_address = request.POST['user_address']
+        preferred_region_no = request.POST['preferred_region_no']
+        preferred_accommodation_type_no = request.POST['preferred_accommodation_type_no']
+        preferred_tour_theme_type_no = request.POST['preferred_tour_theme_type_no']
 
+        user = UserForm(request.POST)
         # 매개변수는 3개만 전달 가능
         # 순서 주의 : username, email, password 
         user = User.objects.create_user(username, email, password)
@@ -53,8 +73,11 @@ def sign_up2(request):
         user.user_name = user_name
         user.user_phone = user_phone
         user.user_address = user_address
-
-        user.save()
+        user.preferred_region_no = preferred_region_no
+        user.preferred_accommodation_type_no = preferred_accommodation_type_no
+        user.preferred_tour_theme_type_no = preferred_tour_theme_type_no
+            
+        user.save()        
 
         return redirect('sign_in') # 회원가입 후 로그인화면으로 이동
     
