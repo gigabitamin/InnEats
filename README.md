@@ -3,15 +3,56 @@
 # TEAM def TROLL
 
 
-
-mac 사용자분들은 push 하시기 전 .gitignore 설정 완료했는지 확인해주시기 바랍니다
+slack에 올려놓은 kdy_user_table_etc_231024_1314.sql import 하신 후 마이페이지 접속
 
 ==============================================================
+
+0.4.8 / 
+kyj / 유투브 크롤링 데이터 db 업로드 완료 
+kdy / kdy_app inneats_app forms models 유투브 fields 수정 
+-> 유투브 클릭시 정상구동 #주의사항:kyj님꼐서 올려놓은 sql 명령문으로 유투브 테이블 만든 후 youtube db import 한 뒤에 유투브 페이지 들어갈 것
+-> row가 895개로 데이터가 많아서 페이지 로딩시 오래걸리니 주의
+
+0.4.7 / kdy / 
+user 테이블에 선호 여행 지역, 선호 숙박 형태, 선호 여행 테마 추가
+회원가입 form에 위의 3개 column 추가
+마이 페이지 구현 (현재 user_id = '6' 고정)
+
+0.4.6 / kdy / 
+user 테이블에 profile_image 컬럼 생성
+setting.py 에 MEDIA_URL = '/media/' 미디어 경로 추가
+kdy_app models.py user 테이블 수정
+kdy_app forms.py 이미지 업로드 form 추가
+
+0.4.5 / kdy
+sjh_app 부트스트랩 충돌로 map 부트스트랩 css 파일 2개 주석 처리 -> 해결
+accommodation_app 페이지에서 페이지 출력 오류 확인 -> merge 할때 기존 버전과 코드가 섞인 상태로 꼬인걸 발견하고 수정해서 해결
+
+0.4.4 / sjh
+sjh_app 지도 페이지 추가, 네비게이션에 sjh_app 추가
+
+0.4.3 / kdy
+갱신 확인용
+
+0.4.2 / kdy
+-- inneats_app models.py 추가 변경
+-- kdy_app 블로그 페이지 추가
+-- nav.html 블로그 링크 추가
+
+0.4.1 / kdy 
+-- 카카오톡 메세지 공유 기능 추가 (footer에 버튼 추가, kdy 폴더에 kakao_message.html 추가)
+-- 카카오톡 디자인 가이드 static img 폴더에 다운받아서 추가
+-- https://developers.kakao.com/tool/resource/login
+-- web 경로 포함된 카카오 js 파일 js 폴더에 넣은 뒤 <HEAD>에 경로처리
+-- base.html에 kakao_message.html include
+-- inneats_project / urls.py 에서 accommodation_app 루트 수정
+-- kdy_app 생성 (nav.html 에서 링크메뉴 추가)
+-- 페이지별로 {% block title %} {{ keyword }}{% endblock %} 추가
 
 
 
 v0.4.0 / 
--- accommodation 페이지 추가 -> accommodation_app 에서 담당(김영재) 
+-- accommodation 페이지 추가 -> accommodation_app 에서 담당(kyj) 
 -- 카톡 상담하기 base.html에 추가 
 -- 
 
@@ -19,9 +60,7 @@ v0.4.0 /
 
 
 
-
-
--- v.0.3.1 여기까지 강대연 작업
+-- v.0.3.1 여기까지 kdy 작업
 
 v.0.3.1 / 
 models.py, forms.py 추가 및 수정
@@ -243,6 +282,40 @@ Main - Search, Login & Logout
     - 숙박업소, 주변맛집
     - 유투브, 블로그
     - 관광지, 여행지도
+
+
+
+<kdy>
+크롤링 : 데일리호텔
+DB활용 : 
+SNS 유튜브 크롤링 데이터 활용해서 상세 출력 페이지
+카톡 api로 메시지 전송 & 메일링
+
+<kyj>
+크롤링 : 비짓코리아 - 방방곡에서 api를 제공해 주어 해당 데이터를 다운
+DB활용 : 
+1.여기어때, 2.야놀자, 3.데일리호텔, 4.트립비토즈 - 같은 화면에 출력 
+챗봇 상담 기능 -> 오픈 AI 활용 상담사 역할
+
+<sms>
+크롤링 : 야놀자, 유투브
+DB활용 : 비짓코리아 방방곡곡 크롤링한 데이터에 검색 기능추가, 리스트 페이지의 박스 정보, 내부 페이지 텍스트랑 이미지 크롤링
+
+<sjh>
+크롤링 : 여기어때 
+DB활용 : 지도 api 활용 -> (숙박업소)주소 토대로 주변 지역 맛집 관광지를 지도를 활용해 시각적 표현
+
+<hst>
+크롤링 : 트립비, 네이버 블로그
+DB활용 :
+메인페이지 검색 기능 구현
+고객센터 : 게시글 템플릿
+
+<덤. 역할배정 미정> 
+1. 출석체크 게시판 : 달력에 도장찍듯이, 날수 채우면 쿠폰 -> 사이트에서 활용
+2. 익명 개인 일기장 -> 쓰레드 형식<프론트엔드에 출력 
+3. 사이트 내 자체 평가점수 알고리즘
+
 
 
 

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<h1>sjh_app Page</h1>
+
+<style>
+#sjh_map {
+    width: 1000px;
+    height: 1000px;
+    margin:0 auto;
+}
+</style>
+
+<div id='sjh_map'>
+{% include 'sjh_app/map.html' %}
+</div>
+
+{% endblock content %}
+

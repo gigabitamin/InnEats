@@ -1,5 +1,7 @@
 {% load static %}
 
+{% block content %}  
+
     <!-- Navbar Start -->
     <div class="container-fluid nav-bar bg-transparent">
         <nav class="navbar navbar-expand-lg bg-white navbar-light py-0 px-4">
@@ -15,13 +17,18 @@
            
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto">
-                    <a href="{% url 'index' %}" class="nav-item nav-link active">옆에 InnEats 부분부터 nav.html</a>
-                    <a href="{% url 'about' %}" class="nav-item nav-link">About</a>
-                    <!-- 숙소 페이지 접근을 위한 임시숙소링크 추가 - 김영재 -->
+                    {% comment %} <a href="{% url 'index' %}" class="nav-item nav-link active">temp</a>                 {% endcomment %}
+                    <!-- 숙소 페이지 접근을 위한 임시숙소링크 추가 - kyj -->
                     <!-- 테스트를 위해 keyword 제주도 입력 -->
-                    <a href="{% url 'accommodation' keyword='제주도' %}" class="nav-item nav-link">임시숙소링크</a>
+                    <!-- 유투브 블로그 링크 추가, 키워드 '제주도 포함' 형식 동일 -->
+                    <a href="{% url 'my_page' '6' %}" class="nav-item nav-link"  id="my_page">MY PAGE</a>
+                    <a href="{% url 'youtube_list' keyword='제주도' %}" class="nav-item nav-link">유튜브</a>
+                    <a href="{% url 'naver_blog_list' keyword='제주도' %}" class="nav-item nav-link">블로그</a>
+                    <a href="{% url 'accommodation' keyword='우도면' %}" class="nav-item nav-link">숙소</a>
+                    <a href="{% url 'sjh_app' %}" class="nav-item nav-link">sjh_app</a>            
+                                        
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Property</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">숙박</a>
                         <div class="dropdown-menu rounded-0 m-0">
                             <a href="{% url 'property_list' %}" class="dropdown-item">Property List</a>
                             <a href="{% url 'property_type' %}" class="dropdown-item">Property Type</a>
@@ -35,21 +42,28 @@
                             <a href="{% url 'error404' %}" class="dropdown-item">404 Error</a>
                         </div>
                     </div>
-                    <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
-                </div>
-                {% comment %} <a href="" class="btn btn-primary px-3 d-none d-lg-flex">Add Property</a> {% endcomment %}
+                    <a href="{% url 'contact' %}" class="nav-item nav-link">고객센터</a>
+                </div
+                
+                <a href="" class="btn btn-primary px-3 d-none d-lg-flex"></a>
+                
+            
             </div>
 
+            <!-- 회원가입 로그인 박스 시작 - kdy -->
             <div id="loginBox">    
                 {% if user.is_authenticated %}
                     <div>{{ user.username }}님 로그인 중</div>
                     <div id="loginSignOut"><a href="{% url 'sign_out' %}">로그아웃</a></div>
                 {% else %}
-                    <div id="loginSignUp"><a href="{% url 'sign_up2' %}">회원가입</a></div>
+                    <div id="loginSignUp"><a href="{% url 'sign_up' %}">회원가입</a></div>
                     <div id="loginSignIn"><a href="{% url 'sign_in2' %}">로그인</a></div>
                 {% endif %}    
             </div>
+            <!-- 회원가입 로그인 박스 끝 - kdy -->
             
         </nav>
     </div>
     <!-- Navbar End -->
+
+    {% endblock content %}
