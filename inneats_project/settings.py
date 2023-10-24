@@ -1,5 +1,6 @@
 
 
+import os
 from pathlib import Path
 import db_settings
 
@@ -39,7 +40,12 @@ INSTALLED_APPS = [
     # accommodation_app 추가 -kdy
     'kdy_app',
 
+<<<<<<< HEAD
     'attraction_app',
+=======
+    # sjh_app 추가 -sjh
+    'sjh_app',
+>>>>>>> develop
   
 
 ]
@@ -143,3 +149,6 @@ LOGIN_REDIRECT_URL = '/'
 
 DATABASES = db_settings.DATABASES
 SECRET_KEY = db_settings.SECRET_KEY
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
