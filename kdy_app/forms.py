@@ -11,25 +11,19 @@ class YoutubeForm(forms.ModelForm):
             'youtube_title',
             'youtube_link',
             'youtube_image',
-            'youtube_hashtag',
-            'youtube_channel_name',
-            'youtube_channel_count',
-            'youtube_content_like_count',
-            'youtube_comment_like_count',
-            'youtube_content_date',
+            'youtube_name',
+            'youtube_views',
+            'youtube_date',
         )
 
         labels = {
-            'youtube_ide':'youtube_id',
-            'youtube_title':'youtube_title',
-            'youtube_link':'youtube_link',
-            'youtube_image':'youtube_image',
-            'youtube_hashtag':'youtube_hashtag',
-            'youtube_channel_name':'youtube_channel_name',
-            'youtube_channel_count':'youtube_channel_count',
-            'youtube_content_like_count':'youtube_content_like_count',
-            'youtube_comment_like_count':'youtube_comment_like_count',
-            'youtube_content_date':'youtube_content_date',
+            'youtube_id':'youtube_id',
+            'youtube_title':'제목',
+            'youtube_link':'URL',
+            'youtube_image':'이미지 링크',
+            'youtube_channel_name':'채널명',
+            'youtube_views':'조회수',
+            'youtube_date':'업로드 날짜',
         }
 
 class NaverBlogForm(forms.ModelForm):
