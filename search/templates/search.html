@@ -1,4 +1,5 @@
-{% load static %}
+{% extends 'base.html' %}
+
 {% block content %}
 
 <!-- Search Start -->
@@ -8,19 +9,19 @@
             <div class="col-md-10">
                 <div class="row g-2">
                     <div class="col-md-4">
-                        <select class="form-select border-0 py-3" id="property-type">
-                            <option selected>Property Type</option>
-                            <option value="1">Property Type 1</option>
-                            <option value="2">Property Type 2</option>
-                            <option value="3">Property Type 3</option>
+                        <select class="form-select border-0 py-3" id="portal">
+                            <option selected>검색 포털</option>
+                            <option value="1">숙소</option>
+                            <option value="2">블로그</option>
+                            <option value="3">유투브</option>
                         </select>
                     </div>
                     <div class="col-md-4">
                         <select class="form-select border-0 py-3" id="location">
-                            <option selected>Location</option>
-                            <option value="1">Location 1</option>
-                            <option value="2">Location 2</option>
-                            <option value="3">Location 3</option>
+                            <option selected>지역</option>
+                            <option value="1">서울</option>
+                            <option value="2">제주</option>
+                            <option value="3">대구</option>
                         </select>
                     </div>
                     <div class="col-md-4">
@@ -38,15 +39,16 @@
 
 <script>
     function search() {
-        // 선택된 Property Type과 Location 값을 가져오는 코드
-        var propertyType = document.querySelector('#property-type').value;
+        // 선택된 검색 포털과 지역 값을 가져오는 코드
+        var portal = document.querySelector('#portal').value;
         var location = document.querySelector('#location').value;
 
-        // 선택된 Property Type과 Location 값을 이용하여 검색어를 가져오는 코드
+        // 선택된 검색어를 가져오는 코드
         var searchInput = document.querySelector('#search-input').value;
 
         // 다음 페이지로 이동하는 코드
-        window.location.href = '/search/' + propertyType + '/' + location + '/' + searchInput;
+        var url = `/search/?portal=${portal}&location=${location}&searchInput=${searchInput}`;
+        window.location.href = url;
     }
 </script>
 
