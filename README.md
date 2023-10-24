@@ -1,25 +1,17 @@
-<!-- sjh -->
 # AI 백엔드 5차 세미 프로젝트 (231013-231026)
 # TEAM def TROLL
 
 
-slack에 올려놓은 kdy_user_table_etc_231024_1314.sql import 하신 후 마이페이지 접속
-
 ==============================================================
 
-0.4.8 / kdy /
-develop 갱신 확인용
+0.4.8 / 
+hst / search 앱 생성
+kyj / 유투브 크롤링 데이터 db 업로드 완료 
+kdy / kdy_app inneats_app forms models 유투브 fields 수정 
+-> 유투브 클릭시 정상구동 #주의사항:kyj님꼐서 올려놓은 sql 명령문으로 유투브 테이블 만든 후 youtube db import 한 뒤에 유투브 페이지 들어갈 것
+-> row가 895개로 데이터가 많아서 페이지 로딩시 오래걸리니 주의
 
-0.4.7 / 
-sjh /
-sjh_app/map.html iframe 사용, setting.py에 추가
-X_FRAME_OPTIONS = 'SAMEORIGIN' \
-
-kdy /
-users_app/sign_up2.html 이미지 업로드 기능 관련 setting.py에 추가
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media') \
- 
+0.4.7 / kdy / 
 user 테이블에 선호 여행 지역, 선호 숙박 형태, 선호 여행 테마 추가
 회원가입 form에 위의 3개 column 추가
 마이 페이지 구현 (현재 user_id = '6' 고정)
