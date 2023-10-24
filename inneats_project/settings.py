@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     # accommodation_app 추가 -kdy
     'kdy_app',
     #search앱 추가 - hst
-    'search'
+    'search',
 
     # sjh_app 추가 -sjh
     'sjh_app',
