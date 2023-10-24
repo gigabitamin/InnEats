@@ -106,21 +106,6 @@ class Goodchoice(models.Model):
     acc_address = models.CharField(max_length=255)
     acc_image_link = models.TextField(blank=True, null=True)
     acc_rating = models.DecimalField(max_digits=3, decimal_places=1, blank=True, null=True)
-    acc_link = models.TextField(blank=True, null=True)
-    acc_date = models.DateField(blank=True, null=True)
-    acc_price = models.IntegerField(blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'goodchoice'
-        unique_together = (('acc_name', 'acc_address'),)
-
-
-class GoodchoiceJejuAnsi(models.Model):
-    acc_name = models.CharField(primary_key=True, max_length=200)  # The composite primary key (acc_name, acc_address) found, that is not supported. The first column is selected.
-    acc_address = models.CharField(max_length=255)
-    acc_image_link = models.TextField(blank=True, null=True)
-    acc_rating = models.DecimalField(max_digits=3, decimal_places=1, blank=True, null=True)
     acc_price = models.TextField(blank=True, null=True)
     acc_room_type = models.TextField(blank=True, null=True)
     acc_remain_room = models.TextField(blank=True, null=True)
@@ -128,7 +113,7 @@ class GoodchoiceJejuAnsi(models.Model):
 
     class Meta:
         managed = False
-        db_table = 'goodchoice_jeju ansi'
+        db_table = 'goodchoice'
         unique_together = (('acc_name', 'acc_address'),)
 
 

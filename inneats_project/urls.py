@@ -15,4 +15,6 @@ urlpatterns = [
 
     path('', include("search.urls")),
 
+    # sjh_app 추가 - sjh
+    path('', include("sjh_app.urls")),
 ]

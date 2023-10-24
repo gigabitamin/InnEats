@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'kdy_app',
     #search앱 추가
     'search'
+
+    # sjh_app 추가 -sjh
+    'sjh_app',
   
 
 ]

@@ -3,9 +3,20 @@
 # TEAM def TROLL
 
 
+kjh 님 accommodation_app 페이지 오류 확인 바랍니다
+변경 사항있으면 readme 작성 후 push 부탁드리겠습니다
 
 ==============================================================
 
+0.4.5 / kdy
+sjh_app 부트스트랩 충돌로 map 부트스트랩 css 파일 2개 주석 처리 -> 해결
+accommodation_app 페이지에서 페이지 출력 오류 확인
+
+0.4.4 / sjh
+sjh_app 지도 페이지 추가, 네비게이션에 sjh_app 추가
+
+0.4.3 / kdy
+갱신 확인용
 
 0.4.2 / kdy
 -- inneats_app models.py 추가 변경
