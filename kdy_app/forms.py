@@ -1,7 +1,8 @@
 from django import forms
 from .models import Youtube
 from .models import NaverBlog
-# ModelForm 클래스 상속 받음
+from .models import UsersAppUser
+
 class YoutubeForm(forms.ModelForm):
     class Meta:
         model = Youtube
@@ -55,5 +56,55 @@ class NaverBlogForm(forms.ModelForm):
             'naver_blog_content_likeit_count' : 'naver_blog_content_likeit_count',
             'naver_blog_content_date' : 'naver_blog_content_date',
         }
+
+
+class UserInfoForm(forms.ModelForm):
+    class Meta:
+        model = UsersAppUser
+        fields = (
+            'id',
+            'password',
+            'last_login',
+            'is_superuser',
+            'username',
+            'first_name',
+            'last_name',
+            'email',
+            'is_staff',
+            'is_active',
+            'date_joined',
+            'user_name',
+            'user_phone',
+            'user_address',
+            'preferred_region_no',
+            'preferred_accommodation_type_no',
+            'preferred_tour_theme_type_no',
+            'profile_image'
+        )
+
+        labels = {
+            'id':'id',
+            'password':'password',
+            'last_login':'last_login',
+            'is_superuser':'is_superuser',
+            'username':'username',
+            'first_name':'first_name',
+            'last_name':'last_name',
+            'email':'email',
+            'is_staff':'is_staff',
+            'is_active':'is_active',
+            'date_joined':'date_joined',
+            'user_name':'user_name',
+            'user_phone':'user_phone',
+            'user_address':'user_address',
+            'preferred_region_no':'preferred_region',
+            'preferred_accommodation_type_no':'preferred_accommodation_type',
+            'preferred_tour_theme_type_no':'preferred_tour_theme_type',
+            'profile_image':'profile_image'            
+        }
+
+
+class ImageForm(forms.Form):
+    image = forms.ImageField()
 
 
