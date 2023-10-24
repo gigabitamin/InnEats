@@ -11,7 +11,6 @@ from .models import Place
 from .models import NearRestaurant
 from .models import Hotelcounts
 
-
 # ModelForm 클래스 상속 받음
 class DailyHotelForm(forms.ModelForm):
     class Meta:
@@ -48,7 +47,7 @@ class YanoljaForm(forms.ModelForm):
         fields = (
             'yanolja_name',
             'yanolja_address',
-            'yanolja_image',
+            'yanolja_image_link',
             'yanolja_rating',
             'yanolja_link',
             'yanolja_date',
@@ -58,7 +57,7 @@ class YanoljaForm(forms.ModelForm):
         labels = {
             'yanolja_name' : '숙소 이름',
             'yanolja_address' : '주소',
-            'yanolja_image' : '이미지 url',
+            'yanolja_image_link' : '이미지 url',
             'yanolja_rating' : '별점',
             'yanolja_link' : '숙소 url',
             'yanolja_date' : '예약 가능 날짜',
@@ -66,7 +65,7 @@ class YanoljaForm(forms.ModelForm):
         }
 
 
-class GoodChoiceForm(forms.ModelForm):
+class GoodchoiceForm(forms.ModelForm):
     class Meta:
 
         # 여기어때
@@ -260,13 +259,21 @@ class NearRestaurantForm(forms.ModelForm):
             'restaurant_id': '음식점 ID',
         }
 
-
-
-
-
-class HotelCountsForm(forms.ModelForm):
+class hotelcountsForm(forms.ModelForm):
     class Meta:
-        model = Hotelcounts
-        fields = ('hoteltype', 'count', 'hotel_count_no')
 
-        labels = {'hoteltype':'호텔타입', 'count':'카운트', 'hotel_count_no':'호텔카운트pk'}
+        # 호텔갯수
+        # PRIMARY KEY (trip_name, trip_address)        
+        model = Hotelcounts
+        fields = (
+            'HotelType',
+            'Counts',
+            'hotel_count_no',
+            
+        )
+
+        labels = {
+            'HotelType': '호텔종류',
+            'Counts': '호텔',
+            'hotel_count_no': '호텔키',
+        }
