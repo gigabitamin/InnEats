@@ -116,6 +116,43 @@ class Goodchoice(models.Model):
         unique_together = (('acc_name', 'acc_address'),)
 
 
+class Hotelcounts(models.Model):
+    hoteltype = models.CharField(db_column='HotelType', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    count = models.IntegerField(db_column='Count', blank=True, null=True)  # Field name made lowercase.
+    hotel_count_no = models.CharField(primary_key=True, max_length=45)
+
+    class Meta:
+        managed = False
+        db_table = 'hotelcounts'
+
+
+class JejuPerformanceVenue(models.Model):
+    연번 = models.IntegerField(blank=True, null=True)
+    공연장명_개관일자_field = models.TextField(db_column='공연장명(개관일자)', blank=True, null=True)  # Field renamed to remove unsuitable characters. Field renamed because it ended with '_'.
+    소재지 = models.TextField(blank=True, null=True)
+    시설구분 = models.TextField(blank=True, null=True)
+    비_고 = models.TextField(db_column='비 고', blank=True, null=True)  # Field renamed to remove unsuitable characters.
+    기준일자 = models.TextField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'jeju_performance_venue'
+
+
+class JejuPlace(models.Model):
+    장소_poi에_대한_id_구분_번호_체계 = models.IntegerField(db_column='장소 POI에 대한 ID 구분 번호 체계', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    위치좌표_x축값 = models.FloatField(db_column='위치좌표 X축값', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    위치좌표_y축값 = models.FloatField(db_column='위치좌표 Y축값', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    구분 = models.TextField(blank=True, null=True)
+    장소명 = models.TextField(blank=True, null=True)
+    소재지 = models.TextField(blank=True, null=True)
+    데이터기준일자 = models.TextField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'jeju_place'
+
+
 class NaverBlog(models.Model):
     naver_blog_id = models.CharField(primary_key=True, max_length=10)
     naver_blog_title = models.CharField(max_length=200)
@@ -161,39 +198,27 @@ class Place(models.Model):
         db_table = 'place'
 
 
-
 class PreferredAccommodationType(models.Model):
     preferred_accommodation_type_no = models.CharField(primary_key=True, max_length=45)
     preferred_accommodation_type = models.CharField(max_length=45)
-
-
-    def __str__(self):
-        return self.preferred_accommodation_type_no
 
     class Meta:
         managed = False
         db_table = 'preferred_accommodation_type'
 
 
-
 class PreferredRegion(models.Model):
     preferred_region_no = models.CharField(primary_key=True, max_length=45)
     preferred_region = models.CharField(max_length=45)
 
-    def __str__(self):
-        return self.preferred_region_no
-    
     class Meta:
         managed = False
         db_table = 'preferred_region'
-        
+
 
 class PreferredTourThemeType(models.Model):
     preferred_tour_theme_type_no = models.CharField(primary_key=True, max_length=45)
     preferred_tour_theme_type = models.CharField(max_length=45)
-
-    def __str__(self):
-        return self.preferred_tour_theme_type_no
 
     class Meta:
         managed = False
@@ -324,11 +349,3 @@ class Youtube(models.Model):
     class Meta:
         managed = False
         db_table = 'youtube'
-
-class HotelCounts(models.Model):
-    HotelType = models.CharField(max_length=50)
-    Count = models.IntegerField()
-
-    class Meta:
-        managed = False
-        db_table = 'HotelCounts'  
