@@ -1,4 +1,3 @@
-
 from django.db import models
 
 
@@ -105,52 +104,14 @@ class Goodchoice(models.Model):
     acc_address = models.CharField(max_length=255)
     acc_image_link = models.TextField(blank=True, null=True)
     acc_rating = models.DecimalField(max_digits=3, decimal_places=1, blank=True, null=True)
-    acc_price = models.TextField(blank=True, null=True)
-    acc_room_type = models.TextField(blank=True, null=True)
-    acc_remain_room = models.TextField(blank=True, null=True)
     acc_link = models.TextField(blank=True, null=True)
+    acc_date = models.DateField(blank=True, null=True)
+    acc_price = models.IntegerField(blank=True, null=True)
 
     class Meta:
         managed = False
         db_table = 'goodchoice'
         unique_together = (('acc_name', 'acc_address'),)
-
-
-class Hotelcounts(models.Model):
-    hoteltype = models.CharField(db_column='HotelType', max_length=50, blank=True, null=True)  # Field name made lowercase.
-    count = models.IntegerField(db_column='Count', blank=True, null=True)  # Field name made lowercase.
-    hotel_count_no = models.CharField(primary_key=True, max_length=45)
-
-    class Meta:
-        managed = False
-        db_table = 'hotelcounts'
-
-
-class JejuPerformanceVenue(models.Model):
-    연번 = models.IntegerField(blank=True, null=True)
-    공연장명_개관일자_field = models.TextField(db_column='공연장명(개관일자)', blank=True, null=True)  # Field renamed to remove unsuitable characters. Field renamed because it ended with '_'.
-    소재지 = models.TextField(blank=True, null=True)
-    시설구분 = models.TextField(blank=True, null=True)
-    비_고 = models.TextField(db_column='비 고', blank=True, null=True)  # Field renamed to remove unsuitable characters.
-    기준일자 = models.TextField(blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'jeju_performance_venue'
-
-
-class JejuPlace(models.Model):
-    장소_poi에_대한_id_구분_번호_체계 = models.IntegerField(db_column='장소 POI에 대한 ID 구분 번호 체계', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    위치좌표_x축값 = models.FloatField(db_column='위치좌표 X축값', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    위치좌표_y축값 = models.FloatField(db_column='위치좌표 Y축값', blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    구분 = models.TextField(blank=True, null=True)
-    장소명 = models.TextField(blank=True, null=True)
-    소재지 = models.TextField(blank=True, null=True)
-    데이터기준일자 = models.TextField(blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'jeju_place'
 
 
 class NaverBlog(models.Model):
@@ -198,33 +159,6 @@ class Place(models.Model):
         db_table = 'place'
 
 
-class PreferredAccommodationType(models.Model):
-    preferred_accommodation_type_no = models.CharField(primary_key=True, max_length=45)
-    preferred_accommodation_type = models.CharField(max_length=45)
-
-    class Meta:
-        managed = False
-        db_table = 'preferred_accommodation_type'
-
-
-class PreferredRegion(models.Model):
-    preferred_region_no = models.CharField(primary_key=True, max_length=45)
-    preferred_region = models.CharField(max_length=45)
-
-    class Meta:
-        managed = False
-        db_table = 'preferred_region'
-
-
-class PreferredTourThemeType(models.Model):
-    preferred_tour_theme_type_no = models.CharField(primary_key=True, max_length=45)
-    preferred_tour_theme_type = models.CharField(max_length=45)
-
-    class Meta:
-        managed = False
-        db_table = 'preferred_tour_theme_type'
-
-
 class Restaurant(models.Model):
     restaurant_id = models.AutoField(primary_key=True)
     restaurant_link = models.TextField(blank=True, null=True)
@@ -263,10 +197,10 @@ class UsersAppUser(models.Model):
     id = models.BigAutoField(primary_key=True)
     password = models.CharField(max_length=128)
     last_login = models.DateTimeField(blank=True, null=True)
-    is_superuser = models.IntegerField(blank=True, null=True)
+    is_superuser = models.IntegerField()
     username = models.CharField(unique=True, max_length=150)
-    first_name = models.CharField(max_length=150, blank=True, null=True)
-    last_name = models.CharField(max_length=150, blank=True, null=True)
+    first_name = models.CharField(max_length=150)
+    last_name = models.CharField(max_length=150)
     email = models.CharField(max_length=254)
     is_staff = models.IntegerField()
     is_active = models.IntegerField()
@@ -274,10 +208,6 @@ class UsersAppUser(models.Model):
     user_name = models.CharField(max_length=30)
     user_phone = models.CharField(max_length=20)
     user_address = models.CharField(max_length=200)
-    preferred_region_no = models.ForeignKey(PreferredRegion, models.DO_NOTHING, db_column='preferred_region_no', blank=True, null=True)
-    preferred_accommodation_type_no = models.ForeignKey(PreferredAccommodationType, models.DO_NOTHING, db_column='preferred_accommodation_type_no', blank=True, null=True)
-    preferred_tour_theme_type_no = models.ForeignKey(PreferredTourThemeType, models.DO_NOTHING, db_column='preferred_tour_theme_type_no', blank=True, null=True)
-    profile_image = models.TextField(blank=True, null=True)
 
     class Meta:
         managed = False
@@ -345,7 +275,16 @@ class Youtube(models.Model):
     youtube_name = models.CharField(max_length=50, blank=True, null=True)
     youtube_views = models.CharField(max_length=20, blank=True, null=True)
     youtube_date = models.CharField(max_length=20, blank=True, null=True)
-
     class Meta:
         managed = False
         db_table = 'youtube'
+
+
+class Hotelcounts(models.Model):
+    hoteltype = models.CharField(db_column='HotelType', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    count = models.IntegerField(db_column='Count', blank=True, null=True)  # Field name made lowercase.
+    hotel_count_no = models.CharField(primary_key=True, max_length=45)
+
+    class Meta:
+        managed = False
+        db_table = 'hotelcounts'

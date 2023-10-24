@@ -32,7 +32,7 @@ class DailyHotelForm(forms.ModelForm):
         labels = {
             'daily_hotel_name' : '숙소 이름',
             'daily_hotel_address' : '주소',
-            'daily_hotel_image' : '이미지 url',
+            'daily_hotel_image_link' : '이미지 url',
             'daily_hotel_rating' : '별점',
             'daily_hotel_link' : '숙소 url',
             'daily_hotel_date' : '예약 가능 날짜',
