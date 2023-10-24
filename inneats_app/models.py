@@ -268,17 +268,13 @@ class Yanolja(models.Model):
 
 
 class Youtube(models.Model):
-    youtube_id = models.CharField(primary_key=True, max_length=20)
-    youtube_title = models.CharField(max_length=200)
-    youtube_link = models.TextField(blank=True, null=True)
-    youtube_image = models.TextField(blank=True, null=True)
-    youtube_hashtag = models.TextField(blank=True, null=True)
-    youtube_channel_name = models.CharField(max_length=100, blank=True, null=True)
-    youtube_channel_count = models.IntegerField(blank=True, null=True)
-    youtube_content_like_count = models.IntegerField(blank=True, null=True)
-    youtube_comment_like_count = models.IntegerField(blank=True, null=True)
-    youtube_content_date = models.CharField(max_length=50, blank=True, null=True)
-
+    youtube_id = models.CharField(primary_key=True, max_length=10)
+    youtube_title = models.CharField(max_length=100, blank=True, null=True)
+    youtube_link = models.CharField(max_length=100, blank=True, null=True)
+    youtube_image = models.CharField(max_length=200, blank=True, null=True)
+    youtube_name = models.CharField(max_length=50, blank=True, null=True)
+    youtube_views = models.CharField(max_length=20, blank=True, null=True)
+    youtube_date = models.CharField(max_length=20, blank=True, null=True)
     class Meta:
         managed = False
         db_table = 'youtube'
