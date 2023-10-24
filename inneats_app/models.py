@@ -324,3 +324,11 @@ class Youtube(models.Model):
     class Meta:
         managed = False
         db_table = 'youtube'
+
+class HotelCounts(models.Model):
+    HotelType = models.CharField(max_length=50)
+    Count = models.IntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'HotelCounts'  
