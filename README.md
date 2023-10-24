@@ -1,11 +1,10 @@
-<!-- sjh -->
 # AI 백엔드 5차 세미 프로젝트 (231013-231026)
 # TEAM def TROLL
 
-
-slack에 올려놓은 kdy_user_table_etc_231024_1314.sql import 하신 후 마이페이지 접속
+hst 갱신 확인용
 
 ==============================================================
+
 
 0.4.8 / 
 kyj / 유투브 크롤링 데이터 db 업로드 완료 
@@ -17,6 +16,7 @@ kdy / kdy_app inneats_app forms models 유투브 fields 수정
 user 테이블에 선호 여행 지역, 선호 숙박 형태, 선호 여행 테마 추가
 회원가입 form에 위의 3개 column 추가
 마이 페이지 구현 (현재 user_id = '6' 고정)
+slack에 올려놓은 kdy_user_table_etc_231024_1314.sql import 하신 후 마이페이지 접속
 
 0.4.6 / kdy / 
 user 테이블에 profile_image 컬럼 생성
