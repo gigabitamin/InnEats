@@ -1,6 +1,6 @@
 
 from django.db import models
-from . import views
+
 
 class AuthGroup(models.Model):
     name = models.CharField(unique=True, max_length=150)
@@ -326,11 +326,12 @@ class Youtube(models.Model):
         db_table = 'youtube'
 
 
-    class Hotelcounts(models.Model):
-        hoteltype = models.CharField(db_column='HotelType', max_length=50)  # Field name made lowercase.
-        count = models.IntegerField(db_column='Count', blank=True, null=True)  # Field name made lowercase.
-        hotel_count_no = models.CharField(max_length=45, blank=True, null=True, primary_key=True)
+class Hotelcounts(models.Model):
+    hoteltype = models.CharField(db_column='HotelType', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    count = models.IntegerField(db_column='Count', blank=True, null=True)  # Field name made lowercase.
+    hotel_count_no = models.CharField(primary_key=True, max_length=45)
 
-        class Meta:
-            managed = False
-            db_table = 'hotelcounts'
+    class Meta:
+        managed = False
+        db_table = 'hotelcounts'
+

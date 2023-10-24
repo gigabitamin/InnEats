@@ -5,6 +5,7 @@
 ==============================================================
 
 0.4.8 / 
+hst / search 앱 생성
 kyj / 유투브 크롤링 데이터 db 업로드 완료 
 kdy / kdy_app inneats_app forms models 유투브 fields 수정 
 -> 유투브 클릭시 정상구동 #주의사항:kyj님꼐서 올려놓은 sql 명령문으로 유투브 테이블 만든 후 youtube db import 한 뒤에 유투브 페이지 들어갈 것
@@ -14,6 +15,7 @@ kdy / kdy_app inneats_app forms models 유투브 fields 수정
 user 테이블에 선호 여행 지역, 선호 숙박 형태, 선호 여행 테마 추가
 회원가입 form에 위의 3개 column 추가
 마이 페이지 구현 (현재 user_id = '6' 고정)
+
 
 0.4.6 / kdy / 
 user 테이블에 profile_image 컬럼 생성

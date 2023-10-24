@@ -1,14 +1,15 @@
-from django.http import HttpResponse, JsonResponse
-from django.core import serializers
-import json
+# from django.http import HttpResponse, JsonResponse
+# from django.core import serializers
+# import json
+# from .models import NaverBlog
+# from .models import Youtube
+# from django.db.models import Q
+# from .forms import YoutubeForm
+# from .forms import NaverBlogForm
+# from .forms import UserInfoForm
+# from .forms import ImageForm
+
 from django.shortcuts import get_object_or_404, render, redirect
-from .models import NaverBlog
-from .models import Youtube
-from django.db.models import Q
-from .forms import YoutubeForm
-from .forms import NaverBlogForm
-from .forms import UserInfoForm
-from .forms import ImageForm
 from .models import Hotelcounts
 
 
@@ -39,7 +40,6 @@ def contact(request):
 
 def property_agent(request):
     hotel_data = Hotelcounts.objects.all()
-    print(hotel_data)
     # context = {'hotel_data': hotel_data}
     return render(request, 'inneats_app/index.html', {'hotel_data':hotel_data})
 
