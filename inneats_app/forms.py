@@ -119,36 +119,28 @@ class TripbtozForm(forms.ModelForm):
 
 
 
-
-class Youtube(forms.ModelForm):
+class YoutubeForm(forms.ModelForm):
     class Meta:
-
-        # 유투브
-        # PRIMARY KEY (youtube_id)        
         model = Youtube
         fields = (
-            'youtube_id'
-            'youtube_title'
-            'youtube_link'
-            'youtube_image'
-            'youtube_hashtag'
-            'youtube_channel_name'
-            'youtube_channel_count'
-            'youtube_comment_count'
-            'youtube_content_date'
+            'youtube_id',
+            'youtube_title',
+            'youtube_link',
+            'youtube_image',
+            'youtube_name',
+            'youtube_views',
+            'youtube_date',
         )
 
         labels = {
-            'youtube_id' : '유투브 no',
-            'youtube_title' : '유투브 제목',
-            'youtube_link' : '유투브 url',
-            'youtube_image' : '유투브 이미지 url',
-            'youtube_hashtag' : '유투브 해시태그',
-            'youtube_channel_name' : '유투브 채널 이름',
-            'youtube_channel_count' : '유투브 채널 조회수',
-            'youtube_comment_count' : '유투브 댓글 좋아요 수',
-            'youtube_content_date' : '유투브 영상 업로드 날짜'
-        }        
+            'youtube_id':'youtube_id',
+            'youtube_title':'제목',
+            'youtube_link':'URL',
+            'youtube_image':'이미지 링크',
+            'youtube_channel_name':'채널명',
+            'youtube_views':'조회수',
+            'youtube_date':'업로드 날짜',
+        }
 
 
 
