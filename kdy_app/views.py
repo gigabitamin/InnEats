@@ -7,7 +7,61 @@ from .models import Youtube
 from django.db.models import Q
 from .forms import YoutubeForm
 from .forms import NaverBlogForm
+from .forms import UserInfoForm
+from .forms import ImageForm
+from .models import UsersAppUser
 
+
+
+def sign_up_upload_image(request):
+    if request.method == 'POST':
+        form = ImageForm(request.POST, request.FILES)
+        if form.is_valid():
+            image = form.cleaned_data['image']
+            ImageForm.objects.create(image=image)
+            return redirect('users_app/sign_up2.html')
+    else:
+        form = ImageForm()
+    return render(request, 'users_app/sign_up2.html', {'form': form})
+
+
+def upload_image(request):
+    if request.method == 'POST':
+        form = ImageForm(request.POST, request.FILES)
+        if form.is_valid():
+            image = form.cleaned_data['image']
+            ImageForm.objects.create(image=image)
+            return redirect('my_page')
+    else:
+        form = ImageForm()
+    return render(request, 'my_page.html', {'form': form})
+
+
+def my_page (request, id):
+    user_info = get_object_or_404(UsersAppUser, pk=id)        
+    return render(request, 'kdy_app/my_page.html', {'user_info':user_info})
+    # keyword_trend = "제주도"
+    # return render(request, 'kdy_app/my_page.html', {'user_info':user_info, 'keyword_trend':keyword_trend})
+
+   
+def my_page_update(request, id):  
+    user_info = get_object_or_404(UsersAppUser, pk=id)    
+    if request.method == "POST":        
+        user_form = UserInfoForm(request.POST, instance=user_info)        
+        if user_form.is_valid():
+            user_info = user_form.save(commit=False)
+            user_info.save()
+            return redirect('my_page')
+    else:
+        user_form = UserInfoForm(instance=user_info)
+    
+    return render(request, 'kdy_app/my_page.html', {'user_form':user_form})
+
+def my_page_delete(id):
+    user_info = get_object_or_404(UsersAppUser, pk=id)
+    user_info.delete()
+    print('탈퇴가 완료되었습니다')
+    return redirect('index')
 
 
 def naver_blog_list(request, keyword):
