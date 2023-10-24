@@ -4,7 +4,7 @@
 
 <div class="sign_up_box">
     <form action="" method="post">
-    <br><div><h1>회원가입</h1></div><br>
+    <br><div><h1>회원 가입</h1></div><br>
         {% csrf_token %}
         <table id="sign_up2">
             {% comment %} <tr>
@@ -15,10 +15,10 @@
                 <th class='lbl'>아이디</th>
                 <td><input type="text" name='username'></td>
             </tr><tr>
-                <th class='lbl'>EMAIL</th>
+                <th class='lbl'>이메일</th>
                 <td><input type="text" name ='email'></td>
             </tr><tr>
-                <th class='lbl'>PASSWORD</th>
+                <th class='lbl'>비밀번호</th>
                 <td><input type="password" name ='password'></td>
             </tr><tr>                
                 <th class='lbl'>성명</th>
@@ -40,7 +40,7 @@
                 <td>{{form.preferred_tour_theme_type_no}}</td>
             </tr>
         </table><br>
-        <div class=signUpBtn><button type="submit" class='btn'>완료</button><div> 
+        <button id=signUpBtn type="submit" class="btn-primary">가입 완료</button>
     </form>
 </div>
 

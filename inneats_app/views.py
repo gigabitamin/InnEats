@@ -5,7 +5,8 @@ from django.shortcuts import get_object_or_404, render, redirect
 # from django.core import serializers
 
 def index(request):
-    return render(request, 'inneats_app/index.html')
+    user_info = request.user
+    return render(request, 'inneats_app/index.html', {'user_info':user_info})
     
 def about(request):    
     return render(request, 'inneats_app/about.html')
