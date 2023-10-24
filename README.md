@@ -9,6 +9,15 @@ slack에 올려놓은 kdy_user_table_etc_231024_1314.sql import 하신 후 마�
 
 
 0.4.7 / 
+sjh /
+sjh_app/map.html iframe 사용, setting.py에 추가
+X_FRAME_OPTIONS = 'SAMEORIGIN' \
+
+kdy /
+users_app/sign_up2.html 이미지 업로드 기능 관련 setting.py에 추가
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') \
+
 
 kdy / 
 user 테이블에 선호 여행 지역, 선호 숙박 형태, 선호 여행 테마 추가
