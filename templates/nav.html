@@ -17,17 +17,17 @@
            
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto">
-                    <a href="{% url 'index' %}" class="nav-item nav-link active">temp</a>
-                    <a href="{% url 'about' %}" class="nav-item nav-link">맛집</a>
-                    <a href="{% url 'about' %}" class="nav-item nav-link">관광지</a>
+                    {% comment %} <a href="{% url 'index' %}" class="nav-item nav-link active">temp</a>                 {% endcomment %}
                     <!-- 숙소 페이지 접근을 위한 임시숙소링크 추가 - kyj -->
                     <!-- 테스트를 위해 keyword 제주도 입력 -->
                     <!-- 유투브 블로그 링크 추가, 키워드 '제주도 포함' 형식 동일 -->
+                    <a href="{% url 'my_page' '6' %}" class="nav-item nav-link"  id="my_page">MY PAGE</a>
                     <a href="{% url 'youtube_list' keyword='제주도' %}" class="nav-item nav-link">유튜브</a>
-                    {% comment %} <a href="{% url 'blog_list' keyword='제주도' %}" class="nav-item nav-link" id="blog_list_nav_link">블로그</a> {% endcomment %}
-                    <a href="{% url 'accommodation' keyword='우도면' %}" class="nav-item nav-link">임시숙소링크</a>
-                    <a href="{% url 'sjh_app'%}" class="nav-item nav-link">맛집지도</a>
 
+                    <a href="{% url 'naver_blog_list' keyword='제주도' %}" class="nav-item nav-link">블로그</a>
+                    <a href="{% url 'accommodation' keyword='우도면' %}" class="nav-item nav-link">숙소</a>
+                    <a href="{% url 'sjh_app' %}" class="nav-item nav-link">맛집 지도</a>            
+                                        
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Property</a>
                         <div class="dropdown-menu rounded-0 m-0">
@@ -54,7 +54,7 @@
                     <div>{{ user.username }}님 로그인 중</div>
                     <div id="loginSignOut"><a href="{% url 'sign_out' %}">로그아웃</a></div>
                 {% else %}
-                    <div id="loginSignUp"><a href="{% url 'sign_up2' %}">회원가입</a></div>
+                    <div id="loginSignUp"><a href="{% url 'sign_up' %}">회원가입</a></div>
                     <div id="loginSignIn"><a href="{% url 'sign_in2' %}">로그인</a></div>
                 {% endif %}    
             </div>

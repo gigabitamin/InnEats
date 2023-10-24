@@ -1,5 +1,6 @@
 
 
+import os
 from pathlib import Path
 import db_settings
 
@@ -145,3 +146,6 @@ DATABASES = db_settings.DATABASES
 SECRET_KEY = db_settings.SECRET_KEY
 # settings.py
 X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

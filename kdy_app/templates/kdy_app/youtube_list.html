@@ -7,11 +7,6 @@
 {% block title %} Youtube list:{{ keyword }}{% endblock %}
 
 {% comment %} <iframe width="560" height="315" src="{{ youtube.youtube_link|youtube_embed_url }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> {% endcomment %}
-
-<a href="{% url 'youtube_all_detail' youtube.youtube_id %}">{{ youtube.youtube_id  }}
-{{youtube_title}}
-{{ youtube.youtube_link }}
-
  
 {% block content %}
 

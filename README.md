@@ -3,10 +3,29 @@
 # TEAM def TROLL
 
 
+slack에 올려놓은 kdy_user_table_etc_231024_1314.sql import 하신 후 마이페이지 접속
 
 ==============================================================
 
-0.4.3 /kdy
+0.4.7 / kdy / 
+user 테이블에 선호 여행 지역, 선호 숙박 형태, 선호 여행 테마 추가
+회원가입 form에 위의 3개 column 추가
+마이 페이지 구현 (현재 user_id = '6' 고정)
+
+0.4.6 / kdy / 
+user 테이블에 profile_image 컬럼 생성
+setting.py 에 MEDIA_URL = '/media/' 미디어 경로 추가
+kdy_app models.py user 테이블 수정
+kdy_app forms.py 이미지 업로드 form 추가
+
+0.4.5 / kdy
+sjh_app 부트스트랩 충돌로 map 부트스트랩 css 파일 2개 주석 처리 -> 해결
+accommodation_app 페이지에서 페이지 출력 오류 확인 -> merge 할때 기존 버전과 코드가 섞인 상태로 꼬인걸 발견하고 수정해서 해결
+
+0.4.4 / sjh
+sjh_app 지도 페이지 추가, 네비게이션에 sjh_app 추가
+
+0.4.3 / kdy
 갱신 확인용
 
 0.4.2 / kdy

@@ -3,6 +3,13 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
+
+    # path('sign_up2/', views.sign_up_upload_image, name='sign_up_upload_image,'),
+    # path('upload/image/', views.upload_image, name='upload_image,'),
+    path('my_page/<int:id>', views.my_page, name='my_page'),    
+    path('my_page/update/<str:id>', views.my_page_update, name='my_page_update'),
+    path('my_page/delete/<str:id>', views.my_page_delete, name='my_page_delete'),
+
     path('youtube/list/<str:keyword>', views.youtube_list, name='youtube_list'),
     path('youtube/detail/<str:youtube_id>', views.youtube_detail, name='youtube_detail'),
     path('youtube/list/kdy/<str:keyword>', views.youtube_list_kdy, name='youtube_list_kdy'),
