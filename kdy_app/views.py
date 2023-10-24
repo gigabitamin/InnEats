@@ -63,6 +63,9 @@ def my_page_delete(id):
     print('탈퇴가 완료되었습니다')
     return redirect('index')
 
+def jeju_accom_type(request):
+    return render(request, 'kdy_app/jeju_accom_type.html')
+
 
 def naver_blog_list(request, keyword):
     naver_blog_data = NaverBlog.objects.filter(naver_blog_title__icontains=keyword)

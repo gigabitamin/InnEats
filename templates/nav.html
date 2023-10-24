@@ -21,6 +21,9 @@
                     <!-- 숙소 페이지 접근을 위한 임시숙소링크 추가 - kyj -->
                     <!-- 테스트를 위해 keyword 제주도 입력 -->
                     <!-- 유투브 블로그 링크 추가, 키워드 '제주도 포함' 형식 동일 -->
+                    
+                    <a href="{% url 'jeju_accom_type' %}" class="nav-item nav-link">숙박 형태 카운트</a>
+
                     <a href="{% url 'my_page' '6' %}" class="nav-item nav-link"  id="my_page">MY PAGE</a>
                     <a href="{% url 'youtube_list' keyword='제주도' %}" class="nav-item nav-link">유튜브</a>
                     <a href="{% url 'naver_blog_list' keyword='제주도' %}" class="nav-item nav-link">블로그</a>
