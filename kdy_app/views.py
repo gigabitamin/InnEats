@@ -7,10 +7,33 @@ from .models import Youtube
 from django.db.models import Q
 from .forms import YoutubeForm
 from .forms import NaverBlogForm
-from .forms import UserInfoForm
 from .forms import ImageForm
+from .forms import UserInfoForm
 from .models import UsersAppUser
+from django.views.generic.edit import DeleteView
+from django.contrib.auth.decorators import login_required
 
+
+def my_page_delete_move(request, id):
+    user_info = get_object_or_404(UsersAppUser, pk=id)        
+    return render(request, 'kdy_app/my_page_delete_confirm.html', {'user_info':user_info})
+
+@login_required
+def my_page_delete(request):
+    if request.method == "POST":
+        user = request.user  # 현재 로그인한 사용자
+        user.delete()  # 사용자 정보 삭제
+        return redirect('index')  # 탈퇴 후 리디렉션할 URL
+    return render(request, 'kdy_app/my_page_delete_confirm.html')
+
+
+
+class MyPageDeleteView(DeleteView):
+    model = UsersAppUser
+    success_url = 'index'  # 회원 탈퇴 후 리디렉션할 URL
+
+    # 'my_page_delete_confirm.html' 템플릿을 사용하도록 설정
+    template_name = 'kdy_app/my_page_delete_confirm.html'
 
 
 def sign_up_upload_image(request):
@@ -31,37 +54,46 @@ def upload_image(request):
         if form.is_valid():
             image = form.cleaned_data['image']
             ImageForm.objects.create(image=image)
-            return redirect('my_page')
+            return redirect('kdy_app/my_page.html')
     else:
         form = ImageForm()
-    return render(request, 'my_page.html', {'form': form})
+    return render(request, 'kdy_app/my_page.html', {'form': form})
 
 
-def my_page (request, id):
-    user_info = get_object_or_404(UsersAppUser, pk=id)        
-    return render(request, 'kdy_app/my_page.html', {'user_info':user_info})
-    # keyword_trend = "제주도"
-    # return render(request, 'kdy_app/my_page.html', {'user_info':user_info, 'keyword_trend':keyword_trend})
 
-   
+@login_required
+def my_page(request):
+    user_info = request.user  # 현재 로그인한 사용자
+    return render(request, 'kdy_app/my_page.html', {'user_info': user_info})
+
+
+# @login_required
+# def my_page(request):
+#     user_info = request.user  # 현재 로그인한 사용자
+#     if user_info.is_authenticated and user_info.id == id:
+#         return render(request, 'kdy_app/my_page.html', {'user_info': user_info})
+#     else:
+#         # 로그인하지 않은 사용자나 다른 사용자의 마이페이지에 접근하려는 경우 리디렉션
+#         return redirect('sign_in')  
+
 def my_page_update(request, id):  
     user_info = get_object_or_404(UsersAppUser, pk=id)    
-    if request.method == "POST":        
-        user_form = UserInfoForm(request.POST, instance=user_info)        
+    if request.method == "POST":
+        user_form = UserInfoForm(request.POST, instance=user_info)
         if user_form.is_valid():
             user_info = user_form.save(commit=False)
             user_info.save()
-            return redirect('my_page')
+            return redirect('my_page', user_info.id)
     else:
         user_form = UserInfoForm(instance=user_info)
     
-    return render(request, 'kdy_app/my_page.html', {'user_form':user_form})
+    return render(request, 'kdy_app/my_page_update.html', {'user_form':user_form, 'user_info':user_info})
 
-def my_page_delete(id):
-    user_info = get_object_or_404(UsersAppUser, pk=id)
-    user_info.delete()
-    print('탈퇴가 완료되었습니다')
-    return redirect('index')
+# def my_page_delete(id):
+#     user_info = get_object_or_404(UsersAppUser, pk=id)
+#     user_info.delete()
+#     print('탈퇴가 완료되었습니다')
+#     return redirect('index')
 
 def jeju_accom_type(request):
     return render(request, 'kdy_app/jeju_accom_type.html')

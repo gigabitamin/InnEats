@@ -263,7 +263,7 @@ class NearRestaurantForm(forms.ModelForm):
 
 
 
-class hotelcountsForm(forms.ModelForm):
+class HotelCountsForm(forms.ModelForm):
     class Meta:
 
         # 호텔갯수
@@ -273,7 +273,6 @@ class hotelcountsForm(forms.ModelForm):
             'HotelType',
             'Counts',
             'hotel_count_no',
-
         )
 
         labels = {

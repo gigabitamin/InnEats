@@ -14,7 +14,8 @@ from .models import Hotelcounts
 
 
 def index(request):
-    return render(request, 'inneats_app/index.html')
+    user_info = request.user
+    return render(request, 'inneats_app/index.html', {'user_info':user_info})
     
 def about(request):    
     return render(request, 'inneats_app/about.html')

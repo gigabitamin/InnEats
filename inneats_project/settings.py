@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'inneats_app',
     'users_app',
     
+    
     # accommodation_app 추가 -kyj
     'accommodation_app', 
 
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     #search앱 추가 - hst
     'search',
 
+    'attraction_app',
     # sjh_app 추가 -sjh
     'sjh_app',
   

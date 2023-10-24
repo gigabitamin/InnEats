@@ -11,9 +11,6 @@
     <!-- Favicon -->
     <link href="{% static 'img/favicon.ico' %}" rel="icon">
 
-    {% comment %} django 로컬서버 127.0.0.1 에서 구동시 spinner를 통과시키기 위해 https 요청 부분은 모두 주석 처리 {% endcomment %}
-    {% comment %} 해당 파일을 로컬에 저장해서 static 경로에 넣은 뒤 사용 가능 -> font라 없어도 당장은 지장없어서 뺐음 {% endcomment %}
-
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,7 +44,6 @@
 
 </head>
 <body>
-
 
 {% include "nav.html" %}
 {% comment %} <!-- {% block search_content %}
