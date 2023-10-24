@@ -1,14 +1,15 @@
 from django import forms
 from .models import DailyHotel
 from .models import Yanolja
-from .models import GoodChoice
+from .models import Goodchoice
 from .models import Tripbtoz
 from .models import Youtube
 from .models import NaverBlog
 from .models import Restaurant
-from .models import VisitKorea
+from .models import Visitkorea
 from .models import Place
 from .models import NearRestaurant
+from .models import Hotelcounts
 
 
 # ModelForm 클래스 상속 받음
@@ -21,7 +22,7 @@ class DailyHotelForm(forms.ModelForm):
         fields = (
             'daily_hotel_name',
             'daily_hotel_address',
-            'daily_hotel_image',
+            'daily_hotel_image_link',
             'daily_hotel_rating',
             'daily_hotel_link',
             'daily_hotel_date',
@@ -31,7 +32,7 @@ class DailyHotelForm(forms.ModelForm):
         labels = {
             'daily_hotel_name' : '숙소 이름',
             'daily_hotel_address' : '주소',
-            'daily_hotel_image' : '이미지 url',
+            'daily_hotel_image_link' : '이미지 url',
             'daily_hotel_rating' : '별점',
             'daily_hotel_link' : '숙소 url',
             'daily_hotel_date' : '예약 가능 날짜',
@@ -70,7 +71,7 @@ class GoodChoiceForm(forms.ModelForm):
 
         # 여기어때
         # PRIMARY KEY (goodchoice_name, goodchoice_address)        
-        model = GoodChoice
+        model = Goodchoice
         fields = (
             'goodchoice_name',
             'goodchoice_address',
@@ -209,7 +210,7 @@ class RestaurantForm(forms.ModelForm):
 
 class VisitKoreaForm(forms.ModelForm):
     class Meta:
-        model = VisitKorea
+        model = Visitkorea
         fields = (
             'visitkorea_title',
             'visitkorea_tel',
@@ -250,6 +251,18 @@ class PlaceForm(forms.ModelForm):
 class NearRestaurantForm(forms.ModelForm):
     class Meta:
         model = NearRestaurant
+        fields = (
+            'place_id',
+            'restaurant_id',
+        )
+        labels = {
+            'place_id': '장소 ID',
+            'restaurant_id': '음식점 ID',
+        }
+
+class HotelCountForm(forms.ModelForm):
+    class Meta:
+        model = Hotelcounts
         fields = (
             'place_id',
             'restaurant_id',
