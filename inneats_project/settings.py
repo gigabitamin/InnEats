@@ -153,3 +153,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # sjh_app/map.html iframe 사용 -sjh
 X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+
