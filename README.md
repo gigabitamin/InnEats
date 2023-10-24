@@ -18,6 +18,7 @@ my_page css 적용 완료
 hst sjh sms 각 멤버별 임시 취합버전 models, forms 등 기타 오류 수정 -> 정상 구동 확인
 
 0.4.9 /
+sjh / js 폴더에 map 관련 bootstrap.js 파일 -> 다른 분 페이지 css 고치실 때 충돌 없는지 확인
 sms / acctraction_app 생성
 
 0.4.8 / 
