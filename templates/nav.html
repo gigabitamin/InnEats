@@ -21,7 +21,7 @@
                                         
                 
                     {% comment %} 드롭다운 메뉴 {% endcomment %}
-                    <div class="nav-item dropdown">
+                    {% comment %} <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">임시1</a>
                         <div class="dropdown-menu rounded-0 m-0">
                             <a href="{% url 'property_list' %}" class="dropdown-item">Property List</a>
@@ -35,18 +35,16 @@
                             <a href="{% url 'property_testimonial' %}" class="dropdown-item">Testimonial</a>
                             <a href="{% url 'error404' %}" class="dropdown-item">404 Error</a>
                         </div>
-                    </div>
+                    </div> {% endcomment %}
 
                     {% comment %} <a href="{% url 'index' %}" class="nav-item nav-link active">temp</a>{% endcomment %}
                     <!-- 숙소 페이지 접근을 위한 임시숙소링크 추가 - kyj -->
                     <!-- 테스트를 위해 keyword 제주도 입력 -->                    
 
                     <a href="{% url 'about' %}" class="nav-item nav-link">TEAM def Troll</a>
-                    <a href="{% url 'accommodation' keyword='우도면' %}" class="nav-item nav-link">숙소</a>
-                    <a href="{% url 'attraction' keyword='우도면' %}" class="nav-item nav-link">여행지</a>
-                    <a href="{% url 'map_main' %}" class="nav-item nav-link">맛집|여행지도</a>
-
-
+                    <a href="{% url 'accommodation' keyword='우도면' %}" class="nav-item nav-link">숙소</a>                                                    
+                    <a href="{% url 'attraction' keyword='우도면' %}" class="nav-item nav-link">여행지</a>                    
+                    <a href="{% url 'map_main' %}" class="nav-item nav-link">맛집|여행지도</a>                                        
 
                     {% comment %} 로그인 user만 유투브 리스트 + region 으로 접근, 로그인 안한 사용자의 경우 유투브 리스트 + keyword로 이동 리다이렉트 -kdy {% endcomment %}                    
                     {% if user_info.is_authenticated %}
@@ -77,6 +75,7 @@
                 {% comment %} <a href="" class="btn btn-primary px-3 d-none d-lg-flex"></a>  {% endcomment %}
             </div>
 
+            {% comment %} 로그인 user만 마이페이지에 접근가능, 로그인 안한 사용자의 경우 자동으로 로그인 창으로 리다이렉트 {% endcomment %}  
             <!-- 회원가입 로그인 박스 시작 - kdy -->
             <div id="loginBox">    
                 {% if user.is_authenticated %}
