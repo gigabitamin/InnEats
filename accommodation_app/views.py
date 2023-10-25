@@ -4,6 +4,7 @@ from inneats_app.models import Visitkorea
 from inneats_app.models import Youtube
 from inneats_app.models import Accommodation
 from inneats_app.models import Restaurant
+from inneats_app.models import NaverBlog
 
 # Create your views here.
 def accommodation(request,keyword):    
@@ -25,15 +26,19 @@ def accommodation_detail(request, accommodation_id):
     if len(keywords) > 2 :
         keyword = keywords[2]
     else:
-        keyword = keywords[1]
+        keyword = keywords[1]     
 
     attraction_list = Visitkorea.objects.filter(Q(visitkorea_address__contains=keyword))
-    attraction_list = Visitkorea.objects.filter(Q(visitkorea_address__contains=keyword))
+    restaurant_list = Restaurant.objects.filter(Q(restaurant_address__contains=keyword))
+
+    # print(keyword)
+    # print(len(restaurant_list))
 
     if len(attraction_list) == 0:
         attraction_list = Visitkorea.objects.filter(Q(visitkorea_address__contains=keywords[1]))
 
-
+    if len(restaurant_list) == 0:
+        restaurant_list = Restaurant.objects.filter(Q(restaurant_address__contains=keywords[1]))
 
     # youtube_list = Youtube.objects.filter(Q(visitkorea_address__contains=keywords))
 
@@ -45,30 +50,32 @@ def accommodation_detail(request, accommodation_id):
 
     # 맛집 이름 리스트
 
-    keywords2 = [attr.visitkorea_title for attr in attraction_list]  
+    keywords2 = [restaurant.restaurant_shop_name for restaurant in restaurant_list]  
 
-    # for keyword in keywords:
-    #     print(keyword)
+    all_keywords = keywords + keywords2
 
     # 유튜브 검색을 위한 쿼리 조합#
-    q_objects = Q(youtube_title__contains=keywords[0])
+    q_objects = Q(youtube_title__contains=all_keywords[0])
     # 나머지 키워드들을 OR 조건으로 추가
     for keyword in keywords[1:]:
         q_objects |= Q(youtube_title__contains=keyword)
     # 쿼리 실행
     youtube_list = Youtube.objects.filter(q_objects)
+    #################################################################################    
+
+    # 블로그 검색을 위한 쿼리 조합#
+    q_objects2 = Q(naver_blog_title__contains=keywords[0])
+    # # 나머지 키워드들을 OR 조건으로 추가
+    for keyword in keywords[1:]:
+        q_objects2 |= Q(naver_blog_title__contains=keyword)
+    # # 쿼리 실행
+    blog_list = NaverBlog.objects.filter(q_objects2)
     #################################################################################
 
-    # 맛집 검색을 위한 쿼리 조합#
-    # q_objects = Q(youtube_title__contains=keywords[0])
-    # # 나머지 키워드들을 OR 조건으로 추가
-    # for keyword in keywords[1:]:
-    #     q_objects |= Q(youtube_title__contains=keyword)
-    # # 쿼리 실행
-    # youtube_list = Youtube.objects.filter(q_objects)
-    #################################################################################
 
     attraction_list = attraction_list[:3]
+    restaurant_list = restaurant_list[:3]
     youtube_list = youtube_list[:3] 
+    blog_list = blog_list[:3]
     
-    return render(request, 'accommodation_app/accommodation_detail.html', {'attraction_list':attraction_list ,'accommodation':accommodation, 'youtube_list':youtube_list})
+    return render(request, 'accommodation_app/accommodation_detail.html', {'attraction_list':attraction_list ,'accommodation':accommodation, 'youtube_list':youtube_list, 'restaurant_list':restaurant_list , 'blog_list':blog_list})
