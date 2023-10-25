@@ -53,22 +53,23 @@ def accommodation_detail(request, accommodation_id):
     # 맛집 이름 리스트
 
     keywords2 = [restaurant.restaurant_shop_name for restaurant in restaurant_list]  
+    
 
     all_keywords = keywords + keywords2
 
     # 유튜브 검색을 위한 쿼리 조합#
     q_objects = Q(youtube_title__contains=all_keywords[0])
     # 나머지 키워드들을 OR 조건으로 추가
-    for keyword in keywords[1:]:
+    for keyword in all_keywords[1:]:
         q_objects |= Q(youtube_title__contains=keyword)
     # 쿼리 실행
     youtube_list = Youtube.objects.filter(q_objects)
     #################################################################################    
 
     # 블로그 검색을 위한 쿼리 조합#
-    q_objects2 = Q(naver_blog_title__contains=keywords[0])
+    q_objects2 = Q(naver_blog_title__contains=all_keywords[0])
     # # 나머지 키워드들을 OR 조건으로 추가
-    for keyword in keywords[1:]:
+    for keyword in all_keywords[1:]:
         q_objects2 |= Q(naver_blog_title__contains=keyword)
     # # 쿼리 실행
     blog_list = NaverBlog.objects.filter(q_objects2)
