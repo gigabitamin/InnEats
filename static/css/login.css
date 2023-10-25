@@ -1,4 +1,16 @@
 
+/* 회원수정 */
+
+/* 회원탈퇴 */
+#sign_up_box {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid rgba(0, 185, 142);
+  padding: 20px;
+}
+
+
 /* login.html 회원가입, 로그인 포함하는 박스 */
 #loginBox {
   font-size: 12px;

@@ -208,7 +208,7 @@ class Restaurant(models.Model):
     restaurant_map_x = models.FloatField(blank=True, null=True)
     restaurant_map_y = models.FloatField(blank=True, null=True)
     restaurant_address = models.CharField(max_length=100, blank=True, null=True)
-
+    
     class Meta:
         managed = False
         db_table = 'restaurant'
@@ -350,3 +350,6 @@ class Hotelcounts(models.Model):
     class Meta:
         managed = False
         db_table = 'hotelcounts'
+
+
+
