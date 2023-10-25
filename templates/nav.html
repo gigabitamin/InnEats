@@ -17,9 +17,11 @@
            
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto">
+                    {% comment %} <a href="{% url 'index' %}" class="nav-item nav-link active">temp</a> {% endcomment %}           
+                                        
                 
                     {% comment %} 드롭다운 메뉴 {% endcomment %}
-                    <div class="nav-item dropdown">
+                    {% comment %} <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">임시1</a>
                         <div class="dropdown-menu rounded-0 m-0">
                             <a href="{% url 'property_list' %}" class="dropdown-item">Property List</a>
@@ -33,7 +35,7 @@
                             <a href="{% url 'property_testimonial' %}" class="dropdown-item">Testimonial</a>
                             <a href="{% url 'error404' %}" class="dropdown-item">404 Error</a>
                         </div>
-                    </div>
+                    </div> {% endcomment %}
 
                     {% comment %} <a href="{% url 'index' %}" class="nav-item nav-link active">temp</a>{% endcomment %}
                     <!-- 숙소 페이지 접근을 위한 임시숙소링크 추가 - kyj -->
@@ -73,6 +75,7 @@
                 {% comment %} <a href="" class="btn btn-primary px-3 d-none d-lg-flex"></a>  {% endcomment %}
             </div>
 
+            {% comment %} 로그인 user만 마이페이지에 접근가능, 로그인 안한 사용자의 경우 자동으로 로그인 창으로 리다이렉트 {% endcomment %}  
             <!-- 회원가입 로그인 박스 시작 - kdy -->
             <div id="loginBox">    
                 {% if user.is_authenticated %}

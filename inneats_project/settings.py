@@ -161,10 +161,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 
-# views.py 에서 이메일 발송을 위한 static 경로 설정
+# views.py 에서 이메일 발송을 위한 static 경로 설정 -kdy
 STATICFILES_DIRS = [ 
     os.path.join(BASE_DIR, 'static')
 ]
 
-# python manage.py collectstatic
+# python manage.py collectstatic 이메일 이미지 첨부 경로를 위한 세팅 -kdy
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
