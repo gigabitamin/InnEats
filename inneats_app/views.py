@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-from django.shortcuts import get_object_or_404, render, redirect
-from .models import Hotelcounts
-from .forms import hotelcountsForm
-# from django.db.models import Q 
-=======
->>>>>>> 585b53b5ab95385086c1bffc6ab4e07dcd82554d
 # from django.http import HttpResponse, JsonResponse
 # from django.core import serializers
 # import json
@@ -49,19 +42,10 @@ def contact(request):
     return render(request, 'inneats_app/contact.html')
 
 
-<<<<<<< HEAD
-   
-=======
 def property_agent(request):
     hotel_data = Hotelcounts.objects.all()
     # context = {'hotel_data': hotel_data}
     return render(request, 'inneats_app/index.html', {'hotel_data':hotel_data})
 
 
->>>>>>> 585b53b5ab95385086c1bffc6ab4e07dcd82554d
 
-
-def property_agent(request):
-    hotel_data = hotelcountsForm.objects.all()
-
-    return render(request, 'inneats_app/index.html', {'hotel_data':hotel_data})

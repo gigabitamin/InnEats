@@ -1,44 +1,102 @@
 {% load static %}
-
-
-
-{{ hotel_data.count }}
-
-
-
-                <!-- 반복 -->
-                <div id="tab-1" class="tab-pane fade show p-0 active" id="recommend">
-                    <div class="row g-4">
-                        {% for naver_blog in naver_blog_list %}
-                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                            <div class="property-item rounded overflow-hidden">
-                                <div class="position-relative overflow-hidden">
-                                    <a href="{{ naver_blog.naver_blog_link }}"><img class="img-fluid" src="{{ naver_blog.naver_blog_image }}" alt="" title="클릭 시 블로그 이동"></a>
-                                    <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">{{ naver_blog.naver_blog_id }}</div>
-                                    <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">{{ naver_blog.naver_bloger_name }}</div>
+{% block content %}  
+    <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                    <h1 class="mb-3">숙소 종류</h1>
+                    <p>현제 숙소의 목록입니다.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <a class="cat-item d-block bg-light text-center rounded p-3" href="">
+                            <div class="rounded p-4">
+                                <div class="icon mb-3">
+                                    <img class="img-fluid" src="../../../static/img/icon-apartment.png" alt="Icon">
                                 </div>
-                                <div class="p-4 pb-0">
-                                    <h5 class="text-primary mb-3">{{ naver_blog.naver_blog_hashtag }}</h5>
-                                    <a class="d-block h5 mb-2" href="">{{ naver_blog.naver_blog_title }}</a>
-                                    <p><i class="fa fa-map-marker-alt text-primary me-2"></i>{{ naver_blog.naver_blog_content_date}}</p>
-                                </div>
-                                <div class="d-flex border-top">
-                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-ruler-combined text-primary me-2"></i>좋아요 수:{{ blog_content_likeit_count|intcomma }} </small>
-                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-bed text-primary me-2"></i></small>
-                                    <small class="flex-fill text-center py-2"><i class="fa fa-bath text-primary me-2"></i></small>
-                                </div>
+                                <h6>호텔</h6>
+                                <span>295</span>
                             </div>
-                        </div>
-                        <!-- css 무너지지 않도록 3개씩 반복 -->
-                        {% if forloop.counter|divisibleby:3 and not forloop.last %}
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <a class="cat-item d-block bg-light text-center rounded p-3" href="">
+                            <div class="rounded p-4">
+                                <div class="icon mb-3">
+                                    <img class="img-fluid" src="../../../static/img/icon-villa.png" alt="Icon">
+                                </div>
+                                <h6>빌라</h6>
+                                <span>43</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <a class="cat-item d-block bg-light text-center rounded p-3" href="">
+                            <div class="rounded p-4">
+                                <div class="icon mb-3">
+                                    <img class="img-fluid" src="../../../static/img/icon-house.png" alt="Icon">
+                                </div>
+                                <h6>모텔</h6>
+                                <span>2</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                        <a class="cat-item d-block bg-light text-center rounded p-3" href="">
+                            <div class="rounded p-4">
+                                <div class="icon mb-3">
+                                    <img class="img-fluid" src="../../../static/img/icon-housing.png" alt="Icon">
+                                </div>
+                                <h6>리조트</h6>
+                                <span>93</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <a class="cat-item d-block bg-light text-center rounded p-3" href="">
+                            <div class="rounded p-4">
+                                <div class="icon mb-3">
+                                    <img class="img-fluid" src="../../../static/img/icon-building.png" alt="Icon">
+                                </div>
+                                <h6>무인텔</h6>
+                                <span>9</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <a class="cat-item d-block bg-light text-center rounded p-3" href="">
+                            <div class="rounded p-4">
+                                <div class="icon mb-3">
+                                    <img class="img-fluid" src="../../../static/img/icon-neighborhood.png" alt="Icon">
+                                </div>
+                                <h6>스테이</h6>
+                                <span>48</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <a class="cat-item d-block bg-light text-center rounded p-3" href="">
+                            <div class="rounded p-4">
+                                <div class="icon mb-3">
+                                    <img class="img-fluid" src="../../../static/img/icon-condominium.png" alt="Icon">
+                                </div>
+                                <h6>스파</h6>
+                                <span>17</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                        <a class="cat-item d-block bg-light text-center rounded p-3" href="">
+                            <div class="rounded p-4">
+                                <div class="icon mb-3">
+                                    <img class="img-fluid" src="../../../static/img/icon-luxury.png" alt="Icon">
+                                </div>
+                                <h6>스파</h6>
+                                <span>17</span>
+                            </div>
+                        </a>
                     </div>
                 </div>
-                <div id="tab-1f" class="tab-pane fade show p-0 active">
-                    <div class="row g-4">                
-                        {% endif %}
-                        {% endfor %}
-                    </div>
-                </div>
-                <br><div class="col-12 text-center">
-                    <a class="btn btn-primary py-3 px-5" href="https://www.naver_blog.com/results?search_query={{keyword}}">{{keyword}} : 추천블로그 보러가기</a>
-                </div><br>
+            </div>
+    </div>
+    
+{% endblock content %}
