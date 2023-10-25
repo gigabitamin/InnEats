@@ -1,13 +1,14 @@
 # AI 백엔드 5차 세미 프로젝트 (231013-231026)
 # TEAM def TROLL
 
-
+hst님 about 이랑 고객센터 header 부분 확인해주세요
 
 ==============================================================
 
 0.5.3 / kdy / 임시취합, hst브런치, develop 브런치 병합
 hst 브런치에서 pull -> hst 브런치 버전에서 static/css/bootstrap.min.css 변경사항 확인
 css 파일 이전버전으로 롤백 -> 해결
+about, contact 페이지 header 부분 슬라이드 버튼 기능 정지 -> 미해결 / hst 본인 작업 페에지에서 확인 요망
 hst / 숙소목록 for문 데이터 출력 확인, 고객의 소리 추가, 고객센터 페이지 푸터 번역
 kyj / accom_app 변경사항 확인
 kdy / kyj / sms / sjh / hst / 페이지 모두 정상 출력 확인
