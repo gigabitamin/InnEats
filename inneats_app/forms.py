@@ -259,33 +259,19 @@ class NearRestaurantForm(forms.ModelForm):
             'restaurant_id': '음식점 ID',
         }
 
-<<<<<<< HEAD
-class hotelcountsForm(forms.ModelForm):
-    class Meta:
-
-        # 호텔갯수
-        # PRIMARY KEY (trip_name, trip_address)        
-=======
 
 
 
 class HotelCountsForm(forms.ModelForm):
     class Meta:
-
         # 호텔갯수
         # PRIMARY KEY (hotel_count_no)
->>>>>>> 585b53b5ab95385086c1bffc6ab4e07dcd82554d
         model = Hotelcounts
         fields = (
             'HotelType',
             'Counts',
             'hotel_count_no',
-<<<<<<< HEAD
-            
-=======
->>>>>>> 585b53b5ab95385086c1bffc6ab4e07dcd82554d
         )
-
         labels = {
             'HotelType': '호텔종류',
             'Counts': '호텔',
