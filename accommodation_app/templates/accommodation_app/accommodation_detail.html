@@ -12,20 +12,22 @@
         <div class="row g-5 align-items-center">
             <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                 <div class="about-img position-relative overflow-hidden p-5 pe-0">
-                    <img class="img-fluid w-100" src={{accommodation.daily_hotel_image_link}} >
+                    <img class="img-fluid w-100" src={{accommodation.img_link}} >
                 </div>
             </div>
             <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                <h1 class="mb-4">{{accommodation.daily_hotel_name}}</h1>
-                <p class="mb-4"><i class="fa fa-map-marker-alt text-primary me-2"></i>{{accommodation.daily_hotel_address}}</p>
+                <h1 class="mb-4">{{accommodation.title}}</h1>
+                <p class="mb-4"><i class="fa fa-map-marker-alt text-primary me-2"></i>{{accommodation.address}}</p>
                 <p><i class="fa fa-check text-primary me-3"></i>여기어때 10000원</p>
                 <p><i class="fa fa-check text-primary me-3"></i>야놀자 10000원</p>
-                <a href="{{ accommodation.daily_hotel_link }}"><p><i class="fa fa-check text-primary me-3"></i>데일리호텔:
-                    {% if accommodation.daily_hotel_price|floatformat %}
-                        {{ accommodation.daily_hotel_price|floatformat }}원
+                
+                <a href="{{ accommodation.da_link }}"><p><i class="fa fa-check text-primary me-3"></i>데일리호텔:
+                    {% if accommodation.da_price|floatformat %}
+                        {{ accommodation.da_price|floatformat }}원
                     {% else %}
                         정보없음
                     {% endif %}<i class="bi bi-link-45deg"></i></p></a>
+                
                 <p><i class="fa fa-check text-primary me-3"></i>트립비토즈 10000원</p>
                 <!-- <a class="btn btn-primary py-3 px-5 mt-3" href="">Read More</a> -->
             </div>
@@ -143,19 +145,19 @@
             <div id="tab-1" class="tab-pane fade show p-0 active">
                 <div class="row g-4">
                      <!-- 구현시 받아온 유트브_리스트 중 3개 반복 -->
-                     {% for _ in "123" %}
+                     {% for youtube in youtube_list %}
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="property-item rounded overflow-hidden">
                             <div class="position-relative overflow-hidden">
                                 <!-- 구현시 url 뒤에 값 전달 -->
-                                <a href=""><img class="img-fluid" src="http://tong.visitkorea.or.kr/cms/resource/04/1938304_image2_1.jpg" alt=""></a>
-                                <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">채널명?유튜버이름?</div>
+                                <a href={{ youtube.youtube_link }}><img class="img-fluid" src={{ youtube.youtube_image }} alt=""></a>
+                                <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">{{ youtube.youtube_name }}</div>
                                 <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3" style= "max-width: 86%;">
-                                    <div class="overflow-hidden text-nowrap text-truncate">타이틀:제주떡볶이 왕대박!</div>
+                                    <div class="overflow-hidden text-nowrap text-truncate">{{ youtube.youtube_title }}</div>
                                 </div> 
                             </div>
                             <div class="p-4 pb-0">
-                                <h6 class="text-primary mb-3">기타설명(별점, 종아요수, 구독자 등? 썸네이표시 가능이면 생략)</h6>
+                                <h6 class="text-primary mb-3">{{ youtube.youtube_views }}{{ youtube.youtube_date }}</h6>
                                 <!-- <a class="d-block h5 mb-2" href="">Golden Urban House For Sell</a>
                                 <p><i class="fa fa-map-marker-alt text-primary me-2"></i>123 Street, New York, USA</p> -->
                             </div>
