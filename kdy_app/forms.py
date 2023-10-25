@@ -2,6 +2,9 @@ from django import forms
 from .models import Youtube
 from .models import NaverBlog
 from .models import UsersAppUser
+from .models import PreferredRegion
+from .models import PreferredAccommodationType
+from .models import PreferredTourThemeType
 
 class YoutubeForm(forms.ModelForm):
     class Meta:
@@ -11,25 +14,19 @@ class YoutubeForm(forms.ModelForm):
             'youtube_title',
             'youtube_link',
             'youtube_image',
-            'youtube_hashtag',
-            'youtube_channel_name',
-            'youtube_channel_count',
-            'youtube_content_like_count',
-            'youtube_comment_like_count',
-            'youtube_content_date',
+            'youtube_name',
+            'youtube_views',
+            'youtube_date',
         )
 
         labels = {
-            'youtube_ide':'youtube_id',
-            'youtube_title':'youtube_title',
-            'youtube_link':'youtube_link',
-            'youtube_image':'youtube_image',
-            'youtube_hashtag':'youtube_hashtag',
-            'youtube_channel_name':'youtube_channel_name',
-            'youtube_channel_count':'youtube_channel_count',
-            'youtube_content_like_count':'youtube_content_like_count',
-            'youtube_comment_like_count':'youtube_comment_like_count',
-            'youtube_content_date':'youtube_content_date',
+            'youtube_id':'youtube_id',
+            'youtube_title':'제목',
+            'youtube_link':'URL',
+            'youtube_image':'이미지 링크',
+            'youtube_channel_name':'채널명',
+            'youtube_views':'조회수',
+            'youtube_date':'업로드 날짜',
         }
 
 class NaverBlogForm(forms.ModelForm):
@@ -59,50 +56,43 @@ class NaverBlogForm(forms.ModelForm):
 
 
 class UserInfoForm(forms.ModelForm):
+    preferred_region_no = forms.ModelChoiceField(queryset=PreferredRegion.objects.all())
+    preferred_accommodation_type_no = forms.ModelChoiceField(queryset=PreferredAccommodationType.objects.all())
+    preferred_tour_theme_type_no = forms.ModelChoiceField(queryset=PreferredTourThemeType.objects.all())
+
     class Meta:
         model = UsersAppUser
+        
         fields = (
-            'id',
-            'password',
-            'last_login',
-            'is_superuser',
             'username',
-            'first_name',
-            'last_name',
             'email',
-            'is_staff',
-            'is_active',
-            'date_joined',
+            'password',            
             'user_name',
             'user_phone',
             'user_address',
-            'preferred_region_no',
+            'preferred_region_no',            
             'preferred_accommodation_type_no',
             'preferred_tour_theme_type_no',
-            'profile_image'
+            # 'profile_image'
+
+
+            
+    
         )
 
         labels = {
-            'id':'id',
-            'password':'password',
-            'last_login':'last_login',
-            'is_superuser':'is_superuser',
-            'username':'username',
-            'first_name':'first_name',
-            'last_name':'last_name',
-            'email':'email',
-            'is_staff':'is_staff',
-            'is_active':'is_active',
-            'date_joined':'date_joined',
-            'user_name':'user_name',
-            'user_phone':'user_phone',
-            'user_address':'user_address',
-            'preferred_region_no':'preferred_region',
-            'preferred_accommodation_type_no':'preferred_accommodation_type',
-            'preferred_tour_theme_type_no':'preferred_tour_theme_type',
-            'profile_image':'profile_image'            
+            'username':'아이디',
+            'email':'이메일',
+            'password':'비밀번호',
+            'user_name':'성명',
+            'user_phone':'전화번호',
+            'user_address':'주소',
+            'preferred_region_no':'선호 여행 지역',
+            'preferred_accommodation_type_no':'선호 여행 타입',
+            'preferred_tour_theme_type_no':'선호 여행 테마',
+            # 'profile_image':'프로필 이미지'            
         }
-
+        
 
 class ImageForm(forms.Form):
     image = forms.ImageField()
