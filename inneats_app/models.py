@@ -1,4 +1,3 @@
-
 from django.db import models
 
 
@@ -105,10 +104,9 @@ class Goodchoice(models.Model):
     acc_address = models.CharField(max_length=255)
     acc_image_link = models.TextField(blank=True, null=True)
     acc_rating = models.DecimalField(max_digits=3, decimal_places=1, blank=True, null=True)
-    acc_price = models.TextField(blank=True, null=True)
-    acc_room_type = models.TextField(blank=True, null=True)
-    acc_remain_room = models.TextField(blank=True, null=True)
     acc_link = models.TextField(blank=True, null=True)
+    acc_date = models.DateField(blank=True, null=True)
+    acc_price = models.IntegerField(blank=True, null=True)
 
     class Meta:
         managed = False
@@ -161,45 +159,6 @@ class Place(models.Model):
         db_table = 'place'
 
 
-
-class PreferredAccommodationType(models.Model):
-    preferred_accommodation_type_no = models.CharField(primary_key=True, max_length=45)
-    preferred_accommodation_type = models.CharField(max_length=45)
-
-
-    def __str__(self):
-        return self.preferred_accommodation_type_no
-
-    class Meta:
-        managed = False
-        db_table = 'preferred_accommodation_type'
-
-
-
-class PreferredRegion(models.Model):
-    preferred_region_no = models.CharField(primary_key=True, max_length=45)
-    preferred_region = models.CharField(max_length=45)
-
-    def __str__(self):
-        return self.preferred_region_no
-    
-    class Meta:
-        managed = False
-        db_table = 'preferred_region'
-        
-
-class PreferredTourThemeType(models.Model):
-    preferred_tour_theme_type_no = models.CharField(primary_key=True, max_length=45)
-    preferred_tour_theme_type = models.CharField(max_length=45)
-
-    def __str__(self):
-        return self.preferred_tour_theme_type_no
-
-    class Meta:
-        managed = False
-        db_table = 'preferred_tour_theme_type'
-
-
 class Restaurant(models.Model):
     restaurant_id = models.CharField(primary_key=True, max_length=20)
     restaurant_link = models.CharField(max_length=255, blank=True, null=True)
@@ -233,10 +192,10 @@ class UsersAppUser(models.Model):
     id = models.BigAutoField(primary_key=True)
     password = models.CharField(max_length=128)
     last_login = models.DateTimeField(blank=True, null=True)
-    is_superuser = models.IntegerField(blank=True, null=True)
+    is_superuser = models.IntegerField()
     username = models.CharField(unique=True, max_length=150)
-    first_name = models.CharField(max_length=150, blank=True, null=True)
-    last_name = models.CharField(max_length=150, blank=True, null=True)
+    first_name = models.CharField(max_length=150)
+    last_name = models.CharField(max_length=150)
     email = models.CharField(max_length=254)
     is_staff = models.IntegerField()
     is_active = models.IntegerField()
@@ -244,10 +203,6 @@ class UsersAppUser(models.Model):
     user_name = models.CharField(max_length=30)
     user_phone = models.CharField(max_length=20)
     user_address = models.CharField(max_length=200)
-    preferred_region_no = models.ForeignKey(PreferredRegion, models.DO_NOTHING, db_column='preferred_region_no', blank=True, null=True)
-    preferred_accommodation_type_no = models.ForeignKey(PreferredAccommodationType, models.DO_NOTHING, db_column='preferred_accommodation_type_no', blank=True, null=True)
-    preferred_tour_theme_type_no = models.ForeignKey(PreferredTourThemeType, models.DO_NOTHING, db_column='preferred_tour_theme_type_no', blank=True, null=True)
-    profile_image = models.TextField(blank=True, null=True)
 
     class Meta:
         managed = False
@@ -315,7 +270,6 @@ class Youtube(models.Model):
     youtube_name = models.CharField(max_length=50, blank=True, null=True)
     youtube_views = models.CharField(max_length=20, blank=True, null=True)
     youtube_date = models.CharField(max_length=20, blank=True, null=True)
-
     class Meta:
         managed = False
         db_table = 'youtube'

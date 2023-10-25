@@ -1,20 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
-
 <!-- {% block title %} 숙소 상세:{{ keyword }}{% endblock %} -->
-
-
 {% block content %}
-
-
 <!-- Property List Start -->
 <div class="container-xxl py-5">
     <div class="container">
         <div class="row g-0 gx-5 align-items-end">
             <div class="col-lg-6">
-                
             </div>
-            
         </div>
         <div class="tab-content">
             <!-- 관광지 시작 -->
@@ -43,7 +36,6 @@
                                 <!-- <h6 class="text-primary mb-3">기타설명</h6> -->
                                 <p id="attraction_overview_summary">
                                     <i class="fa fa-map-marker-alt text-primary me-2"></i>{{ attraction.visitkorea_overview}}</p>
-
                                 <!-- <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3" style= "max-width: 86%;">
                                     <div class="overflow-hidden text-nowrap text-truncate">타이틀:용바위 위에서 고기굽기어디까지 가능한가</div>
                                 </div>  -->
@@ -63,15 +55,8 @@
                 </div>
             </div>
             <!-- 관광지 끝 -->
-
-            
-
-           
-
-           
         </div>
     </div>
 </div>
 <!-- Property List End -->
-
 {% endblock content %}
