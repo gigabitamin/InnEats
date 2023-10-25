@@ -1,7 +1,7 @@
 # from django.http import HttpResponse, JsonResponse
 # from django.core import serializers
 # import json
-# from .models import NaverBlog
+from .models import NaverBlog
 # from .models import Youtube
 # from django.db.models import Q
 # from .forms import YoutubeForm
@@ -10,15 +10,11 @@
 # from .forms import ImageForm
 # from .models import UsersAppUser
 # from django.views.generic.edit import DeleteView
-
 # from django.contrib.auth.models import User
 # from users_app.models import User
 
-
-from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, render, redirect
 from .models import Hotelcounts
-
 
 
 def index(request):
@@ -46,10 +42,8 @@ def error404(request):
 def contact(request):
     return render(request, 'inneats_app/contact.html')
 
-
 def property_agent(request):
-    hotel_data = Hotelcounts.objects.all()
-    # context = {'hotel_data': hotel_data}
+    hotel_data = Hotelcounts.objects.all()    
     return render(request, 'inneats_app/index.html', {'hotel_data':hotel_data})
 
 

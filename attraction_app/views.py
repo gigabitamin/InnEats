@@ -5,8 +5,13 @@ from inneats_app.models import Visitkorea
 # Create your views here.
 def attraction(request,keyword):    
     attraction_list = Visitkorea.objects.filter(Q(visitkorea_address__contains=keyword))
-    
-    return render(request, 'attraction_app/attraction.html',{'keyword':keyword, 'attraction_list':attraction_list})
+    attraction_list_title = Visitkorea.objects.filter(Q(visitkorea_title__contains=keyword))
+    return render(request, 'attraction_app/attraction.html',{'keyword':keyword, 'attraction_list':attraction_list, 'attraction_list_title':attraction_list_title})
+
+def attraction_title(request,keyword):    
+    attraction_list_title = Visitkorea.objects.filter(Q(visitkorea_title__contains=keyword))
+    return render(request, 'attraction_app/attraction.html',{'keyword':keyword, 'attraction_list_title':attraction_list_title})
+
 
 # def accommodation(request,keyword):    
 #     # print(keyword)    
