@@ -29,8 +29,6 @@ def property_type(request):
 
 def property_agent(request):
     hotel_data = Hotelcounts.objects.all()
-    print(hotel_data)
-    # context = {'hotel_data': hotel_data}
     return render(request, 'inneats_app/properties.html', {'hotel_data':hotel_data})
 
 def property_testimonial(request):
@@ -41,14 +39,6 @@ def error404(request):
 
 def contact(request):
     return render(request, 'inneats_app/contact.html')
-
-
-def property_agent(request):
-    hotel_data = Hotelcounts.objects.all()
-    # context = {'hotel_data': hotel_data}
-    return render(request, 'inneats_app/index.html', {'hotel_data':hotel_data})
-
-
 
 
 def hst(request, keyword):
