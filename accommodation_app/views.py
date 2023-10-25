@@ -31,11 +31,13 @@ def accommodation_detail(request, accommodation_id):
     attraction_list = Visitkorea.objects.filter(Q(visitkorea_address__contains=keyword))
     restaurant_list = Restaurant.objects.filter(Q(restaurant_address__contains=keyword))
 
+    addr = keyword
     # print(keyword)
     # print(len(restaurant_list))
 
     if len(attraction_list) == 0:
         attraction_list = Visitkorea.objects.filter(Q(visitkorea_address__contains=keywords[1]))
+        addr=keywords[1]
 
     if len(restaurant_list) == 0:
         restaurant_list = Restaurant.objects.filter(Q(restaurant_address__contains=keywords[1]))
@@ -78,4 +80,4 @@ def accommodation_detail(request, accommodation_id):
     youtube_list = youtube_list[:3] 
     blog_list = blog_list[:3]
     
-    return render(request, 'accommodation_app/accommodation_detail.html', {'attraction_list':attraction_list ,'accommodation':accommodation, 'youtube_list':youtube_list, 'restaurant_list':restaurant_list , 'blog_list':blog_list})
+    return render(request, 'accommodation_app/accommodation_detail.html', {'addr':addr,'attraction_list':attraction_list ,'accommodation':accommodation, 'youtube_list':youtube_list, 'restaurant_list':restaurant_list , 'blog_list':blog_list})
