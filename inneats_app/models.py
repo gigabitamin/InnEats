@@ -282,3 +282,25 @@ class Youtube(models.Model):
     class Meta:
         managed = False
         db_table = 'youtube'
+
+
+class Accommodation(models.Model):
+    id = models.CharField(primary_key=True, max_length=20)
+    title = models.CharField(max_length=50, blank=True, null=True)
+    address = models.CharField(max_length=100, blank=True, null=True)
+    img_link = models.CharField(max_length=200, blank=True, null=True)
+    da_rating = models.DecimalField(max_digits=3, decimal_places=1, blank=True, null=True)
+    go_rating = models.DecimalField(max_digits=3, decimal_places=1, blank=True, null=True)
+    tr_rating = models.DecimalField(max_digits=3, decimal_places=1, blank=True, null=True)
+    ya_rating = models.DecimalField(max_digits=3, decimal_places=1, blank=True, null=True)
+    da_link = models.CharField(max_length=200, blank=True, null=True)
+    go_link = models.CharField(max_length=200, blank=True, null=True)
+    tr_link = models.CharField(max_length=200, blank=True, null=True)
+    ya_link = models.CharField(max_length=200, blank=True, null=True)
+    da_price = models.CharField(max_length=20, blank=True, null=True)
+    go_price = models.CharField(max_length=20, blank=True, null=True)
+    tr_price = models.CharField(max_length=20, blank=True, null=True)
+    ya_price = models.CharField(max_length=20, blank=True, null=True)
+    class Meta:
+        managed = False
+        db_table = 'accommodation'
