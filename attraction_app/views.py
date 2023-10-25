@@ -8,12 +8,26 @@ def attraction(request,keyword):
     return render(request, 'attraction_app/attraction.html',{'keyword':keyword, 'attraction_list':attraction_list, 'attraction_list_title':attraction_list_title})
 def attraction_title(request,keyword):
     attraction_list_title = Visitkorea.objects.filter(Q(visitkorea_title__contains=keyword))
+    
     return render(request, 'attraction_app/attraction.html',{'keyword':keyword, 'attraction_list_title':attraction_list_title})
 def attraction_detail(request,pk):
     print(pk)
     attraction_info = Visitkorea.objects.get(Q(visitkorea_id=pk))
     print(attraction_info.visitkorea_address)
     return render(request, 'attraction_app/attraction_detail.html',{'pk':pk, 'attraction_info':attraction_info})
+
+
+def attraction_detail(request,pk):   
+    # print(pk) 
+    attraction_info = Visitkorea.objects.get(Q(visitkorea_id=pk))
+    # print(attraction_info.visitkorea_address)
+    
+
+    return render(request, 'attraction_app/attraction_detail.html',{'pk':pk, 'attraction_info':attraction_info})
+
+
+
+
 
 
 

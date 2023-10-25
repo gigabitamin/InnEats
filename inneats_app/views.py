@@ -1,7 +1,7 @@
 # from django.http import HttpResponse, JsonResponse
 # from django.core import serializers
 # import json
-from .models import NaverBlog
+# from .models import NaverBlog
 # from .models import Youtube
 # from django.db.models import Q
 # from .forms import YoutubeForm
@@ -19,7 +19,7 @@ from .models import Hotelcounts
 def index(request):
     user_info = request.user
     hotel_data = Hotelcounts.objects.all()
-    return render(request, 'inneats_app/index.html', {'user_info':user_info, 'hotel_data':hotel_data})
+    return render(request, 'inneats_app/index.html', {'user_info':user_info,'hotel_data':hotel_data})
     
 def about(request):    
     return render(request, 'inneats_app/about.html')
