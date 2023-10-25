@@ -1,0 +1,214 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>InnEats - 숙소와 먹거리</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
+
+    {% comment %} django 로컬서버 127.0.0.1 에서 구동시 spinner를 통과시키기 위해 https 요청 부분은 모두 주석 처리 {% endcomment %}
+    {% comment %} 해당 파일을 로컬에 저장해서 static 경로에 넣은 뒤 사용 가능 -> font라 없어도 당장은 지장없어서 뺐음 {% endcomment %}
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet">
+     
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    
+    <!-- kakao js -->
+    <script src="{% static 'js/kakao.channel.min.js' %}"></script> <!-- kyj -->
+    <script src="{% static 'js/kakao.min.js' %}"></script> <!-- channel.min.js 와 min.js 순서 바꾸지 말 것 -kdy -->
+
+    <!-- ----------------- user costum ------------------- -->
+
+    <!-- user css -->
+    <link rel="stylesheet" href="{% static 'css/login.css' %}"> <!-- kdy -->
+
+    <!-- user js -->    
+    <script src="{% static 'js/kdy/youtube_search_ajax.js' %}"></script> <!-- kdy -->
+
+</head>
+<body>
+
+
+    {% include "nav.html" %}
+    {% include "properties.html" %}
+
+
+
+
+    {% comment %} <!-- {% block search_content %}
+            {% include "Search.html" %}
+    {% endblock search_content %} --> {% endcomment %}
+    {% block content %}  
+    {% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Footer Start -->
+    <div class="container-xxl bg-white p-0">
+        <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-white mb-4">연락처</h5>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>을지로 , 서울특별시 , 한국</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+82 010 3456 7890</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@inneats.com</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-white mb-4">Quick Links</h5>
+                    <a class="btn btn-link text-white-50" href="">Home</a>
+                    <a class="btn btn-link text-white-50" href="">고객센터</a>
+                    <a class="btn btn-link text-white-50" href="">블로그</a>
+                    <a class="btn btn-link text-white-50" href="">유투브</a>
+                    <a class="btn btn-link text-white-50" href="">관광지</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-white mb-4">Photo Gallery</h5>
+                    <div class="row g-2 pt-2">
+                        <div class="col-4">
+                            <img class="img-fluid rounded bg-light p-1" src="{% static 'img/property-1.jpg' %}" alt="">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid rounded bg-light p-1" src="{% static 'img/property-2.jpg' %}" alt="">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid rounded bg-light p-1" src="{% static 'img/property-3.jpg' %}" alt="">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid rounded bg-light p-1" src="{% static 'img/property-4.jpg' %}" alt="">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid rounded bg-light p-1" src="{% static 'img/property-5.jpg' %}" alt="">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid rounded bg-light p-1" src="{% static 'img/property-6.jpg' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-white mb-4">최신글</h5>
+                    <p>새 게시글을 확인하세요.</p>
+                    <div class="position-relative mx-auto" style="max-width: 400px;">
+                        <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">회원가입</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="#">Inneats</a>, All Right Reserved. 
+            
+            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+            Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="footer-menu">
+                                <!-- 카카오톡 상당하기 버튼 시작 - kyj -->
+                                <a
+                                    id="kakao-talk-channel-chat-button"
+                                    data-channel-public-id="_webTG"
+                                    data-title="consult"
+                                    data-size="small"
+                                    data-color="yellow"
+                                    data-shape="pc"
+                                    data-support-multiple-densities="true"
+                                ></a>
+                                <!-- 카카오톡 상당하기 버튼 끝 -->
+                                <a href="">Home</a>
+                                <a href="">Cookies</a>
+                                <a href="">Help</a>
+                                <a href="">FQAs</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Back to Top -->  
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    
+    <!-- JavaScript Libraries -->
+    <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'lib/wow/wow.min.js' %}"></script>
+    <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+    <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+    <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+  
+    <!-- 카카오톡 상담하기 버튼 추가를 위한 script - kyj -->
+    <script>
+      window.kakaoAsyncInit = function() {
+        Kakao.Channel.createChatButton({
+          container: '#kakao-talk-channel-chat-button',          
+        });
+      };
+    
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://t1.kakaocdn.net/kakao_js_sdk/2.4.0/kakao.channel.min.js'; // 경로 수정 -kdy
+        js.integrity = 'sha384-bg2pMhokxyx1zeEM2ol2hJtBagKMjRIZDVI/KITe+j2U5K+Or6HPY1lWDWY8ubEN';
+        js.crossOrigin = 'anonymous';
+        fjs.parentNode.insertBefore(js, fjs);
+      })(document, 'script', 'kakao-js-sdk');      
+    </script>
+
+    <!-- 카카오톡 메세지 공유 script 시작 -kdy -->    
+    <!-- 템플릿 버젼 --> 
+    <script type='text/javascript'>    
+        Kakao.init('343f2a0aad277d4c91a920f6892a8e25');
+        Kakao.Link.createScrapButton({ 
+            container: '#kakao_message_t_btn',
+            requestUrl: 'https://127.0.0.1:8000', // 개발자센터 도메인 설정과 django 도메인 설정 모두 맞춰줄 것, localhost에서도 정상 구동
+            templateId : 99822
+        });    
+    </script>
+    <!-- 카카오톡 메세지 공유 scpript 끝 -->
+      
+    <!-- Template Javascript -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

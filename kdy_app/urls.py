@@ -4,6 +4,16 @@ from . import views
 
 urlpatterns = [
 
+    path('youtube_list_user', views.youtube_list_user, name='youtube_list_user'),
+    path('naver_blog_list_user', views.naver_blog_list_user, name='naver_blog_list_user'),
+
+    path('youtube_user_preferred_tour_theme_type/<int:id>', views.youtube_user_preferred_tour_theme_type, name='youtube_user_preferred_tour_theme_type'),
+    # path('youtube_user_address/<int:id>', views.youtube_user_address, name='youtube_user_address'),
+    path('get_user_address/<int:id>', views.get_user_address, name='get_user_address'),
+    path('get_user_preferred_region/<int:id>', views.get_user_preferred_region, name='get_user_preferred_region'),
+    path('get_user_preferred_accommodation_type/<int:id>', views.get_user_preferred_accommodation_type, name='get_user_preferred_accommodation_type'),
+    path('get_user_preferred_tour_theme_type/<int:id>', views.get_user_preferred_tour_theme_type, name='get_user_preferred_tour_theme_type'),
+
     # path('sign_up2/', views.sign_up_upload_image, name='sign_up_upload_image,'),
     # path('upload/image/', views.upload_image, name='upload_image,'),
     path('my_page/', views.my_page, name='my_page'),

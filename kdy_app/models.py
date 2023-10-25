@@ -1,4 +1,4 @@
-
+from django.contrib.auth.models import User
 from django.db import models
 
 
@@ -257,6 +257,9 @@ class UsersAppUser(models.Model):
         db_table = 'users_app_user'
 
 
+    
+
+
 class UsersAppUserGroups(models.Model):
     id = models.BigAutoField(primary_key=True)
     user = models.ForeignKey(UsersAppUser, models.DO_NOTHING)
@@ -322,3 +325,7 @@ class Youtube(models.Model):
     class Meta:
         managed = False
         db_table = 'youtube'
+
+
+
+
