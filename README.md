@@ -1,11 +1,33 @@
 # AI 백엔드 5차 세미 프로젝트 (231013-231026)
 # TEAM def TROLL
 
+<<<<<<< HEAD
 hst
 ==============================================================
 
+=======
+develop부터 hotfix featherr 각자 수정하면서 올리시던 버전 전부 pull 해와서 임시취합후 오류 수정을 한 뒤 develop에 올립니다
+각자 pull 하시고 빠지거나 충돌나는 부분 수정한 후 각자 본인 브런치에 올려주세요
+일단 develop은 v0.5.0 유지 하겠습니다
+오전에 확인 후 이상 없으면 main 에도 merge 해놓겠습니다
+
+==============================================================
+
+0.5.0 / kdy
+회원가입 css 수정
+my_page css 적용 완료
+회원 정보 수정 추가
+회원탈퇴 추가
+로그인 사용자만 본인 정보 my_page 보이도록 수정
+미로그인 사용자가 클릭할 경우 로그인 페이지로 자동 이동하도록 수정
+hst sjh sms 각 멤버별 임시 취합버전 models, forms 등 기타 오류 수정 -> 정상 구동 확인
+
+0.4.9 /
+sms / acctraction_app 생성
+>>>>>>> 585b53b5ab95385086c1bffc6ab4e07dcd82554d
 
 0.4.8 / 
+hst / search 앱 생성
 kyj / 유투브 크롤링 데이터 db 업로드 완료 
 kdy / kdy_app inneats_app forms models 유투브 fields 수정 
 -> 유투브 클릭시 정상구동 #주의사항:kyj님꼐서 올려놓은 sql 명령문으로 유투브 테이블 만든 후 youtube db import 한 뒤에 유투브 페이지 들어갈 것
@@ -16,6 +38,7 @@ user 테이블에 선호 여행 지역, 선호 숙박 형태, 선호 여행 테�
 회원가입 form에 위의 3개 column 추가
 마이 페이지 구현 (현재 user_id = '6' 고정)
 slack에 올려놓은 kdy_user_table_etc_231024_1314.sql import 하신 후 마이페이지 접속
+
 
 0.4.6 / kdy / 
 user 테이블에 profile_image 컬럼 생성

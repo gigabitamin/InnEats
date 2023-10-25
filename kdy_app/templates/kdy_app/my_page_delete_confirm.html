@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% load static %}
+{% load youtube_filters %}
+
+<!-- base.html 랑 다른 title -->
+{% block title %} 회원탈퇴 페이지 {% endblock %}
+
+{% block content %} 
+
+
+
+<div>
+<form method="post" action="{% url 'my_page_delete' %}" name="my_page_delete">
+    <h1> 정말로 탈퇴하시겠습니까? </h1>
+    {% csrf_token %}
+    <button type="submit">탈퇴 완료</button>
+</form>
+</div>
+
+
+
+{% endblock content %}
+

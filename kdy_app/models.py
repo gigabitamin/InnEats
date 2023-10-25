@@ -161,14 +161,13 @@ class Place(models.Model):
         db_table = 'place'
 
 
-
 class PreferredAccommodationType(models.Model):
     preferred_accommodation_type_no = models.CharField(primary_key=True, max_length=45)
     preferred_accommodation_type = models.CharField(max_length=45)
 
 
     def __str__(self):
-        return self.preferred_accommodation_type_no
+        return self.preferred_accommodation_type
 
     class Meta:
         managed = False
@@ -180,7 +179,7 @@ class PreferredRegion(models.Model):
     preferred_region = models.CharField(max_length=45)
 
     def __str__(self):
-        return self.preferred_region_no
+        return self.preferred_region
     
     class Meta:
         managed = False
@@ -192,7 +191,7 @@ class PreferredTourThemeType(models.Model):
     preferred_tour_theme_type = models.CharField(max_length=45)
 
     def __str__(self):
-        return self.preferred_tour_theme_type_no
+        return self.preferred_tour_theme_type
 
     class Meta:
         managed = False

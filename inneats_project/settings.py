@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'inneats_app',
     'users_app',
     
+    
     # accommodation_app 추가 -kyj
     'accommodation_app', 
 
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     #search앱 추가 - hst
     'search',
 
+    'attraction_app',
     # sjh_app 추가 -sjh
     'sjh_app',
   
@@ -147,5 +149,13 @@ LOGIN_REDIRECT_URL = '/'
 DATABASES = db_settings.DATABASES
 SECRET_KEY = db_settings.SECRET_KEY
 
+
+# users_app/sign_up2.html 이미지 업로드 기능 관련 -kdy
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+# sjh_app/map.html iframe 사용 -sjh
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+
