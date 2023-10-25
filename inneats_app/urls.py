@@ -10,5 +10,6 @@ urlpatterns = [
     path('property/testimonial/', views.property_testimonial, name='property_testimonial'),
     path('error404/', views.error404, name='error404'),
     path('contact/', views.contact, name='contact'),
-    path('property/agent/', views.property_agent, name='property_agent')
+    path('property/agent/', views.property_agent, name='property_agent'),
+    path('hst/', views.hst, name='hst')
 ]

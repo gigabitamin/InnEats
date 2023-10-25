@@ -1,7 +1,7 @@
 # from django.http import HttpResponse, JsonResponse
 # from django.core import serializers
 # import json
-# from .models import NaverBlog
+from .models import NaverBlog
 # from .models import Youtube
 # from django.db.models import Q
 # from .forms import YoutubeForm
@@ -49,3 +49,7 @@ def property_agent(request):
 
 
 
+
+def hst(request, keyword):
+    naver_blog_data = NaverBlog.objects.filter(naver_blog_title__icontains=keyword)
+    return render(request, 'inneats_app/index.html', {'hst':hst, 'naver_blog_data': naver_blog_data})

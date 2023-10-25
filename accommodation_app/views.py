@@ -45,3 +45,6 @@ def accommodation_detail(request, accommodation_id):
  
         
     return render(request, 'accommodation_app/accommodation_detail.html', {'attraction_list':attraction_list ,'accommodation':accommodation })
+
+
+    
