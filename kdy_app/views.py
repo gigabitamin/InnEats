@@ -336,13 +336,13 @@ def naver_blog_list(request, keyword):
     
     naver_blog_list = NaverBlog.objects.all()[0:30]
     if len(naver_blog_data) > 1:
-        naver_blog_data = naver_blog_data[0]
+        naver_blog_data1 = naver_blog_data[0]
     else:
-        naver_blog_data = naver_blog_list[0]
+        naver_blog_data1 = naver_blog_list[0]
 
     grouped_naver_blog_list = [naver_blog_list[i:i+3] for i in range(0, len(naver_blog_list), 3)]
     
-    return render(request, 'kdy_app/naver_blog_list.html', {'naver_blog_data':naver_blog_data, 'naver_blog_list':naver_blog_list, 'grouped_naver_blog_list': grouped_naver_blog_list, 'keyword':keyword})
+    return render(request, 'kdy_app/naver_blog_list.html', {'naver_blog_data1':naver_blog_data1, 'naver_blog_data':naver_blog_data,'naver_blog_list':naver_blog_list, 'grouped_naver_blog_list': grouped_naver_blog_list, 'keyword':keyword})
 
 def naver_blog_detail(request, naver_blog_id):
     NaverBlog = get_object_or_404(NaverBlog, pk=naver_blog_id)
