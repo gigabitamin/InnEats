@@ -1,0 +1,100 @@
+from django import forms
+from .models import Youtube
+from .models import NaverBlog
+from .models import UsersAppUser
+from .models import PreferredRegion
+from .models import PreferredAccommodationType
+from .models import PreferredTourThemeType
+
+class YoutubeForm(forms.ModelForm):
+    class Meta:
+        model = Youtube
+        fields = (
+            'youtube_id',
+            'youtube_title',
+            'youtube_link',
+            'youtube_image',
+            'youtube_name',
+            'youtube_views',
+            'youtube_date',
+        )
+
+        labels = {
+            'youtube_id':'youtube_id',
+            'youtube_title':'제목',
+            'youtube_link':'URL',
+            'youtube_image':'이미지 링크',
+            'youtube_channel_name':'채널명',
+            'youtube_views':'조회수',
+            'youtube_date':'업로드 날짜',
+        }
+
+class NaverBlogForm(forms.ModelForm):
+    class Meta:
+        model = NaverBlog
+        fields = (
+            'naver_blog_id',
+            'naver_blog_title',
+            'naver_blog_link',
+            'naver_blog_image',
+            'naver_blog_hashtag',
+            'naver_bloger_name',
+            'naver_blog_content_likeit_count',
+            'naver_blog_content_date',
+        )
+
+        labels = {
+            'naver_blog_id' : 'naver_blog_id',
+            'naver_blog_title' : 'naver_blog_title',
+            'naver_blog_link' : 'naver_blog_link',
+            'naver_blog_image' : 'naver_blog_image',
+            'naver_bloger_name' : 'naver_blog_hashtag',
+            'naver_bloger_name' : 'naver_bloger_name',
+            'naver_blog_content_likeit_count' : 'naver_blog_content_likeit_count',
+            'naver_blog_content_date' : 'naver_blog_content_date',
+        }
+
+
+class UserInfoForm(forms.ModelForm):
+    preferred_region_no = forms.ModelChoiceField(queryset=PreferredRegion.objects.all())
+    preferred_accommodation_type_no = forms.ModelChoiceField(queryset=PreferredAccommodationType.objects.all())
+    preferred_tour_theme_type_no = forms.ModelChoiceField(queryset=PreferredTourThemeType.objects.all())
+
+    class Meta:
+        model = UsersAppUser
+        
+        fields = (
+            'username',
+            'email',
+            'password',            
+            'user_name',
+            'user_phone',
+            'user_address',
+            'preferred_region_no',            
+            'preferred_accommodation_type_no',
+            'preferred_tour_theme_type_no',
+            # 'profile_image'
+
+
+            
+    
+        )
+
+        labels = {
+            'username':'아이디',
+            'email':'이메일',
+            'password':'비밀번호',
+            'user_name':'성명',
+            'user_phone':'전화번호',
+            'user_address':'주소',
+            'preferred_region_no':'선호 여행 지역',
+            'preferred_accommodation_type_no':'선호 여행 타입',
+            'preferred_tour_theme_type_no':'선호 여행 테마',
+            # 'profile_image':'프로필 이미지'            
+        }
+        
+
+class ImageForm(forms.Form):
+    image = forms.ImageField()
+
+
