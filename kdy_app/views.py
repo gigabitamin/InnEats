@@ -64,11 +64,11 @@ def send_mail(to_email, inneats_user_id):
     # app_password = '본인 app password' # 2차 로그인을 하는 계정일 시 구글 보안설정에서 app 패스워드 설정 후 입력 필요
 
     # 발송자 정보
-    from_email = 'gigabitamin@gmail.com' # 보낼 계정
-    from_email_password = 'kywqqehhchzcqszu'
+    from_email = '@gmail.com' # 보낼 계정
+    from_email_password = ''
 
     # 수신자 정보
-    to_email = 'myanyhoney@gmail.com' # 수신할 계정 # 여러명에게 보낼 땐 [] 로 리스트 처리
+    to_email = '@gmail.com' # 수신할 계정 # 여러명에게 보낼 땐 [] 로 리스트 처리
     inneats_user_id = inneats_user_id
 
     # 보낼 내용
