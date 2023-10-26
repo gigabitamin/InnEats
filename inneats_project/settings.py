@@ -150,6 +150,8 @@ LOGIN_REDIRECT_URL = '/'
 
 DATABASES = db_settings.DATABASES
 SECRET_KEY = db_settings.SECRET_KEY
+# settings.py
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 
 # users_app/sign_up2.html 이미지 업로드 기능 관련 -kdy
@@ -168,3 +170,12 @@ STATICFILES_DIRS = [
 
 # python manage.py collectstatic 이메일 이미지 첨부 경로를 위한 세팅 -kdy
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# 로그인 사용자 세션 처리 -kdy
+# SESSION_ENGINE = "django.contrib.sessions.backends.db"  # 데이터베이스를 세션 저장소로 사용
+# SESSION_COOKIE_AGE = 1209600 
+# SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"  # 사용자 지정 세션 엔진
+# SESSION_COOKIE_AGE = 60 * 60 * 24 * 3  # 3일
+# SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+# SESSION_COOKIE_SECURE = False
+# SESSION_COOKIE_DOMAIN = '127.0.0.1:8000'

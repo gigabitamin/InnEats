@@ -18,6 +18,18 @@ urlpatterns = [
     # path('upload/image/', views.upload_image, name='upload_image,'),
     path('my_page/', views.my_page, name='my_page'),
     path('my_page/update/<int:id>', views.my_page_update, name='my_page_update'),
+    path('my_page/update/username/<int:id>', views.my_page_update_username, name='my_page_update_username'),
+    path('my_page/update/email/<int:id>', views.my_page_update_email, name='my_page_update_email'),
+    path('my_page/update/password/<int:id>', views.my_page_update_password, name='my_page_update_password'),
+    path('my_page/update/name/<int:id>', views.my_page_update_user_name, name='my_page_update_user_name'),
+    path('my_page/update/phone/<int:id>', views.my_page_update_user_phone, name='my_page_update_user_phone'),
+    path('my_page/update/address/<int:id>', views.my_page_update_user_address, name='my_page_update_user_address'),
+    path('my_page/update/preferred_region_no/<int:id>', views.my_page_update_preferred_region_no, name='my_page_update_preferred_region_no'),
+    path('my_page/update/preferred_accommodation_type_no/<int:id>', views.my_page_update_preferred_accommodation_type_no, name='my_page_update_preferred_accommodation_type_no'),
+    path('my_page/update/preferred_tour_theme_type_no/<int:id>', views.my_page_update_preferred_tour_theme_type_no, name='my_page_update_preferred_tour_theme_type_no'),
+
+
+    path('my_page/update/custom/<int:id>', views.my_page_update_custom, name='my_page_update_custom'),
     path('my_page/delete/move<int:id>', views.my_page_delete_move, name='my_page_delete_move'),
     path('my_page/delete/', views.my_page_delete, name='my_page_delete'),
     path('my_page/delete/view/', views.MyPageDeleteView.as_view(), name='my_page_delete_view'),

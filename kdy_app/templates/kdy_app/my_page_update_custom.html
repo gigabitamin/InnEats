@@ -16,10 +16,10 @@
                 <th class='lbl'>프로필 이미지</th>
                 <td><button type="submit" name ='sign_up_upload_image'></td>
             </tr> {% endcomment %}
-            <tr>
+            {% comment %} <tr>
                 <th class='lbl'>아이디</th>
                 <td><input type="text" name="username" value="{{ user_info.username }}"></td>
-            </tr><tr>
+            </tr><tr> {% endcomment %}
                 <th class='lbl'>이메일</th>
                 <td><input type="text" name='email' value="{{ user_info.email }}"></td>
             </tr><tr>

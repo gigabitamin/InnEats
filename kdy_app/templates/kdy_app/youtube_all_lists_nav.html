@@ -16,7 +16,18 @@
     }
 </style>
 
+
+
 <div id="youtube_all_lists_nav">
+
+    <div>
+    {% comment %} 로그인 user만 마이페이지에 접근가능, 로그인 안한 사용자의 경우 자동으로 로그인 창으로 리다이렉트 {% endcomment %}                    
+    {% if user_info.is_authenticated %}
+        <a href="{% url 'my_page' %}" class="nav-item nav-link">MY PAGE:{{user.username}}</a>
+    {% else %}
+        <a href="{% url 'sign_in' %}" class="nav-item nav-link">MY PAGE</a>
+    {% endif %}
+    </div>
      <!-- 카카오톡 메세지 공유 버튼 시작 - kdy -->    
      <div id="kakao_message_t_btn">
      <a href='#'><img src="{% static 'img/kakao_disign/kakaotalk_sharing_btn/kakaotalk_sharing_btn_medium.png' %}" alt="" title="카카오톡 메세지 공유"/><br>메세지 공유</a>

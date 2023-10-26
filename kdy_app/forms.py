@@ -53,6 +53,10 @@ class NaverBlogForm(forms.ModelForm):
             'naver_blog_content_likeit_count' : 'naver_blog_content_likeit_count',
             'naver_blog_content_date' : 'naver_blog_content_date',
         }
+        
+
+class ImageForm(forms.Form):
+    image = forms.ImageField()
 
 
 class UserInfoForm(forms.ModelForm):
@@ -65,25 +69,19 @@ class UserInfoForm(forms.ModelForm):
         
         fields = (
             'username',
-            'email',
-            'password',            
+            'email',                     
             'user_name',
             'user_phone',
             'user_address',
             'preferred_region_no',            
             'preferred_accommodation_type_no',
             'preferred_tour_theme_type_no',
-            # 'profile_image'
-
-
-            
-    
+            # 'profile_image'    
         )
 
         labels = {
             'username':'아이디',
-            'email':'이메일',
-            'password':'비밀번호',
+            'email':'이메일',            
             'user_name':'성명',
             'user_phone':'전화번호',
             'user_address':'주소',
@@ -92,9 +90,184 @@ class UserInfoForm(forms.ModelForm):
             'preferred_tour_theme_type_no':'선호 여행 테마',
             # 'profile_image':'프로필 이미지'            
         }
+
+
+class UserInfoForm_username(forms.ModelForm):
+    preferred_region_no = forms.ModelChoiceField(queryset=PreferredRegion.objects.all())
+    preferred_accommodation_type_no = forms.ModelChoiceField(queryset=PreferredAccommodationType.objects.all())
+    preferred_tour_theme_type_no = forms.ModelChoiceField(queryset=PreferredTourThemeType.objects.all())
+
+    class Meta:
+        model = UsersAppUser
         
+        fields = (
+            'username',
+        )
 
-class ImageForm(forms.Form):
-    image = forms.ImageField()
+        labels = {
 
+            'username':'아이디',
+        }
+
+class UserInfoForm_email(forms.ModelForm):
+    preferred_region_no = forms.ModelChoiceField(queryset=PreferredRegion.objects.all())
+    preferred_accommodation_type_no = forms.ModelChoiceField(queryset=PreferredAccommodationType.objects.all())
+    preferred_tour_theme_type_no = forms.ModelChoiceField(queryset=PreferredTourThemeType.objects.all())
+
+    class Meta:
+        model = UsersAppUser
+        
+        fields = (
+
+            'email',
+
+        )
+
+        labels = {
+
+            'email':'이메일',
+           
+        }
+
+
+class UserInfoForm_password(forms.ModelForm):
+    preferred_region_no = forms.ModelChoiceField(queryset=PreferredRegion.objects.all())
+    preferred_accommodation_type_no = forms.ModelChoiceField(queryset=PreferredAccommodationType.objects.all())
+    preferred_tour_theme_type_no = forms.ModelChoiceField(queryset=PreferredTourThemeType.objects.all())
+
+    class Meta:
+        model = UsersAppUser
+        
+        fields = (
+
+            'password',            
+   
+        )
+
+        labels = {
+
+            'password':'비밀번호',
+           
+        }
+
+
+class UserInfoForm_user_name(forms.ModelForm):
+    preferred_region_no = forms.ModelChoiceField(queryset=PreferredRegion.objects.all())
+    preferred_accommodation_type_no = forms.ModelChoiceField(queryset=PreferredAccommodationType.objects.all())
+    preferred_tour_theme_type_no = forms.ModelChoiceField(queryset=PreferredTourThemeType.objects.all())
+
+    class Meta:
+        model = UsersAppUser
+        
+        fields = (
+
+            'user_name',            
+
+        )
+
+        labels = {
+
+            'user_name':'성명',
+       
+        }
+
+
+class UserInfoForm_user_phone(forms.ModelForm):
+    preferred_region_no = forms.ModelChoiceField(queryset=PreferredRegion.objects.all())
+    preferred_accommodation_type_no = forms.ModelChoiceField(queryset=PreferredAccommodationType.objects.all())
+    preferred_tour_theme_type_no = forms.ModelChoiceField(queryset=PreferredTourThemeType.objects.all())
+
+    class Meta:
+        model = UsersAppUser
+        
+        fields = (
+
+            'user_phone',
+
+        )
+
+        labels = {
+
+            'user_phone':'전화번호',
+        }
+
+
+class UserInfoForm_user_address(forms.ModelForm):
+    preferred_region_no = forms.ModelChoiceField(queryset=PreferredRegion.objects.all())
+    preferred_accommodation_type_no = forms.ModelChoiceField(queryset=PreferredAccommodationType.objects.all())
+    preferred_tour_theme_type_no = forms.ModelChoiceField(queryset=PreferredTourThemeType.objects.all())
+
+    class Meta:
+        model = UsersAppUser
+        
+        fields = (
+
+            'user_address',
+
+        )
+
+        labels = {
+
+            'preferred_region_no':'선호 여행 지역',
+          
+        }
+
+
+
+class UserInfoForm_preferred_region_no(forms.ModelForm):
+    preferred_region_no = forms.ModelChoiceField(queryset=PreferredRegion.objects.all())
+    preferred_accommodation_type_no = forms.ModelChoiceField(queryset=PreferredAccommodationType.objects.all())
+    preferred_tour_theme_type_no = forms.ModelChoiceField(queryset=PreferredTourThemeType.objects.all())
+
+    class Meta:
+        model = UsersAppUser
+        
+        fields = (
+
+            'preferred_region_no',            
+ 
+        )
+
+        labels = {
+
+            'preferred_region_no':'선호 여행 지역',
+           
+        }
+
+class UserInfoForm_preferred_accommodation_type_no(forms.ModelForm):
+    preferred_region_no = forms.ModelChoiceField(queryset=PreferredRegion.objects.all())
+    preferred_accommodation_type_no = forms.ModelChoiceField(queryset=PreferredAccommodationType.objects.all())
+    preferred_tour_theme_type_no = forms.ModelChoiceField(queryset=PreferredTourThemeType.objects.all())
+
+    class Meta:
+        model = UsersAppUser
+        
+        fields = (
+
+            'preferred_accommodation_type_no',
+
+        )
+
+        labels = {
+
+            'preferred_accommodation_type_no':'선호 여행 타입',
+        
+        }
+
+
+class UserInfoForm_preferred_tour_theme_type_no(forms.ModelForm):
+    preferred_region_no = forms.ModelChoiceField(queryset=PreferredRegion.objects.all())
+    preferred_accommodation_type_no = forms.ModelChoiceField(queryset=PreferredAccommodationType.objects.all())
+    preferred_tour_theme_type_no = forms.ModelChoiceField(queryset=PreferredTourThemeType.objects.all())
+
+    class Meta:
+        model = UsersAppUser
+        
+        fields = (
+            'preferred_tour_theme_type_no',            
+        )
+
+        labels = {
+            'preferred_tour_theme_type_no':'선호 여행 테마',
+        }
 
