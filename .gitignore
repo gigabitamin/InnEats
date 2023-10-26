@@ -1,6 +1,9 @@
 # Created by https://www.toptal.com/developers/gitignore/api/windows,python,django
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,python,django
 
+### git ###
+.gitignore
+
 ### Django ###
 *.log
 *.pot
@@ -31,7 +34,10 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
+<<<<<<< HEAD
+=======
+
+>>>>>>> dba2668215ab61a5d9bfb70f82183e544b1955ed
 lib64/
 parts/
 sdist/

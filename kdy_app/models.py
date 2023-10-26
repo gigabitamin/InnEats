@@ -1,6 +1,5 @@
-
+from django.contrib.auth.models import User
 from django.db import models
-
 
 
 class AuthGroup(models.Model):
@@ -166,8 +165,9 @@ class PreferredAccommodationType(models.Model):
     preferred_accommodation_type_no = models.CharField(primary_key=True, max_length=45)
     preferred_accommodation_type = models.CharField(max_length=45)
 
+
     def __str__(self):
-        return self.preferred_accommodation_type    
+        return self.preferred_accommodation_type
 
     class Meta:
         managed = False
@@ -247,14 +247,17 @@ class UsersAppUser(models.Model):
     user_name = models.CharField(max_length=30)
     user_phone = models.CharField(max_length=20)
     user_address = models.CharField(max_length=200)
-    preferred_region_no = models.ForeignKey(PreferredRegion, models.DO_NOTHING, db_column='preferred_region_no')
-    preferred_accommodation_type_no = models.ForeignKey(PreferredAccommodationType, models.DO_NOTHING, db_column='preferred_accommodation_type_no')
-    preferred_tour_theme_type_no = models.ForeignKey(PreferredTourThemeType, models.DO_NOTHING, db_column='preferred_tour_theme_type_no')
+    preferred_region_no = models.ForeignKey(PreferredRegion, models.DO_NOTHING, db_column='preferred_region_no', blank=True, null=True)
+    preferred_accommodation_type_no = models.ForeignKey(PreferredAccommodationType, models.DO_NOTHING, db_column='preferred_accommodation_type_no', blank=True, null=True)
+    preferred_tour_theme_type_no = models.ForeignKey(PreferredTourThemeType, models.DO_NOTHING, db_column='preferred_tour_theme_type_no', blank=True, null=True)
     profile_image = models.TextField(blank=True, null=True)
 
     class Meta:
         managed = False
         db_table = 'users_app_user'
+
+
+    
 
 
 class UsersAppUserGroups(models.Model):
@@ -311,17 +314,18 @@ class Yanolja(models.Model):
 
 
 class Youtube(models.Model):
-    youtube_id = models.CharField(primary_key=True, max_length=20)
-    youtube_title = models.CharField(max_length=200)
-    youtube_link = models.TextField(blank=True, null=True)
-    youtube_image = models.TextField(blank=True, null=True)
-    youtube_hashtag = models.TextField(blank=True, null=True)
-    youtube_channel_name = models.CharField(max_length=100, blank=True, null=True)
-    youtube_channel_count = models.IntegerField(blank=True, null=True)
-    youtube_content_like_count = models.IntegerField(blank=True, null=True)
-    youtube_comment_like_count = models.IntegerField(blank=True, null=True)
-    youtube_content_date = models.CharField(max_length=50, blank=True, null=True)
+    youtube_id = models.CharField(primary_key=True, max_length=10)
+    youtube_title = models.CharField(max_length=100, blank=True, null=True)
+    youtube_link = models.CharField(max_length=100, blank=True, null=True)
+    youtube_image = models.CharField(max_length=200, blank=True, null=True)
+    youtube_name = models.CharField(max_length=50, blank=True, null=True)
+    youtube_views = models.CharField(max_length=20, blank=True, null=True)
+    youtube_date = models.CharField(max_length=20, blank=True, null=True)
 
     class Meta:
         managed = False
         db_table = 'youtube'
+
+
+
+

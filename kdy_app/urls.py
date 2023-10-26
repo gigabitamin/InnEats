@@ -4,11 +4,24 @@ from . import views
 
 urlpatterns = [
 
+    path('youtube_list_user', views.youtube_list_user, name='youtube_list_user'),
+    path('naver_blog_list_user', views.naver_blog_list_user, name='naver_blog_list_user'),
+
+    path('youtube_user_preferred_tour_theme_type/<int:id>', views.youtube_user_preferred_tour_theme_type, name='youtube_user_preferred_tour_theme_type'),
+    # path('youtube_user_address/<int:id>', views.youtube_user_address, name='youtube_user_address'),
+    path('get_user_address/<int:id>', views.get_user_address, name='get_user_address'),
+    path('get_user_preferred_region/<int:id>', views.get_user_preferred_region, name='get_user_preferred_region'),
+    path('get_user_preferred_accommodation_type/<int:id>', views.get_user_preferred_accommodation_type, name='get_user_preferred_accommodation_type'),
+    path('get_user_preferred_tour_theme_type/<int:id>', views.get_user_preferred_tour_theme_type, name='get_user_preferred_tour_theme_type'),
+
     # path('sign_up2/', views.sign_up_upload_image, name='sign_up_upload_image,'),
     # path('upload/image/', views.upload_image, name='upload_image,'),
-    path('my_page/<int:id>', views.my_page, name='my_page'),    
-    path('my_page/update/<str:id>', views.my_page_update, name='my_page_update'),
-    path('my_page/delete/<str:id>', views.my_page_delete, name='my_page_delete'),
+    path('my_page/', views.my_page, name='my_page'),
+    path('my_page/update/<int:id>', views.my_page_update, name='my_page_update'),
+    path('my_page/delete/move<int:id>', views.my_page_delete_move, name='my_page_delete_move'),
+    path('my_page/delete/', views.my_page_delete, name='my_page_delete'),
+    path('my_page/delete/view/', views.MyPageDeleteView.as_view(), name='my_page_delete_view'),
+
 
     path('youtube/list/<str:keyword>', views.youtube_list, name='youtube_list'),
     path('youtube/detail/<str:youtube_id>', views.youtube_detail, name='youtube_detail'),

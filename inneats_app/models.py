@@ -160,19 +160,14 @@ class Place(models.Model):
 
 
 class Restaurant(models.Model):
-    restaurant_id = models.AutoField(primary_key=True)
-    restaurant_link = models.TextField(blank=True, null=True)
-    restaurant_image = models.TextField(blank=True, null=True)
-    restaurant_hashtag = models.TextField(blank=True, null=True)
-    restaurant_shop_name = models.TextField(blank=True, null=True)
-    restaurant_content_likeit_count = models.DecimalField(max_digits=3, decimal_places=1, blank=True, null=True)
-    restaurant_rating = models.DecimalField(max_digits=3, decimal_places=1, blank=True, null=True)
-    restaurant_review_num_count = models.IntegerField(blank=True, null=True)
-    restaurant_avg_price = models.IntegerField(blank=True, null=True)
-    restaurant_shop_category = models.TextField(blank=True, null=True)
-    restaurant_map_x = models.IntegerField(blank=True, null=True)
-    restaurant_map_y = models.IntegerField(blank=True, null=True)
-
+    restaurant_id = models.CharField(primary_key=True, max_length=20)
+    restaurant_link = models.CharField(max_length=255, blank=True, null=True)
+    restaurant_image = models.CharField(max_length=255, blank=True, null=True)
+    restaurant_shop_name = models.CharField(max_length=50, blank=True, null=True)
+    restaurant_map_x = models.FloatField(blank=True, null=True)
+    restaurant_map_y = models.FloatField(blank=True, null=True)
+    restaurant_address = models.CharField(max_length=100, blank=True, null=True)
+    
     class Meta:
         managed = False
         db_table = 'restaurant'
@@ -268,17 +263,47 @@ class Yanolja(models.Model):
 
 
 class Youtube(models.Model):
-    youtube_id = models.CharField(primary_key=True, max_length=20)
-    youtube_title = models.CharField(max_length=200)
-    youtube_link = models.TextField(blank=True, null=True)
-    youtube_image = models.TextField(blank=True, null=True)
-    youtube_hashtag = models.TextField(blank=True, null=True)
-    youtube_channel_name = models.CharField(max_length=100, blank=True, null=True)
-    youtube_channel_count = models.IntegerField(blank=True, null=True)
-    youtube_content_like_count = models.IntegerField(blank=True, null=True)
-    youtube_comment_like_count = models.IntegerField(blank=True, null=True)
-    youtube_content_date = models.CharField(max_length=50, blank=True, null=True)
-
+    youtube_id = models.CharField(primary_key=True, max_length=10)
+    youtube_title = models.CharField(max_length=100, blank=True, null=True)
+    youtube_link = models.CharField(max_length=100, blank=True, null=True)
+    youtube_image = models.CharField(max_length=200, blank=True, null=True)
+    youtube_name = models.CharField(max_length=50, blank=True, null=True)
+    youtube_views = models.CharField(max_length=20, blank=True, null=True)
+    youtube_date = models.CharField(max_length=20, blank=True, null=True)
     class Meta:
         managed = False
         db_table = 'youtube'
+
+class Accommodation(models.Model):
+    id = models.CharField(primary_key=True, max_length=20)
+    title = models.CharField(max_length=50, blank=True, null=True)
+    address = models.CharField(max_length=100, blank=True, null=True)
+    img_link = models.CharField(max_length=200, blank=True, null=True)
+    da_rating = models.DecimalField(max_digits=3, decimal_places=1, blank=True, null=True)
+    go_rating = models.DecimalField(max_digits=3, decimal_places=1, blank=True, null=True)
+    tr_rating = models.DecimalField(max_digits=3, decimal_places=1, blank=True, null=True)
+    ya_rating = models.DecimalField(max_digits=3, decimal_places=1, blank=True, null=True)
+    da_link = models.CharField(max_length=200, blank=True, null=True)
+    go_link = models.CharField(max_length=200, blank=True, null=True)
+    tr_link = models.CharField(max_length=200, blank=True, null=True)
+    ya_link = models.CharField(max_length=200, blank=True, null=True)
+    da_price = models.CharField(max_length=20, blank=True, null=True)
+    go_price = models.CharField(max_length=20, blank=True, null=True)
+    tr_price = models.CharField(max_length=20, blank=True, null=True)
+    ya_price = models.CharField(max_length=20, blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'accommodation'
+
+class Hotelcounts(models.Model):
+    hoteltype = models.CharField(db_column='HotelType', max_length=50, blank=True, null=True)  # Field name made lowercase.
+    count = models.IntegerField(db_column='Count', blank=True, null=True)  # Field name made lowercase.
+    hotel_count_no = models.CharField(primary_key=True, max_length=45)
+
+    class Meta:
+        managed = False
+        db_table = 'hotelcounts'
+
+
+

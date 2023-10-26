@@ -6,7 +6,6 @@ from .forms2 import UserForm
 from users_app.forms import CustomUserCreationForm
 
 
-# 로그인 : AuthenticationForm 사용
 def sign_in(request):
     if request.method == 'POST':
         form = AuthenticationForm(request, request.POST)
@@ -24,33 +23,16 @@ def sign_out(request):
     logout(request)
     return redirect('index')
 
-
-
-
-
 def sign_up(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             login(request, form.save())
-            return redirect('sign_in') # 회원가입 후 로그인화면으로 이동
+            return redirect('sign_in')
     else:
         form = CustomUserCreationForm()
 
     return render(request, 'users_app/sign_up.html', {'form':form})
-
-# def book_insert(request):
-#     if request.method == "POST":        
-#         form = BookForm(request.POST)        
-#         if form.is_valid():
-#             book = form.save(commit=False)
-#             book.save()
-#             return redirect('book_list')
-#         else: 
-#             pass 
-#     else:
-#         form = BookForm()
-#     return render(request, 'book_app/book_form.html', {'form':form})
 
 def sign_up2(request):   
     if request.method == 'POST':
@@ -67,7 +49,8 @@ def sign_up2(request):
 
         user = UserForm(request.POST)
         # 매개변수는 3개만 전달 가능
-        # 순서 주의 : username, email, password 
+        # 순서 주의 : username, email, password
+
         user = User.objects.create_user(username, email, password)
         # 3개 외 나머지는 별도로 추가
         user.user_name = user_name
@@ -79,7 +62,7 @@ def sign_up2(request):
             
         user.save()        
 
-        return redirect('sign_in') # 회원가입 후 로그인화면으로 이동
+        return redirect('sign_in')
     
     else:
         form = UserForm()

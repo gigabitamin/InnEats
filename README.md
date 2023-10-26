@@ -1,16 +1,56 @@
-<!-- sjh -->
 # AI 백엔드 5차 세미 프로젝트 (231013-231026)
 # TEAM def TROLL
 
-
-slack에 올려놓은 kdy_user_table_etc_231024_1314.sql import 하신 후 마이페이지 접속
+hst님 about 이랑 고객센터 header 부분 확인해주세요
 
 ==============================================================
+
+0.5.3 / kdy / 임시취합, hst브런치, develop 브런치 병합
+hst 브런치에서 pull -> hst 브런치 버전에서 static/css/bootstrap.min.css 변경사항 확인
+css 파일 이전버전으로 롤백 -> 해결
+about, contact 페이지 header 부분 슬라이드 버튼 기능 정지 -> 미해결 / hst 본인 작업 페에지에서 확인 요망
+hst / 숙소목록 for문 데이터 출력 확인, 고객의 소리 추가, 고객센터 페이지 푸터 번역
+kyj / accom_app 변경사항 확인
+kdy / kyj / sms / sjh / hst / 페이지 모두 정상 출력 확인
+But, sjh 페이지 이후버전 아직 미취합 
+
+0.5.2 / kdy / 임시취합 /
+kdy, kyj, sms, 취합
+hst, 검색창 붙이고 취합예정
+sjh, 끝나고 취합예정 or 내일까지
+
+0.5.1 / kdy /
+1. 1-1.로그인 유저가 유투브 블로그 클릭시 유저가 가입할때 설정한 선호 지역, 선호 숙박 형태, 선호 테마 키워드에 맞춰 각각의 유투브 블로그 테이블에서 title 내용 중 해당 키워드가 포함된 row 문서를 찾아 필터링을 거친 뒤 필터링한 리스트를 출력해주는 views 함수 작성 -> 해당 키워드는 마이페이지에서 수정 가능
+1-2. 비 로그인 유저는 유투브 블로그 클릭시 미리 설정된 기본값(우도면) 필터링 리스트로 진입
+2. 유저가 로그인 할 시 자동으로 해당 유저 테이블에서 이메일을 불러와 해당 이메일로 이미지를 포함한 로그인 메세지 html 형태로 발송하는 함수 작성-> 정상작동 확인
+
+0.5.0 / kdy
+회원가입 css 수정
+my_page css 적용 완료
+회원 정보 수정 추가
+회원탈퇴 추가
+로그인 사용자만 본인 정보 my_page 보이도록 수정
+미로그인 사용자가 클릭할 경우 로그인 페이지로 자동 이동하도록 수정
+hst sjh sms 각 멤버별 임시 취합버전 models, forms 등 기타 오류 수정 -> 정상 구동 확인
+
+0.4.9 /
+sjh / js 폴더에 map 관련 bootstrap.js 파일 -> 다른 분 페이지 css 고치실 때 충돌 없는지 확인
+sms / acctraction_app 생성
+>>>>>>> 585b53b5ab95385086c1bffc6ab4e07dcd82554d
+
+0.4.8 / 
+hst / search 앱 생성
+kyj / 유투브 크롤링 데이터 db 업로드 완료 
+kdy / kdy_app inneats_app forms models 유투브 fields 수정 
+-> 유투브 클릭시 정상구동 #주의사항:kyj님꼐서 올려놓은 sql 명령문으로 유투브 테이블 만든 후 youtube db import 한 뒤에 유투브 페이지 들어갈 것
+-> row가 895개로 데이터가 많아서 페이지 로딩시 오래걸리니 주의
 
 0.4.7 / kdy / 
 user 테이블에 선호 여행 지역, 선호 숙박 형태, 선호 여행 테마 추가
 회원가입 form에 위의 3개 column 추가
 마이 페이지 구현 (현재 user_id = '6' 고정)
+slack에 올려놓은 kdy_user_table_etc_231024_1314.sql import 하신 후 마이페이지 접속
+
 
 0.4.6 / kdy / 
 user 테이블에 profile_image 컬럼 생성

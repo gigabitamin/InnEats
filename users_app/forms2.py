@@ -18,13 +18,13 @@ class UserForm(forms.ModelForm):
         )
 
         labels = {
-            'username' : 'ID',
+            'username' : '아이디',
             'password' : '비밀번호',
             'email' : '이메일',
             'user_name' : '성명',
             'user_phone' : '전화번호',
             'user_address' : '주소',
-            'preferred_region_no' : 'preferred_region',
-            'preferred_accommodation_type_no' : 'preferred_accommodation_type',
-            'preferred_tour_theme_type_no' :'preferred_tour_theme_type'
+            'preferred_region_no' : '선호 여행 지역',
+            'preferred_accommodation_type_no' : '선호 숙박 형태',
+            'preferred_tour_theme_type_no' :'선호 여행 테마'
         }
