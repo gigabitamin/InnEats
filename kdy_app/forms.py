@@ -59,6 +59,7 @@ class ImageForm(forms.Form):
     image = forms.ImageField()
 
 
+
 class UserInfoForm(forms.ModelForm):
     preferred_region_no = forms.ModelChoiceField(queryset=PreferredRegion.objects.all())
     preferred_accommodation_type_no = forms.ModelChoiceField(queryset=PreferredAccommodationType.objects.all())
@@ -81,6 +82,38 @@ class UserInfoForm(forms.ModelForm):
 
         labels = {
             'username':'아이디',
+            'email':'이메일',            
+            'user_name':'성명',
+            'user_phone':'전화번호',
+            'user_address':'주소',
+            'preferred_region_no':'선호 여행 지역',
+            'preferred_accommodation_type_no':'선호 여행 타입',
+            'preferred_tour_theme_type_no':'선호 여행 테마',
+            # 'profile_image':'프로필 이미지'            
+        }
+
+
+
+class UserInfoForm_custom(forms.ModelForm):
+    preferred_region_no = forms.ModelChoiceField(queryset=PreferredRegion.objects.all())
+    preferred_accommodation_type_no = forms.ModelChoiceField(queryset=PreferredAccommodationType.objects.all())
+    preferred_tour_theme_type_no = forms.ModelChoiceField(queryset=PreferredTourThemeType.objects.all())
+
+    class Meta:
+        model = UsersAppUser
+        
+        fields = (
+            'email',                     
+            'user_name',
+            'user_phone',
+            'user_address',
+            'preferred_region_no',            
+            'preferred_accommodation_type_no',
+            'preferred_tour_theme_type_no',
+            # 'profile_image'    
+        )
+
+        labels = {            
             'email':'이메일',            
             'user_name':'성명',
             'user_phone':'전화번호',

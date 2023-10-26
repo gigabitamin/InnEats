@@ -42,8 +42,7 @@
                 <button id=myPageUpdateBtn type="submit" class="btn-primary">전체 정보 수정</button></a>
 </div>
 
-<div class="sign_up_box">
-    <form action="{% url 'my_page_update_username' user_info.id %}" method="post">{% csrf_token %}<button id=myPageUpdateBtn type="submit" class="btn-primary">아이디 수정</button></form>
+<div class="sign_up_box">    
     <form action="{% url 'my_page_update_email' user_info.id %}" method="post">{% csrf_token %}<button id=myPageUpdateBtn type="submit" class="btn-primary">이메일 수정</button></form>
     <form action="{% url 'my_page_update_password' user_info.id %}" method="post">{% csrf_token %}<button id=myPageUpdateBtn type="submit" class="btn-primary">비밀번호 수정</button></form>
     <form action="{% url 'my_page_update_user_name' user_info.id %}" method="post">{% csrf_token %}<button id=myPageUpdateBtn type="submit" class="btn-primary">성명 수정</button></form>
@@ -57,17 +56,12 @@
                     <button id=myPageUpdateBtn type="submit">회원 탈퇴</button></a>
 </div>
 
-{% comment %} 
-            <tr>
-                <td><a href="{% url 'my_page_delete_move' user_info.id %}" 
-                        onclick="return confirm('탈퇴 하시겠습니까?') && confirm('정말 탈퇴 하시겠습니까?') && confirm('다시 생각해보시지 않겠습니까?')">
-                    <button id=myPageDeleteBtn>회원 탈퇴</button></a></td>            
-            </tr>      {% endcomment %}
+
 
 
 {% comment %} {{keyword_trend}} {% endcomment %}
 <script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/3461_RC01/embed_loader.js"></script>
-<script type="text/javascript"> trends.embed.renderExploreWidget("RELATED_TOPICS", {"comparisonItem":[{"keyword":{{user_info.preferred_region_no}},"geo":"KR","time":"today 12-m"}],"category":0,"property":""}, {"exploreQuery":"geo=KR&q={{keyword_trend}}&date=today 12-m","guestPath":"https://trends.google.co.kr:443/trends/embed/"}); </script>
+<script type="text/javascript"> trends.embed.renderExploreWidget("RELATED_TOPICS", {"comparisonItem":[{"keyword":{{user_info.preferred_region_no.preferred_region}},"geo":"KR","time":"today 12-m"}],"category":0,"property":""}, {"exploreQuery":"geo=KR&q={{keyword_trend}}&date=today 12-m","guestPath":"https://trends.google.co.kr:443/trends/embed/"}); </script>
 
 
 

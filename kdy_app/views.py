@@ -38,6 +38,7 @@ from django.conf import settings
 # 커스텀 유저 폼 마이페이지 관련
 from .models import UsersAppUser
 from .forms import UserInfoForm
+from .forms import UserInfoForm_custom
 from .forms import UserInfoForm_username
 from .forms import UserInfoForm_email
 from .forms import UserInfoForm_password
@@ -359,13 +360,13 @@ def my_page(request):
 def my_page_update(request, id):  
     user_info = get_object_or_404(UsersAppUser, pk=id)    
     if request.method == "POST":
-        user_form = UserInfoForm(request.POST, instance=user_info)
+        user_form = UserInfoForm_custom(request.POST, instance=user_info)
         if user_form.is_valid():
             user_info = user_form.save(commit=False)
             user_info.save()
             return redirect('index')
     else:
-        user_form = UserInfoForm(instance=user_info)
+        user_form = UserInfoForm_custom(instance=user_info)
     
     return render(request, 'kdy_app/my_page_update.html', {'user_form':user_form, 'user_info':user_info})
 
@@ -773,155 +774,3 @@ def youtube_search_ajax(request):
 
 
 
-
-
-# def book_search(request):
-#     if request.method == "POST":
-#         type = request.POST['type']
-#         keyword = request.POST['keyword']
-
-#         print(type, keyword)
-
-#         if type == "bookname":
-#             book_list = Book.objects.filter(Q(bookname__contains=keyword))
-#         elif type == "bookauthor":
-#             book_list = Book.objects.filter(Q(bookauthor__contains=keyword))
-#         elif type == "pubname":
-#             book_list = Book.objects.filter(Q(pubno__pubname__contains=keyword))
-#         # elif type == "bookstock":
-#         #     book_list = Book.objects.filter(Q(bookstock=keyword))
-#         elif type == "bookprice":
-#             book_list = Book.objects.filter(Q(bookprice=keyword))        
-#         elif type == "bookprice":
-#             price_range = keyword.split("-")  # 가격 범위 (-) 기준으로 분리
-#             if len(price_range) == 2:
-#                 min_price, max_price = price_range
-#                 book_list = Book.objects.filter(Q(bookprice__gte = min_price, bookprice__lte = max_price))       
-#         else:
-#             return render(request, 'book_app/book_search_form.html')
-        
-#         return render(request, 'book_app/book_search_form.html', {'book_list':book_list})
-    
-#     else: # GET
-#         return render(request, 'book_app/book_search_form.html')
-
-# def book_search_form2(request):
-#     return render(request, 'book_app/book_search_form2.html')
-
-# # 검색 기능 수행하고 결과를 JsonResponse로 반환
-# def book_search2(request):
-#     if request.method == "POST":
-#         # if 문으로 type or keyword 골라서 받기 구현
-#         type = request.POST['type']
-#         keyword = request.POST['keyword']
-#         print(type, keyword)
-
-#         if type == "bookname":
-#             book_list = Book.objects.filter(Q(bookname__contains=keyword))
-#         elif type == "bookauthor":
-#             book_list = Book.objects.filter(Q(bookauthor__contains=keyword))
-#         elif type == "pubname":
-#             book_list = Book.objects.filter(Q(pubno__pubname__contains=keyword))
-#         # elif type == "bookstock":
-#         #     book_list = Book.objects.filter(Q(bookstock=keyword))
-#         # elif type == "bookprice":
-#         #     book_list = Book.objects.filter(Q(bookprice=keyword))              
-#         elif type == "bookprice":
-#             price_range = int(keyword.split("-"))  # 가격 범위 (-) 기준으로 분리
-#             try:
-#                 if len(price_range) == 2:
-#                     min_price, max_price = price_range
-#                     book_list = Book.objects.filter(Q(bookprice__gte = min_price, bookprice__lte = max_price))
-#                 else:
-#                     print("가격은 [ 최소-최대 ] 형식으로 숫자만 입력하세요")
-#             except:
-#                 print('올바른 형식으로 입력하세요')
-                               
-#         else:
-#             print("검색조건을 선택하세요")
-
-#         book_list_json = json.loads(serializers.serialize('json', book_list, ensure_ascii=False))
-
-#         return JsonResponse({'reload_all':False, 'book_list_json':book_list_json})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# def youtube_detail(request,keyword):    
-#     # print(keyword)    
-
-#     # 하위 주소를 토대로 관광지 리스트 쿼리 
-#     addr = "제주 서귀포시 안덕면"
-#     keywords = addr.split(" ")
-
-#     if len(keywords) > 2 :
-#         keyword = keywords[2]
-#     else:
-#         keyword = keywords[1]
-
-#     # print(keyword)
-#     # attraction_list = Visitkorea.objects.filter(Q(visitkorea_address__contains=keyword))[:3]
-#     # 숙소 주변 관광지 리스트를 토대로 쿼리 날리는 방법 #
-#     #################################################################################
-#     # 키워드를 포함한 리스트
-#     keywords = ['용연구름다리', '화북포구', '아날로그감귤밭']  # 나머지 키워드들을 포함
-#     # 초기 쿼리 생성
-#     q_objects = Q(youtube_title__contains=keywords[0])
-#     # 나머지 키워드들을 OR 조건으로 추가
-#     for keyword in keywords[1:]:
-#         q_objects |= Q(youtube_title__contains=keyword)
-#     # 쿼리 실행
-#     attraction_list = Youtube.objects.filter(q_objects)
-#     #################################################################################
-#     return render(request, 'kdy_app/youtube_detail.html', {'attraction_list':attraction_list}, keyword) 
-  
-
-# def naver_blog_list(request,keyword):
-#     print(keyword)
-#     return render(request, 'kdy_app/naver_blog_list.html',{'keyword':keyword}, {'youtube_title': youtube_title}) 
-
-
-# def naver_blog_detail(request,keyword):
-#     # 하위 주소를 토대로 관광지 리스트 쿼리 
-#     addr = "제주 서귀포시 안덕면"
-#     keywords = addr.split(" ")
-
-#     if len(keywords) > 2 :
-#         keyword = keywords[2]
-#     else:
-#         keyword = keywords[1]
-
-#     # print(keyword)
-#     # attraction_list = Visitkorea.objects.filter(Q(visitkorea_address__contains=keyword))[:3]
-
-#     # 숙소 주변 관광지 리스트를 토대로 쿼리 날리는 방법 #
-#     #################################################################################
-#     # 키워드를 포함한 리스트
-#     keywords = ['용연구름다리', '화북포구', '아날로그감귤밭']  # 나머지 키워드들을 포함
-#     # 초기 쿼리 생성
-#     q_objects = Q(naver_blog_title__contains=keywords[0])
-#     # 나머지 키워드들을 OR 조건으로 추가
-#     for keyword in keywords[1:]:
-#         q_objects |= Q(naver_blog_title__contains=keyword)
-#     # 쿼리 실행
-#     attraction_list = NaverBlog.objects.filter(q_objects)
-#     #################################################################################
-     
-#     return render(request, 'kdy_app/naver_blog_detail.html', {'attraction_list':attraction_list})
