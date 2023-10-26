@@ -17,17 +17,19 @@
            
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto">
-                    {% comment %} <a href="{% url 'index' %}" class="nav-item nav-link active">temp</a> {% endcomment %}           
-                                        
-                
-                    {% comment %} 드롭다운 메뉴 {% endcomment %}
-                    {% comment %} <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">임시1</a>
-                        <div class="dropdown-menu rounded-0 m-0">
+                    {% comment %} <a href="{% url 'index' %}" class="nav-item nav-link active">temp</a>                 {% endcomment %}
+                    <!-- 숙소 페이지 접근을 위한 임시숙소링크 추가 - kyj -->
+                    <!-- 테스트를 위해 keyword 제주도 입력 -->
+                    <!-- 유투브 블로그 링크 추가, 키워드 '제주도 포함' 형식 동일 -->
+                    {% comment %} <a href="{% url 'my_page' '6' %}" class="nav-item nav-link"  id="my_page">MY PAGE</a> {% endcomment %}
+                    <a href="{% url 'youtube_list' keyword='제주도' %}" class="nav-item nav-link">유튜브</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Property</a>
+                        {% comment %} <div class="dropdown-menu rounded-0 m-0">
                             <a href="{% url 'property_list' %}" class="dropdown-item">Property List</a>
                             <a href="{% url 'property_type' %}" class="dropdown-item">Property Type</a>
                             <a href="{% url 'property_agent' %}" class="dropdown-item">Property Agent</a>
-                        </div>
+                        </div> {% endcomment %}
                     </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">임시2</a>
@@ -35,7 +37,7 @@
                             <a href="{% url 'property_testimonial' %}" class="dropdown-item">Testimonial</a>
                             <a href="{% url 'error404' %}" class="dropdown-item">404 Error</a>
                         </div>
-                    </div> {% endcomment %}
+                    </div> 
 
                     {% comment %} <a href="{% url 'index' %}" class="nav-item nav-link active">temp</a>{% endcomment %}
                     <!-- 숙소 페이지 접근을 위한 임시숙소링크 추가 - kyj -->
@@ -93,4 +95,4 @@
     </div>
     <!-- Navbar End -->
 
-    {% endblock content %}
+{% endblock content %}
