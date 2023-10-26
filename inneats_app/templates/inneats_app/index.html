@@ -64,6 +64,7 @@
         </div>
     </div>
     <!-- Search End -->
+
     <!-- Category Start --> 
     <div class="container-xxl py-5">
             <div class="container">
@@ -140,14 +141,21 @@
     <!-- Testimonial End -->   
     
 </div>
+
+{% comment %} index 검색창 관련 {% endcomment %}
+
 <script>
     function accommodation_search() {
         var keyword = document.getElementById("search_keyword").value;
         var portalSelect = document.getElementById("portal_select");
         var selectedPortal = portalSelect.options[portalSelect.selectedIndex].value;
         var url = "http://127.0.0.1:8000/" + selectedPortal + "/" + encodeURIComponent(keyword);
-        window.location.href = url;
-    }
+                
+
+        if (keyword != ''){
+            window.location.href = url;
+        }        
+    } 
 </script>
 
 

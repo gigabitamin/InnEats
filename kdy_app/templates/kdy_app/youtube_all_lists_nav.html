@@ -42,8 +42,8 @@
     <hr>
     <div><a href="{% url 'youtube_all_lists' %}">전체 조회</a></div>
     <div><a href="{% url 'youtube_insert' %}">등록</a></div>
-    <div><a href="{% url 'youtube_search_custom_form' %}">검색 Custom</a></div>
-    <div><a href="{% url 'youtube_search_ajax_form' %}">검색 Ajax</a></div>         
+    {% comment %} <div><a href="{% url 'youtube_search_custom_form' %}">검색 Custom</a></div>
+    <div><a href="{% url 'youtube_search_ajax_form' %}">검색 Ajax</a></div>          {% endcomment %}
 </div>
 
 {% endblock content %}
