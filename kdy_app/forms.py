@@ -69,8 +69,7 @@ class UserInfoForm(forms.ModelForm):
         
         fields = (
             'username',
-            'email',
-            'password',            
+            'email',                     
             'user_name',
             'user_phone',
             'user_address',
@@ -82,8 +81,7 @@ class UserInfoForm(forms.ModelForm):
 
         labels = {
             'username':'아이디',
-            'email':'이메일',
-            'password':'비밀번호',
+            'email':'이메일',            
             'user_name':'성명',
             'user_phone':'전화번호',
             'user_address':'주소',
