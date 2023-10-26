@@ -16,7 +16,7 @@
         <br>
         {% csrf_token %}
         <a href="{% url 'my_page_delete_move' user_info.id %}" 
-            onclick="return confirm('탈퇴 하시겠습니까?') && confirm('정말 탈퇴 하시겠습니까?') && confirm('다시 생각해보시지 않겠습니까?')">
+            onclick="return confirm('탈퇴 하시겠습니까?') && confirm('그동안 이용해주셔서 감사합니다')">
         <button type="submit">탈퇴 완료</button></a>
     </form>
 </div>

@@ -31,18 +31,31 @@
             <tr><th class='lbl'>선호 숙박 형태</th><td>{{user_info.preferred_accommodation_type_no.preferred_accommodation_type}}</td></tr>
             <tr><th class='lbl'>선호 여행 테마</th><td>{{user_info.preferred_tour_theme_type_no.preferred_tour_theme_type}}</td></tr>
             <tr>
-                <td class='lbl'><a href="{% url 'my_page_update' user_info.id %}">
-                <button id=myPageUpdateBtn type="submit" class="btn-primary">회원 정보 수정</button></a><br></td>
-            </tr>
-            <tr>
-                <td class='lbl'><a href="{% url 'my_page_delete_move' user_info.id %}">회원 탈퇴</a></td>
+                <td class='lbl'></td>
             </tr>            
-        </table><br>
-
+        </table>
     </form>
 </div>
 
+<div class="sign_up_box" class="btn-primary">
+<a href="{% url 'my_page_update' user_info.id %}">
+                <button id=myPageUpdateBtn type="submit" class="btn-primary">전체 정보 수정</button></a>
+</div>
 
+<div class="sign_up_box">
+    <form action="{% url 'my_page_update_username' user_info.id %}" method="post">{% csrf_token %}<button id=myPageUpdateBtn type="submit" class="btn-primary">아이디 수정</button></form>
+    <form action="{% url 'my_page_update_email' user_info.id %}" method="post">{% csrf_token %}<button id=myPageUpdateBtn type="submit" class="btn-primary">이메일 수정</button></form>
+    <form action="{% url 'my_page_update_password' user_info.id %}" method="post">{% csrf_token %}<button id=myPageUpdateBtn type="submit" class="btn-primary">비밀번호 수정</button></form>
+    <form action="{% url 'my_page_update_user_name' user_info.id %}" method="post">{% csrf_token %}<button id=myPageUpdateBtn type="submit" class="btn-primary">성명 수정</button></form>
+    <form action="{% url 'my_page_update_user_phone' user_info.id %}" method="post">{% csrf_token %}<button id=myPageUpdateBtn type="submit" class="btn-primary">전화번호 수정</button></form>
+    <form action="{% url 'my_page_update_user_address' user_info.id %}" method="post">{% csrf_token %}<button id=myPageUpdateBtn type="submit" class="btn-primary">주소 수정</button></form>    
+    <form action="{% url 'my_page_update_preferred_region_no' user_info.id %}" method="post">{% csrf_token %}<button id=myPageUpdateBtn type="submit" class="btn-primary">선호 타입</button></form>
+</div>
+
+<div class="sign_up_box">
+<a href="{% url 'my_page_delete_move' user_info.id %}">
+                    <button id=myPageUpdateBtn type="submit">회원 탈퇴</button></a>
+</div>
 
 {% comment %} 
             <tr>

@@ -1,30 +1,52 @@
+
 import os
+import json
 from django.http import HttpResponse, JsonResponse
 from django.core import serializers
-import json
+from datetime import datetime
 from django.shortcuts import get_object_or_404, render, redirect
+
+# 데이터베이스 필터링 관련
+from django.db.models import Q
 from .models import NaverBlog
 from .models import Youtube
-from django.db.models import Q
 from .forms import YoutubeForm
 from .forms import NaverBlogForm
-from .forms import ImageForm
-from .forms import UserInfoForm
-from .models import UsersAppUser
-from django.views.generic.edit import DeleteView
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
-from users_app.models import User
-from django.contrib.auth.signals import user_logged_in
+
+# 메일링
 from django.dispatch import receiver
 from django.core.mail import send_mail
-from datetime import datetime
 import smtplib  # SMTP 사용을 위한 모듈
 import re  # Regular Expression을 활용하기 위한 모듈
 from email.mime.multipart import MIMEMultipart  # 메일의 Data 영역의 메시지를 만드는 모듈
 from email.mime.text import MIMEText  # 메일의 본문 내용을 만드는 모듈
 from email.mime.image import MIMEImage  # 메일의 이미지 파일을 base64 형식으로 변환하기 위한 모듈
+
+# 이미지 업로드
+from .forms import ImageForm
+
+# 로그인 관련
+from imaplib import _Authenticator
+from django.views.generic.edit import DeleteView
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import login
+from django.contrib.auth.models import User
+from users_app.models import User
+from django.contrib.auth.signals import user_logged_in
 from django.conf import settings
+
+# 커스텀 유저 폼 마이페이지 관련
+from .models import UsersAppUser
+from .forms import UserInfoForm
+from .forms import UserInfoForm_username
+from .forms import UserInfoForm_email
+from .forms import UserInfoForm_password
+from .forms import UserInfoForm_user_name
+from .forms import UserInfoForm_user_phone
+from .forms import UserInfoForm_user_address
+from .forms import UserInfoForm_preferred_accommodation_type_no
+from .forms import UserInfoForm_preferred_tour_theme_type_no
+from .forms import UserInfoForm_preferred_region_no
 
 
 
@@ -47,7 +69,7 @@ def send_mail(to_email, inneats_user_id):
 
     # 수신자 정보
     to_email = 'myanyhoney@gmail.com' # 수신할 계정 # 여러명에게 보낼 땐 [] 로 리스트 처리
-    inneats_user_id = 'inneats user table에서 불러올 user id'
+    inneats_user_id = inneats_user_id
 
     # 보낼 내용
     now = datetime.now()
@@ -77,7 +99,6 @@ def send_mail(to_email, inneats_user_id):
     msg.attach(text_part)
     msg.attach(html_part)
     
-    
     # 이미지 파일 추가
     # image_path = "{% static 'img/logo/inneats/InnEats_logo_temp.png' %}" --> load static 실행 안됨, 절대 결로 or 상대 경로 처리
     # image_path = "C:\djangoWorkspace/InnEats_logo_temp.png"
@@ -106,8 +127,6 @@ def send_mail(to_email, inneats_user_id):
     # smtp 서버 연결 해제
     server.quit()
 
-
-
 @receiver(user_logged_in)
 def send_login_email(sender, request, user, **kwargs):
     # 사용자 정보에서 이메일 주소 가져오기
@@ -118,10 +137,40 @@ def send_login_email(sender, request, user, **kwargs):
 
 
 
+# 세션 처리 문제
+# @receiver(user_logged_in, dispatch_uid="set_session")
+# def set_session(sender, request, user, **kwargs):
+#     user_info = user
+#     request.session['id'] = user_info.id
+#     return HttpResponse("Session data set.")
+
+# @receiver(user_logged_in, dispatch_uid="get_session")
+# def get_session(sender, request, user, **kwargs):
+#     user_id = request.session.get('id')  # 세션에서 데이터 읽기
+#     return HttpResponse(f"User ID: {user_id}")
+
+# @receiver(user_logged_in, dispatch_uid="get_session")
+# def login_view(sender, request, user, **kwargs):
+#     if request.method == 'POST':
+#         username = request.POST['username']
+#         user = _Authenticator(request, username=username, password='password')
+#         if user:
+#             login(request, user)
+#             # 클라이언트 측 로컬 스토리지에 로그인 정보 저장
+#             response = JsonResponse({'message': '로그인 성공'})
+#             response.set_cookie('user', username, max_age=settings.SESSION_COOKIE_AGE) # 3일
+#             return response
+#         else:
+#             return JsonResponse({'message': '로그인 실패'})
+
+
+
+
+
 
 # 유저 선호도에 따른 필터링 결과 출력
 
-@login_required
+# @login_required
 def naver_blog_list_user(request):
     user_info = request.user  # 현재 로그인한 사용자
     preferred_region_no = get_user_preferred_region(user_info.username) # 테마 타입이 일치하는 유저 정보 
@@ -314,11 +363,164 @@ def my_page_update(request, id):
         if user_form.is_valid():
             user_info = user_form.save(commit=False)
             user_info.save()
-            return redirect('my_page', user_info.id)
+            return redirect('index')
     else:
         user_form = UserInfoForm(instance=user_info)
     
     return render(request, 'kdy_app/my_page_update.html', {'user_form':user_form, 'user_info':user_info})
+
+
+def my_page_update_username(request, id):  
+    user_info = get_object_or_404(UsersAppUser, pk=id)    
+    if request.method == "POST":
+        user_form = UserInfoForm_username(request.POST, instance=user_info)
+        if user_form.is_valid():
+            user_info = user_form.save(commit=False)
+            user_info.save()
+            return redirect('index')
+    else:
+        user_form = UserInfoForm_username(instance=user_info)
+    
+    return render(request, 'kdy_app/my_page_update.html', {'user_form':user_form, 'user_info':user_info})
+
+
+def my_page_update_email(request, id):  
+    user_info = get_object_or_404(UsersAppUser, pk=id)    
+    if request.method == "POST":
+        user_form = UserInfoForm_email(request.POST, instance=user_info)
+        if user_form.is_valid():
+            user_info = user_form.save(commit=False)
+            user_info.save()
+            return redirect('index')
+    else:
+        user_form = UserInfoForm_email(instance=user_info)
+    
+    return render(request, 'kdy_app/my_page_update.html', {'user_form':user_form, 'user_info':user_info})
+
+def my_page_update_password(request, id):  
+    user_info = get_object_or_404(UsersAppUser, pk=id)    
+    if request.method == "POST":
+        user_form = UserInfoForm_password(request.POST, instance=user_info)
+        if user_form.is_valid():
+            user_info = user_form.save(commit=False)
+            user_info.save()
+            return redirect('index')
+    else:
+        user_form = UserInfoForm_password(instance=user_info)
+    
+    return render(request, 'kdy_app/my_page_update.html', {'user_form':user_form, 'user_info':user_info})
+
+def my_page_update_user_name(request, id):  
+    user_info = get_object_or_404(UsersAppUser, pk=id)    
+    if request.method == "POST":
+        user_form = UserInfoForm_user_name(request.POST, instance=user_info)
+        if user_form.is_valid():
+            user_info = user_form.save(commit=False)
+            user_info.save()
+            return redirect('index')
+    else:
+        user_form = UserInfoForm_user_name(instance=user_info)
+    
+    return render(request, 'kdy_app/my_page_update.html', {'user_form':user_form, 'user_info':user_info})
+
+def my_page_update_user_phone(request, id):  
+    user_info = get_object_or_404(UsersAppUser, pk=id)    
+    if request.method == "POST":
+        user_form = UserInfoForm_user_phone(request.POST, instance=user_info)
+        if user_form.is_valid():
+            user_info = user_form.save(commit=False)
+            user_info.save()
+            return redirect('index')
+    else:
+        user_form = UserInfoForm_user_phone(instance=user_info)
+    
+    return render(request, 'kdy_app/my_page_update.html', {'user_form':user_form, 'user_info':user_info})
+
+def my_page_update_user_address(request, id):  
+    user_info = get_object_or_404(UsersAppUser, pk=id)    
+    if request.method == "POST":
+        user_form = UserInfoForm_user_address(request.POST, instance=user_info)
+        if user_form.is_valid():
+            user_info = user_form.save(commit=False)
+            user_info.save()
+            return redirect('index')
+    else:
+        user_form = UserInfoForm_user_address(instance=user_info)
+    
+    return render(request, 'kdy_app/my_page_update.html', {'user_form':user_form, 'user_info':user_info})
+
+
+
+def my_page_update_preferred_region_no(request, id):  
+    user_info = get_object_or_404(UsersAppUser, pk=id)    
+    if request.method == "POST":
+        user_form = UserInfoForm_preferred_region_no(request.POST, instance=user_info)
+        if user_form.is_valid():
+            user_info = user_form.save(commit=False)
+            user_info.save()
+            return redirect('index')
+    else:
+        user_form = UserInfoForm_preferred_region_no(instance=user_info)
+    
+    return render(request, 'kdy_app/my_page_update.html', {'user_form':user_form, 'user_info':user_info})
+
+
+
+def my_page_update_preferred_accommodation_type_no(request, id):  
+    user_info = get_object_or_404(UsersAppUser, pk=id)    
+    if request.method == "POST":
+        user_form = UserInfoForm_preferred_accommodation_type_no(request.POST, instance=user_info)
+        if user_form.is_valid():
+            user_info = user_form.save(commit=False)
+            user_info.save()
+            return redirect('index')
+    else:
+        user_form = UserInfoForm_preferred_accommodation_type_no(instance=user_info)
+    
+    return render(request, 'kdy_app/my_page_update.html', {'user_form':user_form, 'user_info':user_info})
+
+def my_page_update_preferred_tour_theme_type_no(request, id):  
+    user_info = get_object_or_404(UsersAppUser, pk=id)    
+    if request.method == "POST":
+        user_form = UserInfoForm_preferred_tour_theme_type_no(request.POST, instance=user_info)
+        if user_form.is_valid():
+            user_info = user_form.save(commit=False)
+            user_info.save()
+            return redirect('index')
+    else:
+        user_form = UserInfoForm_preferred_tour_theme_type_no(instance=user_info)
+    
+    return render(request, 'kdy_app/my_page_update.html', {'user_form':user_form, 'user_info':user_info})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def my_page_update_custom(request, id):  
+    user_info = get_object_or_404(UsersAppUser, pk=id)    
+    if request.method == "POST":
+        user_form = UserInfoForm(request.POST, instance=user_info)
+        if user_form.is_valid():
+            user_info = user_form.save(commit=False)
+            user_info.save()
+            return redirect('my_page', user_info.id)
+    else:
+        user_form = UserInfoForm(instance=user_info)
+    
+    return render(request, 'kdy_app/my_page_update_custom.html', {'user_form':user_form, 'user_info':user_info})
+
 
 # def my_page_delete(id):
 #     user_info = get_object_or_404(UsersAppUser, pk=id)

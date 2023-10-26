@@ -48,9 +48,9 @@
             </div>            
             {% comment %} {% for youtube in youtube_data %} {% endcomment %}            
             <div class="col-md-6 p-5 mt-lg-5">
-                <h1 class="display-5 animated fadeIn mb-4">{{youtube_data1.youtube_title}}<br> <span class="text-primary">{{youtube_data1.youtube_hashtag}}</span></h1>
+                <h1 class="display-5 animated fadeIn mb-4">{{youtube_data1.youtube_title}}<br><br> <span class="text-primary">[{{youtube_data1.youtube_name}}] <br>{{youtube_data1.youtube_hashtag}}</span></h1>
                 <p class="animated fadeIn mb-4 pb-2"> {{youtube_data1.youtube_date}} </p>
-                <a href="" class="btn btn-primary py-3 px-5 me-3 animated fadeIn">구독자 : {{youtube_data1.youtube_channel_count}} | 추천수 : {{youtube_data1.youtube_content_like_count}} | 첫 댓글 추천수 : {{youtube_data1.youtube_comment_like_count}}</a>
+                <a href="" class="btn btn-primary py-3 px-5 me-3 animated fadeIn">조회수 : {{youtube_data1.youtube_views}} | 추천수 : {{youtube_data1.youtube_content_like_count}} | 첫 댓글 추천수 : {{youtube_data1.youtube_comment_like_count}}</a>
             </div>            
             {% comment %} {% endfor %} {% endcomment %}
         </div>
@@ -116,8 +116,8 @@
                             <iframe src="{{ youtube.youtube_link|youtube_embed_url }}"></iframe>
                             <a href="{{ youtube.youtube_link }}" title="영상으로 이동"><img class="img-fluid flex-shrink-0 rounded"></a>
                             <a href="{{ youtube.youtube_link }}" title="채널로 이동"><div class="ps-3">
-                                <h6 class="fw-bold mb-1">{{ youtube.youtube_channel_name }}</h6>
-                                <small>구독자 : {{ youtube.youtube_channel_count|intcomma }}</small>
+                                <h6 class="fw-bold mb-1">{{ youtube.youtube_name }}</h6>
+                                <small> {{ youtube.youtube_views|intcomma }}</small>
                             </div></a>
                         </div>
                     </div>
@@ -169,7 +169,7 @@
                                 <div class="position-relative overflow-hidden">
                                     <a href="{{ youtube.youtube_link }}"><img class="img-fluid" src="{{ youtube.youtube_image }}" alt="" title="클릭 시 유투브 이동"></a>
                                     <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">{{ youtube.youtube_id }}</div>
-                                    <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">{{ youtube.youtube_channel_name }}</div>
+                                    <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">{{ youtube.youtube_name }}</div>
                                 </div>
                                 <div class="p-4 pb-0">
                                     <h5 class="text-primary mb-3">{{ youtube.youtube_hashtag }}</h5>
@@ -177,7 +177,7 @@
                                     <p><i class="fa fa-map-marker-alt text-primary me-2"></i>{{ youtube.youtube_content_date}}</p>
                                 </div>
                                 <div class="d-flex border-top">
-                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-ruler-combined text-primary me-2"></i>구독:{{ youtube.youtube_channel_count|intcomma }} </small>
+                                    <small class="flex-fill text-center border-end py-2"><i class="fa fa-ruler-combined text-primary me-2"></i>{{ youtube.youtube_views|intcomma }} </small>
                                     <small class="flex-fill text-center border-end py-2"><i class="fa fa-bed text-primary me-2"></i>추천:{{ youtube.youtube_content_like_count|intcomma }}</small>
                                     <small class="flex-fill text-center py-2"><i class="fa fa-bath text-primary me-2"></i>첫댓글 추천:{{ youtube.youtube_comment_like_count|intcomma }} </small>
                                 </div>
