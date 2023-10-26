@@ -54,7 +54,7 @@
                     <!-- 구현시 받아온 acc_list 만큼 반복 -->
                     {% for accommodation in accommodation_list %}
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="property-item rounded overflow-hidden">
+                        <div class="property-item rounded overflow-hidden"> 
                             <div class="position-relative overflow-hidden">
                                 <!-- 구현시 url 뒤에 값 전달, 임시로 보목동 전달. -->
                                 <a href="{% url 'accommodation_detail' accommodation_id=accommodation.id %}"><img class="img-fluid" src={{accommodation.img_link }} alt=""></a>
