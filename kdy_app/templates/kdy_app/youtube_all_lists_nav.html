@@ -28,6 +28,18 @@
         <a href="{% url 'sign_in' %}" class="nav-item nav-link">MY PAGE</a>
     {% endif %}
     </div>
+    <!-- 카카오톡 상당하기 버튼 시작 - kyj -->
+    <a
+        id="kakao-talk-channel-chat-button"
+        data-channel-public-id="_webTG"
+        data-title="consult"
+        data-size="small"
+        data-color="yellow"
+        data-shape="pc"
+        data-support-multiple-densities="true"
+    ></a>
+    <!-- 카카오톡 상당하기 버튼 끝 -->
+
      <!-- 카카오톡 메세지 공유 버튼 시작 - kdy -->    
      <div id="kakao_message_t_btn">
      <a href='#'><img src="{% static 'img/kakao_disign/kakaotalk_sharing_btn/kakaotalk_sharing_btn_medium.png' %}" alt="" title="카카오톡 메세지 공유"/><br>메세지 공유</a>
