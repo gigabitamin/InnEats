@@ -108,7 +108,7 @@
                     <p>최신정보를 받아보세요.</p>
                     <div class="position-relative mx-auto" style="max-width: 400px;">
                         <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">회원 가입</button>
+                        <a href="{% url 'sign_up2' %}"><button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">회원 가입</button></a>
                     </div>
                 </div>
             </div>
@@ -189,6 +189,25 @@
         });    
     </script>
     <!-- 카카오톡 메세지 공유 scpript 끝 -->
+
+    {% comment %} 로그인 사용자 클라이언트 측에서 세션 처리 -kdy {% endcomment %}
+    {% comment %} <script>
+        function login(username) {
+        localStorage.setItem('user', username);
+        }
+        
+        function logout() {
+        localStorage.removeItem('user');
+        }
+
+        function checkLoginStatus() {
+        const user = localStorage.getItem('user');
+        if (user) {
+        } else {
+        }
+        }
+    </script> {% endcomment %}
+
       
     <!-- Template Javascript -->
     <script src="{% static 'js/main.js' %}"></script>
