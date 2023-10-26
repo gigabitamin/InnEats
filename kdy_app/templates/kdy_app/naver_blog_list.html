@@ -13,7 +13,7 @@
  
 {% block content %}
 
-{% include "./naver_blog_all_lists_nav.html" %}
+{% comment %} {% include "./naver_blog_all_lists_nav.html" %} {% endcomment %}
 
 <div class="container-xxl bg-white p-0">
 
@@ -102,7 +102,7 @@
                 {% for naver_blog in naver_blog_list %}
                 <div class="testimonial-item bg-light rounded p-3">
                     <div class="bg-white border rounded p-4">
-                        <a href="{{ naver_blog.naver_blog_link }}" title="영상으로 이동"><p>{{ naver_blog.naver_blog_id }} :  {{ naver_blog.naver_blog_title }}</p></a>
+                        <a href="{{ naver_blog.naver_blog_link }}" title="영상으로 이동"><p> {{ naver_blog.naver_blog_title }}</p></a>
                         <div class="d-flex align-items-center">
                             <iframe src="{{ naver_blog.naver_blog_image }}"></iframe>
                             <a href="{{ naver_blog.naver_blog_link }}" title="블로그로 이동"><img class="img-fluid flex-shrink-0 rounded"></a>
@@ -131,7 +131,7 @@
                 <div class="col-lg-6">
                     <div class="text-start mx-auto mb-5 wow slideInLeft" data-wow-delay="0.1s">
                         <h1 class="mb-3">{{keyword}} : 블로그 리스트</h1>
-                        <p>{user_id} 님께 {recommend_keyword} 와 {related_keyword} 관련 영상을 추천 드립니다</p>
+                        {% comment %} <p>{user_id} 님께 {recommend_keyword} 와 {related_keyword} 관련 영상을 추천 드립니다</p> {% endcomment %}
                     </div>
                 </div>
                 <div class="col-lg-6 text-start text-lg-end wow slideInRight" data-wow-delay="0.1s">
@@ -159,7 +159,7 @@
                             <div class="property-item rounded overflow-hidden">
                                 <div class="position-relative overflow-hidden">
                                     <a href="{{ naver_blog.naver_blog_link }}"><img class="img-fluid" src="{{ naver_blog.naver_blog_image }}" alt="" title="클릭 시 블로그 이동"></a>
-                                    <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">{{ naver_blog.naver_blog_id }}</div>
+                                    <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3"></div>
                                     <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">{{ naver_blog.naver_bloger_name }}</div>
                                 </div>
                                 <div class="p-4 pb-0">

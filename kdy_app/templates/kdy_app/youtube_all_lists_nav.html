@@ -36,9 +36,9 @@
      <!-- 카카오톡 메세지 공유 버튼 끝 --> 
     <hr>
     <div><a href="{% url 'youtube_list' keyword='제주도' %}" class="nav-item nav-link btn btn-outline-primary">{{keyword}}:HOME</a></div>
-    <div><a href="{% url 'youtube_list' keyword='제주도' %}#tab-1" class="btn btn-outline-primary" data-bs-toggle="pill">{{keyword}}:추천영상</a></div>
+    {% comment %} <div><a href="{% url 'youtube_list' keyword='제주도' %}#tab-1" class="btn btn-outline-primary" data-bs-toggle="pill">{{keyword}}:추천영상</a></div>
     <div><a href="{% url 'youtube_list' keyword='제주도' %}#tab-2" class="btn btn-outline-primary" data-bs-toggle="pill">{{keyword}}:관련영상</a></div>
-    <div><a href="{% url 'youtube_list' keyword='제주도' %}#tab-3" class="btn btn-outline-primary" data-bs-toggle="pill">{{keyword}}:전체영상</a></div>
+    <div><a href="{% url 'youtube_list' keyword='제주도' %}#tab-3" class="btn btn-outline-primary" data-bs-toggle="pill">{{keyword}}:전체영상</a></div> {% endcomment %}
     <hr>
     <div><a href="{% url 'youtube_all_lists' %}">전체 조회</a></div>
     <div><a href="{% url 'youtube_insert' %}">등록</a></div>
