@@ -1,12 +1,112 @@
-
 # AI 백엔드 5차 세미 프로젝트 (231013-231026)
 # TEAM def TROLL
 
 
-
-mac 사용자분들은 push 하시기 전 .gitignore 설정 완료했는지 확인해주시기 바랍니다
+최종시연 자료
 
 ==============================================================
+
+1.0.0 / InnEats_project 완성
+
+0.5.6 / 마이페이지 회원정보수정에서 아이디 제외
+
+0.5.5 / 임시 최종본 완성, 검색창 portal 값 null 일때 오류 -> 미해결, 클릭시 주의
+
+0.5.4 / kdy 확인용 1 2 231026 1025
+
+0.5.3 / kdy / 임시취합, hst브런치, develop 브런치 병합
+hst 브런치에서 pull -> hst 브런치 버전에서 static/css/bootstrap.min.css 변경사항 확인
+css 파일 이전버전으로 롤백 -> 해결
+about, contact 페이지 header 부분 슬라이드 버튼 기능 정지 -> 미해결 / hst 본인 작업 페에지에서 확인 요망
+hst / 숙소목록 for문 데이터 출력 확인, 고객의 소리 추가, 고객센터 페이지 푸터 번역
+kyj / accom_app 변경사항 확인
+kdy / kyj / sms / sjh / hst / 페이지 모두 정상 출력 확인
+But, sjh 페이지 이후버전 아직 미취합 
+
+0.5.2 / kdy / 임시취합 /
+kdy, kyj, sms, 취합
+hst, 검색창 붙이고 취합예정
+sjh, 끝나고 취합예정 or 내일까지
+
+0.5.1 / kdy /
+1. 1-1.로그인 유저가 유투브 블로그 클릭시 유저가 가입할때 설정한 선호 지역, 선호 숙박 형태, 선호 테마 키워드에 맞춰 각각의 유투브 블로그 테이블에서 title 내용 중 해당 키워드가 포함된 row 문서를 찾아 필터링을 거친 뒤 필터링한 리스트를 출력해주는 views 함수 작성 -> 해당 키워드는 마이페이지에서 수정 가능
+1-2. 비 로그인 유저는 유투브 블로그 클릭시 미리 설정된 기본값(우도면) 필터링 리스트로 진입
+2. 유저가 로그인 할 시 자동으로 해당 유저 테이블에서 이메일을 불러와 해당 이메일로 이미지를 포함한 로그인 메세지 html 형태로 발송하는 함수 작성-> 정상작동 확인
+
+0.5.0 / kdy
+회원가입 css 수정
+my_page css 적용 완료
+회원 정보 수정 추가
+회원탈퇴 추가
+로그인 사용자만 본인 정보 my_page 보이도록 수정
+미로그인 사용자가 클릭할 경우 로그인 페이지로 자동 이동하도록 수정
+hst sjh sms 각 멤버별 임시 취합버전 models, forms 등 기타 오류 수정 -> 정상 구동 확인
+
+0.4.9 /
+sjh / js 폴더에 map 관련 bootstrap.js 파일 -> 다른 분 페이지 css 고치실 때 충돌 없는지 확인
+sms / acctraction_app 생성
+>>>>>>> 585b53b5ab95385086c1bffc6ab4e07dcd82554d
+
+0.4.8 / 
+hst / search 앱 생성
+kyj / 유투브 크롤링 데이터 db 업로드 완료 
+kdy / kdy_app inneats_app forms models 유투브 fields 수정 
+-> 유투브 클릭시 정상구동 #주의사항:kyj님꼐서 올려놓은 sql 명령문으로 유투브 테이블 만든 후 youtube db import 한 뒤에 유투브 페이지 들어갈 것
+-> row가 895개로 데이터가 많아서 페이지 로딩시 오래걸리니 주의
+
+0.4.7 / kdy / 
+user 테이블에 선호 여행 지역, 선호 숙박 형태, 선호 여행 테마 추가
+회원가입 form에 위의 3개 column 추가
+마이 페이지 구현 (현재 user_id = '6' 고정)
+slack에 올려놓은 kdy_user_table_etc_231024_1314.sql import 하신 후 마이페이지 접속
+
+
+0.4.6 / kdy / 
+user 테이블에 profile_image 컬럼 생성
+setting.py 에 MEDIA_URL = '/media/' 미디어 경로 추가
+kdy_app models.py user 테이블 수정
+kdy_app forms.py 이미지 업로드 form 추가
+
+0.4.5 / kdy
+sjh_app 부트스트랩 충돌로 map 부트스트랩 css 파일 2개 주석 처리 -> 해결
+accommodation_app 페이지에서 페이지 출력 오류 확인 -> merge 할때 기존 버전과 코드가 섞인 상태로 꼬인걸 발견하고 수정해서 해결
+
+0.4.4 / sjh
+sjh_app 지도 페이지 추가, 네비게이션에 sjh_app 추가
+
+0.4.3 / kdy
+갱신 확인용
+
+0.4.2 / kdy
+-- inneats_app models.py 추가 변경
+-- kdy_app 블로그 페이지 추가
+-- nav.html 블로그 링크 추가
+
+0.4.1 / kdy 
+-- 카카오톡 메세지 공유 기능 추가 (footer에 버튼 추가, kdy 폴더에 kakao_message.html 추가)
+-- 카카오톡 디자인 가이드 static img 폴더에 다운받아서 추가
+-- https://developers.kakao.com/tool/resource/login
+-- web 경로 포함된 카카오 js 파일 js 폴더에 넣은 뒤 <HEAD>에 경로처리
+-- base.html에 kakao_message.html include
+-- inneats_project / urls.py 에서 accommodation_app 루트 수정
+-- kdy_app 생성 (nav.html 에서 링크메뉴 추가)
+-- 페이지별로 {% block title %} {{ keyword }}{% endblock %} 추가
+
+
+
+v0.4.0 / 
+-- accommodation 페이지 추가 -> accommodation_app 에서 담당(kyj) 
+-- 카톡 상담하기 base.html에 추가 
+-- 
+
+
+
+
+
+-- v.0.3.1 여기까지 kdy 작업
+
+v.0.3.1 / 
+models.py, forms.py 추가 및 수정
 
 v.0.3.0 /
 index.html, base.html load 방식 변경
@@ -25,7 +125,7 @@ index.html 에서 nav 부분 nav.html로 분리해서 base.html % block 위에 �
 {% block content %}  
 {% endblock content %}
 
-공통된 nav 환경을 유지하기 위해 새로운 페이지를 만들 경우 꼭 새 꼭 해당 페이지에서 Navbar를 제거한 뒤 
+공통된 nav 환경을 유지하기 위해 새로운 페이지를 만들 경우 꼭 해당 페이지에서 Navbar 와 하단에 위치해있는 script 목록들을 제거한 뒤 
 {% extends 'base.html' %} 
 로 base.html 을 불러와 상속으로 해결할 것
 
@@ -225,6 +325,40 @@ Main - Search, Login & Logout
     - 숙박업소, 주변맛집
     - 유투브, 블로그
     - 관광지, 여행지도
+
+
+
+<kdy>
+크롤링 : 데일리호텔
+DB활용 : 
+SNS 유튜브 크롤링 데이터 활용해서 상세 출력 페이지
+카톡 api로 메시지 전송 & 메일링
+
+<kyj>
+크롤링 : 비짓코리아 - 방방곡에서 api를 제공해 주어 해당 데이터를 다운
+DB활용 : 
+1.여기어때, 2.야놀자, 3.데일리호텔, 4.트립비토즈 - 같은 화면에 출력 
+챗봇 상담 기능 -> 오픈 AI 활용 상담사 역할
+
+<sms>
+크롤링 : 야놀자, 유투브
+DB활용 : 비짓코리아 방방곡곡 크롤링한 데이터에 검색 기능추가, 리스트 페이지의 박스 정보, 내부 페이지 텍스트랑 이미지 크롤링
+
+<sjh>
+크롤링 : 여기어때 
+DB활용 : 지도 api 활용 -> (숙박업소)주소 토대로 주변 지역 맛집 관광지를 지도를 활용해 시각적 표현
+
+<hst>
+크롤링 : 트립비, 네이버 블로그
+DB활용 :
+메인페이지 검색 기능 구현
+고객센터 : 게시글 템플릿
+
+<덤. 역할배정 미정> 
+1. 출석체크 게시판 : 달력에 도장찍듯이, 날수 채우면 쿠폰 -> 사이트에서 활용
+2. 익명 개인 일기장 -> 쓰레드 형식<프론트엔드에 출력 
+3. 사이트 내 자체 평가점수 알고리즘
+
 
 
 
