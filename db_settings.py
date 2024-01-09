@@ -9,4 +9,4 @@ DATABASES = {
     }
 }
 
-SECRET_KEY = 'django-insecure-db^bgawm^oz-v1xtwbabfuk%9%l)04d4w&%sz5ir^ameaxjg26'
+SECRET_KEY = ''
